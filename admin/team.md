@@ -51,7 +51,9 @@ Roster: <a name="roster"></a>
     > Hi my name is Michael, I’m a second year Computer Science major from ERC. My hobbies include video games, cooking, and working out. I’m looking to improve my skills and become a software engineer.
 
 
-- Nathaniel Wong
+- Nathaniel Wong [:pleading_face:](https://nwong524.github.io/cse110-Lab1/)
+
+    > Hi, Nathaniel here! I'm currently a second year CS major in Muir college, and a few of my hobbies include playing video games, messing around with my guitar, watching Netflix, or honestly just anything that catches my attention (just figured out how to pick a lock with hairpins so catch me spending my next paycheck on a lockpicking set). Looking forward to diving into software engineering!
 
 
 - Stephen Montes De Oca [:smirk:](https://smontesd.github.io/CSE-110-Lab1/ )
