@@ -32,7 +32,9 @@ Roster: <a name="roster"></a>
 
 
 ### Members:
-- Aidan Liu
+- Yezhang Liu [:joy:](https://github.com/YezhangLiu/MyWebPage)
+
+    > I’m Yezhang Liu. I’m a ECE 3rd year student from Revelle. I enjoy coding just the same as playing video games. I also play the violin when I’m free, though I haven’t played for a long time. Leisure time for me is precious recently. I hope I can enrich my resume after this quarter and find a good internship.
 
 
 - Hugo Huang
