@@ -1,23 +1,23 @@
-Group: 14
-Team Name: Powell Puff Gang
+Group: 14  
+Team Name: Powell Puff Gang  
 Type of meeting held: Kick Off
 
 Members Present:
-Joshua Zhu
-Nathaniel Wong
-Yinxuan Du
-Young Kim
-Stephen Montes De Oca
-Micheal Mao
-Kevin Lam
-Yaofeng Huang
-Tony Guan
-Yezhang Liu
+- Joshua Zhu
+- Nathaniel Wong
+- Yinxuan Du
+- Young Kim
+- Stephen Montes De Oca
+- Micheal Mao
+- Kevin Lam
+- Yaofeng Huang
+- Tony Guan
+- Yezhang Liu
 
 Members Absent:
 None
 
-When: April 13, 2021 (Tuesday) @ 7:00pm
+When: April 13, 2021 (Tuesday) @ 7:00pm  
 Where: ZOOM
 
 Agenda:
