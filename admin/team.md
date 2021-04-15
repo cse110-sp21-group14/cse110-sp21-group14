@@ -1,20 +1,23 @@
 Team 14 - Powell Puff Gang
 ==================================
-
-<img src="branding/logo.PNG" alt="drawing" width="250"/>
+<br>
+<img src="branding/logo.PNG" style="display: block;margin-left: auto; margin-right: auto;width: 80%;"/>
+<br>
 
 Our Values <a name="values"></a>
 -------------
 
-### Passion
-    “You should do what you want to do.” - Bubbles
+- ### Passion
+        “You should do what you want to do.” - Bubbles
 
-### Responsibility
-    “It’s about using your own unique abilities to help people and the world we all live in.” - Blossom
+- ### Responsibility
+        “It’s about using your own unique abilities to help people and the world we all live in.” - Blossom
 
-### Determination
+- ### Determination
 
-    “And it takes a lot more than a couple of cheap shots to make us cry!” - Buttercup
+        “And it takes a lot more than a couple of cheap shots to make us cry!” - Buttercup
+
+<br><hr><br>
 
 Our Members <a name="members"></a>
 -------------
@@ -28,19 +31,19 @@ Our Members <a name="members"></a>
 
     > I’m Joshua Zhu, a second year CS major from Sixth! I enjoy baking, competitive video games, and am willing to pick up anything if it’s fun! As for the future, I have no idea what I want to do - but hopefully with the different things I’m learning, I will find that special thing for me.
 
-
-### Members:
 - Yezhang Liu [:joy:](https://github.com/YezhangLiu/MyWebPage)
 
     > I’m Yezhang Liu. I’m a ECE 3rd year student from Revelle. I enjoy coding just the same as playing video games. I also play the violin when I’m free, though I haven’t played for a long time. Leisure time for me is precious recently. I hope I can enrich my resume after this quarter and find a good internship.
 
 
-- Yaofeng(Hugo) Huang *TODO*
+- Yaofeng(Hugo) Huang [:grimacing:](https://yaofeng-hugo-huang.github.io/CSE110_SP21/)
 
     > Hi, this is Hugo. I’m a 3rd year student majoring in CS from Muir. I’m born and raised in China. I’m excited to have the opportunity to work with everyone here. I did experience some levels of social death in the past while working on the school stuff alone. Yeah, after this class, I hope everyone can have one more great project on our resume for us to hunt for an internship.
 
 
-- Kevin Lam
+- Kevin Lam [:wink:](https://ckckcake.github.io/GitHub-Pages/)
+
+    > Hi, I’m Kevin. I’m a sophomore in Marshall majoring in computer science. Some of my hobbies when I’m not busy with school are playing tennis, reading light novels, and playing games,  mainly Maplestory at the moment. This is my first time working in a team environment with programming, so I’m excited to learn and collaborate with my group this quarter!
 
 
 - Michael Mao [:satisfied:](https://michaelm1.github.io/)
@@ -57,8 +60,9 @@ Our Members <a name="members"></a>
 
     > Hi my name is Stephen Montes De Oca, I am a Math-CS 3rd year from Muir. I was born and raised in San Diego and my career goal is to become a software engineer working with Backend Development / API Engineering.
 
-- Tony Guan
+- Tony Guan [:laughing:](https://t9guan.github.io/UserPage/ )
 
+    > Hi, I’m Tony. I’m a 3rd year CS in Warren college, originally Math-CS. I’m currently back home in SF due to covid. I like to play games throughout my spare time or watch whatever shows I can find. My goal is to land a job as a software engineer.
 
 - Young (Jun) Kim [:sunglasses:](https://youngjun333.github.io/Lab1/#youngs-personal-page)
     > I am Young Jun Kim, and I go by Jun (pronounced June). I am a second year transfer CS major from Warren college. My passions include competitive programming and CS education. In my free time, I like to go fishing and hike with my friends. Additionally, I like to binge watch anime seasons given I have no work to do. In the future, I want to become a professor and teach other students CS!
