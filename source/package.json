@@ -1,0 +1,15 @@
+{
+  "name": "source",
+  "version": "1.0.0",
+  "description": "This is our project for CSE 110 spring 21",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "Group 14",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
