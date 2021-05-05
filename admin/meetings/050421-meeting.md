@@ -43,6 +43,13 @@ rough html diagram of our product (like lab 2)
 - Documentation - Kevin, Aiden
 - Repo setup - Nora, Stephen
 
+## Repo Setup Notes
+- Initialized a Node project in `/source` with npm so that we can host our app locally for developing the application (see README.md in `/source` directory for hosting instructions)
+- index.js added which will run the main script for hosting our application
+- Do not modify package.json or package-lock.json manually unless dependencies are installed using `npm install {dependecy name}`
+- No pages or code has been written, but added a `public` directory for index.html and css style
+- TODO: Use Express.js to route different .js scripts for different pages (scripts for pages written by others will not need to use Express.js... more info on that with later meetings)
+
 # TODO after:
 1. Figma Board - finish by Thursday 5/4/21
    - make comments for whatever changes made
