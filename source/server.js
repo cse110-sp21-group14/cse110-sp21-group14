@@ -31,6 +31,7 @@ app.use('/main', require('./routes/main'));
 //app.use('/calendar', require('./routes/calendar'));
 //app.use('/setting', require('./routes/setting'));
 
+app.use(express.static(__dirname + '/public'));
 
 app.listen(
     PORT,
