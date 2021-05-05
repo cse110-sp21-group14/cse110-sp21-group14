@@ -28,6 +28,7 @@ app.set('view engine', '.hbs');
 app.use('/', require('./routes/index'));
 app.use('/login', require('./routes/login'));
 app.use('/main', require('./routes/main'));
+app.use('/meme', require('./routes/meme'));
 //app.use('/calendar', require('./routes/calendar'));
 //app.use('/setting', require('./routes/setting'));
 

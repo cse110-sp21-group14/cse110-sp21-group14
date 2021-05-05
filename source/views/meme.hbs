@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/style-meme.css">
+<script src="/scripts/script-meme.js" type="module"></script>
+
+<div id="content-wrapper">
+    <main>
+        <div id="image-wrapper">
+        <canvas id="user-image" title="Select Image" height="400" width="400">
+        </div>
+        <form id="generate-meme">
+        <input type="file" name="image" id="image-input" accept="image/*"><br>
+        <input type="text" name="textTop" id="text-top" placeholder="Top Text"><br>
+        <input type="text" name="textBottom" id="text-bottom" placeholder="Bottom Text"><br>
+        <button type="submit">Generate</button>
+        <div id="button-group">
+            <button type="reset" disabled>Clear</button>
+            <button type="button" disabled>Read Text</button>
+        </div>
+        <select name="voices" id="voice-selection" disabled>
+            <option value="none" selected>No available voice options.</option>
+        </select>
+        <div id="volume-group">
+            <img src="icons/volume-level-3.svg" alt="Volume Level 3">
+            <input type="range" min=0 max=100 value=100>
+        </div>
+        </form>
+    </main>
+</div>
+
+<a href="/">Back</a>
