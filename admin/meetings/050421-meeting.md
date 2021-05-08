@@ -13,7 +13,7 @@ Members Present:
  - Hugo Huang (late)
 
 Absent:
- - Aiden Liu
+ - Aidan Liu
  - Nora Du
 
 When: May 4, 2021 Meeting (7:00 - 8:00 PM)
@@ -40,7 +40,7 @@ rough html diagram of our product (like lab 2)
 ### Roles
 - Figma board/Wireframing - Jun, Nathaniel, Michael, Tony
 - CI/CD - Joshua, Hugo
-- Documentation - Kevin, Aiden
+- Documentation - Kevin, Aidan
 - Repo setup - Nora, Stephen
 
 ## Repo Setup Notes
