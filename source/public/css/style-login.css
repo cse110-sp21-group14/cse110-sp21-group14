@@ -72,3 +72,20 @@ body::before {
     font-size: 25px;
 }
 
+#googleButton, #facebookButton{
+    width: 42px;
+    height: 39px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+
+#googleButton {
+    
+}
+
+#aunth {
+    display: flex;
+    justify-content: center;
+}
