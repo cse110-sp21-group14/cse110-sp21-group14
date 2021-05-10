@@ -1,0 +1,7 @@
+name: Team 14 Powell Puff Gang's approval workflow
+on: [pull_request]
+ jobs:
+  pull-check:
+   runs-on: ubuntu-latest
+   steps:
+     - run: echo "Awaiting CI/CD team's manual review ..."
