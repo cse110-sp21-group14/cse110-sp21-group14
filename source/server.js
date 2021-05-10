@@ -4,12 +4,17 @@
  * Purpose: This script will be the main script responsible with hosting the
  *          project and routing the webpages
  */
-const express = require('express')                // create basic express server
-const dotenv = require('dotenv')                  // store config of code environment
-const exphbs = require('express-handlebars')      // create express-handlebars
+const express = require('express');                // create basic express server
+const dotenv = require('dotenv');                  // store config of code environment
+const exphbs = require('express-handlebars');      // create express-handlebars
+const morgan = require('morgan');                  // show any request in the console
+const connectDB = require('./config/db');          // connect mongoDB atlas
 
 
-dotenv.config({ path: './config/config.env '})    // load config.env
+dotenv.config({ path: './config/config.env' });    // load config.env
+
+
+connectDB();
 
 
 const app = express();
