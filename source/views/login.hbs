@@ -1,4 +1,27 @@
 <link rel="stylesheet" href="css/style-login.css">
 <script src="scripts/script-login.js" type="module"></script>
+
+<!--
 <p>Login page here!</p>
 <a href="/">Click here to login</a>
+-->
+
+<header>
+   <h1 id="bulletJournal">Bullet Journal</h1> 
+</header>
+
+<body>
+    <div id="login">
+        <div id="signInLabel">Sign in with:</div>
+        <form id="loginForm">
+            <label for="username" id="usernameLabel">UserName</label>
+            <input type="text" id="username" name="username"><br>
+            <label for="password" id="passwordLabel">Password</label>
+            <input type="text" id="password" name="password"><br>
+            <input type="submit" id="loginButton" value="login">
+        </form>
+        <button id="googleLogin">Login with Google</button>
+        <button id="facebookLogin">Login with Facebook</button>
+    </div>
+</body>
+
