@@ -4,7 +4,7 @@
 * Deciders: all group members <!-- optional -->
 * Date: [2021-05-09] <!-- optional -->
 
-Technical Story: [description | ticket/issue URL] <!-- optional -->
+<!-- optional -->
 
 ## Context and Problem Statement
 
