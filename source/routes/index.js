@@ -9,7 +9,9 @@ const router = express.Router();
 // @desc     /
 // @route    GET
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('login', {
+        layout: 'login'
+    });
 });
 
 module.exports = router;
