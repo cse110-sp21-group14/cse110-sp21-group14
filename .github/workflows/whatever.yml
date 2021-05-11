@@ -1,0 +1,18 @@
+name: Team 14 Powell Puff Gang's approval workflow
+
+on:
+  push:
+    branches:
+      - 'workflow-test'
+# change branch for main in eventual merge
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Dependencies
+        run: yarn
+      - name: Linting
+        run: yarn run eslint ./source --ext .js .jsx
