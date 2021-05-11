@@ -13,7 +13,6 @@ const passport = require('passport');              // google oauth
 const session = require('express-session');
 const MongoStore = require('connect-mongo'); // avoid logout while refreshing the page
 const connectDB = require('./config/db');          // connect mongoDB atlas
-const mongoose = require('mongoose');
 
 
 dotenv.config({ path: './config/config.env' });    // load config.env

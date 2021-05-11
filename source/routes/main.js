@@ -5,7 +5,7 @@
  */
 const express = require('express');
 const router = express.Router();
-const { ensureAuth, ensureGuest } = require('../middleware/auth');
+const { ensureAuth } = require('../middleware/auth');
 
 // @desc     /main
 // @route    GET

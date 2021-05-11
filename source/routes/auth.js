@@ -5,7 +5,6 @@
  */
 const express = require('express');
 const passport = require('passport');
-const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 // connect router to server
 const router = express.Router();
