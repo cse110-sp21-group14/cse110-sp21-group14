@@ -1,6 +1,6 @@
 name: Team 14 Powell Puff Gang's approval workflow
-on: [pull_request]
- jobs:
+on: pull_request
+jobs:
   pull-check:
    runs-on: ubuntu-latest
    steps:
