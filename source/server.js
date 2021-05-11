@@ -11,7 +11,7 @@ const exphbs = require('express-handlebars');      // create express-handlebars
 const morgan = require('morgan');                  // show any request in the console
 const passport = require('passport');              // google oauth
 const session = require('express-session');
-//const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo'); // avoid logout while refreshing the page
 const connectDB = require('./config/db');          // connect mongoDB atlas
 const mongoose = require('mongoose');
 
@@ -49,8 +49,9 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,                  // don't want to save a session if nothing is modified
     saveUninitialized: false,       // don't create a session until something is stored
-//    store: new MongoStore({mongooseConnection: mongoose.connection})
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
 }))
+
 
 //Passport middleware
 app.use(passport.initialize());
