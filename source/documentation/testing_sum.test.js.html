@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lol.js</title>
+    <title>JSDoc: Source: testing/sum.test.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lol.js</h1>
+    <h1 class="page-title">Source: testing/sum.test.js</h1>
 
     
 
@@ -27,16 +27,15 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * lol test function haha
- * @param {number} p1 the first num
- * @param {number} p2 the second num
- * @returns {number} output lol
-*/
-function myFunction(p1, p2) {
-    return p1 * p2;    // The function returns the product of p1 and p2
-}
+ * Filename: sum.test.js
+ * Author: Group 14 (workflow)
+ * Purpose: Temporary file for testing integration of jest
+ */
+const sum = require('../config/sum');
 
-myFunction(1,2);</code></pre>
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});</code></pre>
         </article>
     </section>
 

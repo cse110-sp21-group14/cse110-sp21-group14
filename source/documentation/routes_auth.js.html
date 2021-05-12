@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lol.js</title>
+    <title>JSDoc: Source: routes/auth.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lol.js</h1>
+    <h1 class="page-title">Source: routes/auth.js</h1>
 
     
 
@@ -27,16 +27,35 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * lol test function haha
- * @param {number} p1 the first num
- * @param {number} p2 the second num
- * @returns {number} output lol
-*/
-function myFunction(p1, p2) {
-    return p1 * p2;    // The function returns the product of p1 and p2
-}
+ * Filename: auth.js
+ * Author: Group 14 (Back End)
+ * Purpose: Google OAuth and callback for login
+ */
+const express = require('express');
+const passport = require('passport');
 
-myFunction(1,2);</code></pre>
+// connect router to server
+const router = express.Router();
+
+// @desc            Auth w Google
+// @route           GET /auth/google
+router.get('/google', passport.authenticate('google', {scope: ['profile', 'email']}));
+
+// @desc            Callback
+// @route           GET /auth/google/callback
+router.get('/google/callback', passport.authenticate('google', { failureRedirect:'/' }), 
+    (req, res) => {
+    res.redirect('/main');
+})
+
+// @desc            Logout user
+// @route           /auth/logout
+router.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+})
+
+module.exports = router;</code></pre>
         </article>
     </section>
 

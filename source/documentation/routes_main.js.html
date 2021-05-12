@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lol.js</title>
+    <title>JSDoc: Source: routes/main.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lol.js</h1>
+    <h1 class="page-title">Source: routes/main.js</h1>
 
     
 
@@ -27,16 +27,21 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * lol test function haha
- * @param {number} p1 the first num
- * @param {number} p2 the second num
- * @returns {number} output lol
-*/
-function myFunction(p1, p2) {
-    return p1 * p2;    // The function returns the product of p1 and p2
-}
+ * Filename: main.js
+ * Author: Group 14 (Back End)
+ * Purpose: This script runs on the back end (server) to route the main page + handlebars
+ */
+const express = require('express');
+const router = express.Router();
+const { ensureAuth } = require('../middleware/auth');
 
-myFunction(1,2);</code></pre>
+// @desc     /main
+// @route    GET
+router.get('/', ensureAuth, (req, res) => {
+    res.render('main');
+});
+
+module.exports = router;</code></pre>
         </article>
     </section>
 
