@@ -32,4 +32,4 @@ jobs:
         with:
           source_dir: ./source
           recurse: true
-          output_dir: ./source/documentation
+          output_dir: ./out
