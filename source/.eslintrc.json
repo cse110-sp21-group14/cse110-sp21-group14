@@ -35,17 +35,5 @@
             "error",
             "always"
         ]
-    },
-    "overrides": [
-        {
-            "files": [
-                "./documentation/scripts/linenumber.js",
-                "./documentation/scripts/prettify/lang-css.js",
-                "./documentation/scripts/prettify/prettify.js"
-            ],
-            "rules": {
-                "no-unused-expressions": "off"
-            }
-        }
-    ]
+    }
 }
