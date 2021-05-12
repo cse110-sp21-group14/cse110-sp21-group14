@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
       - name: Run ESlint on directory
         run: npx eslint ./source
         
@@ -18,10 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
       - name: Install npm
-        run: npm install
+        run: npm install --prefix ./source
+        
       - name: Unit testing via Jest
-        run: npm run test
+        run: npm run test -- ./source
 
   JSDoc:
     runs-on: ubuntu-latest
