@@ -7,26 +7,24 @@ on:
 # change branch for main in eventual merge
 
 jobs: 
-  build:
+  ESLint:
     runs-on: ubuntu-latest
   
     steps:
       - uses: actions/checkout@v1
-      - name: Install Dependencies/Yarn
-        run: yarn
-      - name: Install ESLint
-        run: yarn add eslint --dev
-      - name: Set up configuration file
-        run: yarn run eslint --init
-      - name: Run ESlint on directory
-        run: yarn run eslint ./source
-
-        # help here
         #      - name: Install Dependencies
         #        run: yarn
-        #      - name: Add eslint
-        #        run: yarn add eslint
-        #      - name: Initalize yarn
-        #        run: yarn init
-        #      - name: Linting
-        #        run: yarn run eslint ./source --ext .js .jsx
+      - name: Install ESLint
+        run: npm install eslint --save-dev
+      - name: Set up configuration file
+        run: npx eslint --init
+      - name: Run ESlint on directory
+        run: npx eslint ./source
+
+  JSDoc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install JSDoc
+        run: npm install -g jsdoc
