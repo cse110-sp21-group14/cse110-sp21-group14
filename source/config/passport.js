@@ -1,5 +1,5 @@
 //const mongoose = require("mongoose");
-const passport = require("passport");
+//const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/User");
 const secret = require("./secret");
@@ -44,7 +44,7 @@ module.exports = function(passport) {
         } catch (err) {
             console.error;
         }
-    }))
+    }));
 
     passport.serializeUser((user, done) => {
         done(null, user.id);
@@ -53,4 +53,4 @@ module.exports = function(passport) {
     passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => done(err, user));
     });
-}
+};

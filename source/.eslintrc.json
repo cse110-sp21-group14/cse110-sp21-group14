@@ -8,7 +8,9 @@
     "globals": {
         "$": true,
         "require": true,
-        "process": true
+        "process": true,
+        "test": true,
+        "expect": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {

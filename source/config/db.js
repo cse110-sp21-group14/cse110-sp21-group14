@@ -1,7 +1,7 @@
 // Connect to MongoDB database
 // Reference: https://mongoosejs.com/docs/
 // Find MONGO_URI: Clusters -> Connect -> Connect your application
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const connectDB = async () => {
     try {
