@@ -49,8 +49,8 @@ app.use(session({
     secret: "keyboard cat",
     resave: false,                  // don't want to save a session if nothing is modified
     saveUninitialized: false,       // don't create a session until something is stored
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI });
-}))
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
+}));
 
 
 //Passport middleware
