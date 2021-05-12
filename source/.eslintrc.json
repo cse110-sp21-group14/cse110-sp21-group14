@@ -18,6 +18,11 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
+    "ignorePatterns": [
+        "./documentation/scripts/prettify/lang-css.js",
+        "./documentation/scripts/prettify/prettify.js",
+        "./documentation/scripts/linenumber.js"
+    ],
     "rules": {
         "indent": [
             "error",
