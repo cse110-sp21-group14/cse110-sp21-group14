@@ -34,6 +34,11 @@ jobs:
           source_dir: ./source
           recurse: true
           output_dir: ./source/documentation
+
+      - name: Testing vm output
+        run: |
+          ls -a
+
       - name: Deploy documentation
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
