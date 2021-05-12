@@ -12,11 +12,21 @@ jobs:
   
     steps:
       - uses: actions/checkout@v1
-      - name: Install Dependencies
+
+      - name: Install Dependencies/Yarn
         run: yarn
-      - name: Add eslint
-        run: yarn add eslint
-      - name: Initalize yarn
-        run: yarn init
-      - name: Linting
-        run: yarn run eslint ./source --ext .js .jsx
+      - name: Install ESLint
+        run: yarn add eslint --dev
+      - name: Set up configuration file
+        run: yarn run eslint --init
+      - name: yarn run eslint ./source
+
+        # help here
+        #      - name: Install Dependencies
+        #        run: yarn
+        #      - name: Add eslint
+        #        run: yarn add eslint
+        #      - name: Initalize yarn
+        #        run: yarn init
+        #      - name: Linting
+        #        run: yarn run eslint ./source --ext .js .jsx
