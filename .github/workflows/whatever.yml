@@ -35,14 +35,21 @@ jobs:
           recurse: true
           output_dir: ./source/documentation
 
-      - name: Testing vm output
+      - name: Commit documentation
         run: |
-          ls -a
-          cd source
-          ls -s
-      - name: Deploy documentation
-        uses: SwiftDocOrg/github-wiki-publish-action@v1
+          git config --local user.email "nwong@ucsd.edu"
+          git config --local user.name "nwong524"
+          git commit -m "Update Documentation" -a
+      
+      - name: Push documentation
+        uses: ad-m/github-push-action@master
         with:
-          path: "source/documentation"
-        env:
-          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }} # The branch or tag ref that triggered the workflow run
+
+      # - name: Deploy documentation
+      #   uses: SwiftDocOrg/github-wiki-publish-action@v1
+      #   with:
+      #     path: "source/documentation"
+      #   env:
+      #     GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
