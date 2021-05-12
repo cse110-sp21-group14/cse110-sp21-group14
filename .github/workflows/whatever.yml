@@ -38,7 +38,8 @@ jobs:
       - name: Testing vm output
         run: |
           ls -a
-
+          cd source
+          ls -s
       - name: Deploy documentation
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
