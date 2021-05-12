@@ -26,7 +26,7 @@ connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 3000;            // process.env navigates variables in config.env
-                                                  // run in localhost:3000 if there is no PORT variable defined in config.env
+// run in localhost:3000 if there is no PORT variable defined in config.env
 
 
 if(process.env.NODE_ENV === "development"){       // display cur operation in the console
@@ -35,8 +35,9 @@ if(process.env.NODE_ENV === "development"){       // display cur operation in th
 
 // Handlebars
 app.engine(".hbs", exphbs({ defaultLayout: "main", extname: "hbs" }));
-                                                  // set ".hbs" as handlebars" extension
-                                                  // set default layout as "main" (views/layouts/main.hbs)
+// set ".hbs" as handlebars" extension
+// set default layout as "main" (views/layouts/main.hbs)
+
 app.set("view engine", ".hbs"); 
 
 
@@ -48,7 +49,7 @@ app.use(session({
     secret: "keyboard cat",
     resave: false,                  // don't want to save a session if nothing is modified
     saveUninitialized: false,       // don't create a session until something is stored
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI });
 }))
 
 
@@ -68,4 +69,5 @@ app.use("/main", require("./routes/main"));
 
 app.listen(
     PORT,
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`))
+    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+);
