@@ -25,8 +25,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Install JSDoc
-        run: sudo npm install -g jsdoc
-      - name: Run JSDoc
-        run: jsdoc ./ -r -d "./source/out"
+      - name: JSDoc Action
+        uses: andstor/jsdoc-action@v1.2.0
+      
+      - name: Build JSDoc
+      uses: andstor/jsdoc-action@v1
+      with:
+        source_dir: ./source
+        recurse: true
+        output_dir: ./source/"JSDocs documentation"
