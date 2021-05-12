@@ -25,7 +25,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: JSDoc Action
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Build JSDoc
         uses: andstor/jsdoc-action@v1.2.0
         with:
+          source_dir: ./source
           recurse: true
+          output_dir: ./source/"JSDocs documentation"
