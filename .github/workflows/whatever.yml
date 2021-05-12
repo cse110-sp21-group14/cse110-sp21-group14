@@ -16,5 +16,7 @@ jobs:
         run: yarn
       - name: Add eslint
         run: yarn add eslint
+      - name: Initalize yarn
+        run: yarn init
       - name: Linting
         run: yarn run eslint ./source --ext .js .jsx
