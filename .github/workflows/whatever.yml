@@ -27,4 +27,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install JSDoc
-        run: npm install -g jsdoc
+        run: sudo npm install -g jsdoc
