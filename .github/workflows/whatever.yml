@@ -37,6 +37,8 @@ jobs:
 
       - name: Commit documentation
         run: |
+          git config --local user.email "nwong@ucsd.edu"
+          git config --local user.name "nwong524"
           git add ./source/documentation
           git commit -m "Update Documentation" -a
       
