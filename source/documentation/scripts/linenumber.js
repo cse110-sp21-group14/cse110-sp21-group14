@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*global document */
 (() => {
     const source = document.getElementsByClassName('prettyprint source linenums');
