@@ -28,7 +28,7 @@ jobs:
         run: npm install --prefix ./source
         
       - name: Unit testing via Jest
-        run: npm run test -- ./source
+        run: npm run test --prefix ./source
 
   JSDoc:
     runs-on: ubuntu-latest
