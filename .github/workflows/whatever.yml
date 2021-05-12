@@ -25,11 +25,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: JSDoc Action
-        uses: andstor/jsdoc-action@v1.2.0
-      
       - name: Build JSDoc
-        uses: andstor/jsdoc-action@v1
+        uses: andstor/jsdoc-action@v1.2.0
         with:
           source_dir: ./source
           recurse: true
