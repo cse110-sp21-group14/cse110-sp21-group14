@@ -5,7 +5,6 @@
         "browser": true,
         "amd": true
     },
-
     "globals": {
         "$": true,
         "require": true,
