@@ -5,11 +5,16 @@
  */
 const express = require('express');
 const router = express.Router();
+const { ensureGuest } = require('../middleware/auth');
 
 // @desc     /
 // @route    GET
-router.get('/', (req, res) => {
-    res.render('index');
+router.get('/', ensureGuest, (req, res) => {
+    res.render('login', {
+        layout: 'login'
+    });
 });
+
+
 
 module.exports = router;
