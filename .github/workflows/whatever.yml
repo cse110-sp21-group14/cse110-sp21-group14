@@ -11,15 +11,17 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-      #- uses: actions/checkout@v2
-        #      - name: Install Dependencies
-        #        run: yarn
-      #- name: Install ESLint
-      #  run: npm install eslint --save-dev
-      #- name: Set up configuration file
-      #  run: npx eslint --init
       - name: Run ESlint on directory
         run: npx eslint ./source
+        
+  Testing:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Install npm
+        run: npm install
+      - name: Unit testing via Jest
+        run: npm run test
 
   JSDoc:
     runs-on: ubuntu-latest
