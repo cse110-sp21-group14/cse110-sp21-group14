@@ -5,12 +5,14 @@
   "main": "server.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node server",
-    "dev": "cross-env NODE_ENV=development nodemon server"
+    "dev": "cross-env NODE_ENV=development nodemon server",
+    "test": "jest"
   },
   "author": "Group 14",
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
