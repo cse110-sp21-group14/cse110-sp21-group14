@@ -18,7 +18,8 @@ jobs:
         run: yarn add eslint --dev
       - name: Set up configuration file
         run: yarn run eslint --init
-      - name: yarn run eslint ./source
+      - name: Run ESlint on directory
+        run: yarn run eslint ./source
 
         # help here
         #      - name: Install Dependencies
