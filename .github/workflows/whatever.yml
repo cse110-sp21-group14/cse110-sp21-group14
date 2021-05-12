@@ -17,16 +17,15 @@ jobs:
       - name: Build JSDoc
         uses: andstor/jsdoc-action@v1.2.0
         with:
-          source_dir: ./source
+          source_dir: ./source/documentation/src
           recurse: true
-          output_dir: ./source/documentation
+          output_dir: ./source/documentation/out
 
       - name: Commit documentation
         run: |
           git config --local user.email "nwong@ucsd.edu"
           git config --local user.name "nwong524"
-          git add ./source/documentation
-          git reset -- ./source/documentation/scripts/*
+          git add ./source/documentation/out
           git commit -m "Update Documentation" -a
       
       - name: Push documentation
