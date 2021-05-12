@@ -4,4 +4,6 @@
 https://nodejs.org/en/
 2. Navigate to `source/`
 3. Install dependencies `npm install`
-4. Host the developement environment `npm run dev` or Host the project `npm start`
+4. Scripts:
+   - Host the development environment `npm run dev` - Host the project `npm start`
+   - Unit testing `npm run test`
