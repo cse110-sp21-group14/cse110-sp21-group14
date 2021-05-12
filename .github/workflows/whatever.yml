@@ -20,12 +20,13 @@ jobs:
           source_dir: ./source/documentation/src
           recurse: true
           output_dir: ./source/documentation/out
+          template: minami
 
       - name: Commit documentation
         run: |
           git config --local user.email "nwong@ucsd.edu"
           git config --local user.name "nwong524"
-          git add ./source/documentation/out
+          git add ./source/documentation
           git commit -m "Update Documentation" -a
       
       - name: Push documentation
