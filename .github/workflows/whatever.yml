@@ -15,4 +15,5 @@ jobs:
       - name: Install Dependencies
         run: yarn
       - name: Linting
+        run: yarn add eslint
         run: yarn run eslint ./source --ext .js .jsx
