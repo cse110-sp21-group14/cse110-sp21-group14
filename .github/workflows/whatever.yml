@@ -25,7 +25,7 @@ jobs:
         run: npx jsdoc-md -s ./source/documentation/*.js -m ./source/documentation/jsdocs.md -t JSDocs
 
       - name: check output
-        run: cat ./source/documentation.jsdocs.md
+        run: cat ./source/documentation/jsdocs.md
 
       - name: Commit documentation
         run: |
@@ -40,7 +40,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }} # The branch or tag ref that triggered the workflow run
 
-      # - name: Deploy documentation
+      # - name: Deploy documentation to Github wiki
       #   uses: SwiftDocOrg/github-wiki-publish-action@v1
       #   with:
       #     path: "source/documentation"
