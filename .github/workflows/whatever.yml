@@ -35,6 +35,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }} # The branch or tag ref that triggered the workflow run
 
+      - name: Convert output to markdown
+        run: npx jsdoc-md
+
       # - name: Deploy documentation
       #   uses: SwiftDocOrg/github-wiki-publish-action@v1
       #   with:
