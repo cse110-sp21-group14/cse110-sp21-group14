@@ -28,15 +28,15 @@ jobs:
           git config --local user.name "nwong524"
           git add ./source/documentation
           git commit -m "Update Documentation" -a
+
+      - name: Convert output to markdown
+        run: npx jsdoc-md -s ./source/documentation/*.js -m ./source/documentation/jsdocs.md -t JSDocs
       
       - name: Push documentation
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }} # The branch or tag ref that triggered the workflow run
-
-      - name: Convert output to markdown
-        run: npx jsdoc-md -s ./source/documentation/*.js -m ./source/documentation/jsdocs.md -t JSDocs
 
       # - name: Deploy documentation
       #   uses: SwiftDocOrg/github-wiki-publish-action@v1
