@@ -20,7 +20,6 @@ jobs:
           source_dir: ./source
           recurse: true
           output_dir: ./source/documentation
-          template: minami
 
       - name: Convert output to markdown
         run: npx jsdoc-md -s ./source/documentation/*.js -m ./source/documentation/jsdocs.md -t JSDocs
