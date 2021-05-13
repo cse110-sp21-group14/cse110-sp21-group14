@@ -40,12 +40,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }} # The branch or tag ref that triggered the workflow run
 
-      # - name: Deploy documentation to Github wiki
-      #   uses: SwiftDocOrg/github-wiki-publish-action@v1
-      #   with:
-      #     path: "source/documentation"
-      #   env:
-      #     GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+      - name: Deploy documentation to Github wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        with:
+          path: source/documentation/jsdocs.md
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
   ESLint:
     runs-on: ubuntu-latest
   
