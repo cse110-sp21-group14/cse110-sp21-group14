@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../public/css/style-pageAdd.css">
+        <title>Page Add</title>
+    </head>
+
+    <body>
+        <!-- 
+            Top nav bar
+        -->
+        <div class="menuBar">
+            <ul>
+                <li><a href="#">My Journal</a></li>
+                <li><a href="#">My Calendar</a></li>
+                <li><a href="#">My Settings</a></li>
+                <li><a href="/auth/logout">Sign Out</a></li>
+            </ul>
+        </div>
+
+        <!--
+            Side nav bar
+        -->
+        <nav class="sidebar">
+            <div class="search">
+                <input type="text">
+            </div>
+            
+            <div class="buttons">
+                <button>Add</button>
+                <button>Delete</button>
+                <ul>
+                    <li>CSE101 Notes</li>
+                </ul>    
+            </div>
+        </nav>
+        
+        <div id="newPageWrapper">
+            <form id="newPage">
+                <label id="titleLabel" for="title">Title:</label>
+                <input id="title" name="title" type="text"><br>
+                <label id="journalType">Journal Type:</label><br>
+                <label id="contentLabel" for="content">Content:</label>
+                <input type="text"> 
+                <input type="submit" value="add">
+            </form>
+        </div>
+    </body>
+</html>

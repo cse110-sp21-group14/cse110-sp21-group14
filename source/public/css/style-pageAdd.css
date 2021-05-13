@@ -1,0 +1,52 @@
+/*
+    top nav bar
+*/
+
+.menuBar {
+    text-align: center;
+    border-color: black;
+    border-style: solid;
+    /*
+    display: grid;
+    grid-template-areas: 'ul' 'ul';
+    */
+}
+
+.menuBar ul {
+    display: inline-flex;
+    list-style: none;
+}
+
+.menuBar ul li {
+    text-decoration: none;
+    width: 120px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+/*
+    sidebar
+*/
+
+.sidebar{
+    position: absolute;
+    width: 340px;
+    height: 814px;
+    left: 22px;
+    top: 64px;
+
+    background: #98B8F8;
+    border-radius: 10px;
+}
+
+#newPageWrapper {
+    position: absolute;
+    width: 1195px;
+    height: 814px;
+    left: 385px;
+    top: 64px;
+
+    background: #B7F9B5;
+    border-radius: 10px;
+}
