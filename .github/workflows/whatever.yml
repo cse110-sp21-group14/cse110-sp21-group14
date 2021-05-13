@@ -23,7 +23,7 @@ jobs:
           template: minami
 
       - name: Convert output to markdown
-        run: npx jsdoc-md -s ./source/lol.js -m ./source/documentation/jsdocs.md -t JSDocs
+        run: jsdoc2md ./source/* > ./source/documentation/jsdocs.md
 
       - name: Commit documentation
         run: |
