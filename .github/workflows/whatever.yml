@@ -22,15 +22,15 @@ jobs:
           output_dir: ./source/documentation
           template: minami
 
+      - name: Convert output to markdown
+        run: npx jsdoc-md -s ./source/documentation/*.js -m ./source/documentation/jsdocs.md -t JSDocs
+
       - name: Commit documentation
         run: |
           git config --local user.email "nwong@ucsd.edu"
           git config --local user.name "nwong524"
           git add ./source/documentation
           git commit -m "Update Documentation" -a
-
-      - name: Convert output to markdown
-        run: npx jsdoc-md -s ./source/documentation/*.js -m ./source/documentation/jsdocs.md -t JSDocs
       
       - name: Push documentation
         uses: ad-m/github-push-action@master
