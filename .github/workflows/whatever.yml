@@ -6,7 +6,7 @@ on:
       - 'workflow-test'
 # change branch for main in eventual merge
 
-jobs: 
+jobs:
   JSDoc:
     runs-on: ubuntu-latest
 
@@ -41,7 +41,7 @@ jobs:
           git config --local user.name "nwong524"
           git add ./source/documentation
           git commit -m "Update Documentation" -a
-      
+
       - name: Push documentation
         uses: ad-m/github-push-action@master
         with:
@@ -50,25 +50,23 @@ jobs:
 
   ESLint:
     runs-on: ubuntu-latest
-  
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Run ESlint on directory
         run: npx eslint ./source
-        
+
   Testing:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Install npm
         run: npm install --prefix ./source
-        
+
       - name: Unit testing via Jest
         run: npm run test --prefix ./source
-
-  
