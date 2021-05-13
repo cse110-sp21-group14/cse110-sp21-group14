@@ -7,10 +7,7 @@
     "start": "cross-env NODE_ENV=production node server",
     "dev": "cross-env NODE_ENV=development nodemon server",
     "jsdoc": "jsdoc-md",
-    "test": "jest && npm run test:eslint && npm run test:prettier && npm run test:jsdoc",
-    "test:eslint": "eslint .",
-    "test:prettier": "prettier -c .",
-    "test:jsdoc": "jsdoc-md -c"
+    "test": "jest"
   },
   "author": "Group 14",
   "license": "ISC",
