@@ -1,4 +1,4 @@
-/**
+/*
  * Filename: server.js
  * Author: Group 14
  * Purpose: This script will be the main script responsible with hosting the
