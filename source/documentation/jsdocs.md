@@ -1,3 +1,1 @@
 # JSdocs
-
-## Table of contents
