@@ -23,7 +23,9 @@ jobs:
           template: minami
 
       - name: Convert output to markdown
-        run: npx jsdoc2md ./source/* > ./source/documentation/jsdocs.md
+        run: |
+          npm install --save-dev jsdoc-to-markdown
+          npx jsdoc2md ./source/* > ./source/documentation/jsdocs.md
 
       - name: Commit documentation
         run: |
