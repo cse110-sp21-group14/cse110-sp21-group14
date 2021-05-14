@@ -1,0 +1,12 @@
+.bigBox{
+    border:1px solid #000;
+    background-color: #C6FFA3;
+    color: black;
+    float:right;
+    width: 70%;
+    padding-bottom: 80%;
+}
+
+.center{
+    text-align: center;
+}
