@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const PageSchema = new mongoose.Schema({
     title: {
         type: String,
-        trimmed: true,
+        trim: true,
         required: true
     },
     googleId: {
