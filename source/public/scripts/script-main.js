@@ -5,4 +5,4 @@
  *          This script should only run on the main page.
  */
 
- console.log("This script runs in the main page");
+console.log("This script runs in the main page");
