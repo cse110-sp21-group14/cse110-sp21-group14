@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const JournalSchema = new mongoose.Schema({
-    journalName: {
+    title: {
         type: String,
         trim: true,
         required: true
@@ -11,6 +11,11 @@ const JournalSchema = new mongoose.Schema({
         required: true
     },
     pages: {
+        type: [String],
+        default: [],
+        required: true
+    },
+    pageIds: {
         type: [String],
         default: [],
         required: true
