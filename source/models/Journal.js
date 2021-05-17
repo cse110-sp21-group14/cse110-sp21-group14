@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const JournalSchema = new mongoose.Schema({
     title: {
@@ -20,6 +20,6 @@ const JournalSchema = new mongoose.Schema({
         default: [],
         required: true
     }
-})
+});
 
 module.exports = mongoose.model('Journal', JournalSchema);
