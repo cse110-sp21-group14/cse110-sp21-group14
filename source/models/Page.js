@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const PageSchema = new mongoose.Schema({
     title: {
@@ -29,6 +29,6 @@ const PageSchema = new mongoose.Schema({
         default: "",
         required: true
     }
-})
+});
 
 module.exports = mongoose.model('Page', PageSchema);
