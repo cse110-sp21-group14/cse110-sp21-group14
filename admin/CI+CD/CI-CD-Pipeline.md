@@ -24,4 +24,4 @@ Our team plans on integrating e2e testing via Cypress once we have more exposure
 
 
 # Video Demonstration
-TODO
+Video is located in admin/videos/CICD_Pipeline_Phase_1.mp4. 
