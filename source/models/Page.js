@@ -10,9 +10,8 @@ const PageSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    journalName: {
+    journalId: {
         type: String,
-        trim: true,
         required: true
     },
     lastModified: {
