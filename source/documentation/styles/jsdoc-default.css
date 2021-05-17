@@ -33,13 +33,6 @@ p, ul, ol, blockquote {
   margin-bottom: 1em;
 }
 
-/* h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
-  color: #000;
-  font-weight: 400;
-  margin: 0;
-} */
-
 h1 {
   font-weight: 300;
   font-size: 48px;
@@ -336,11 +329,6 @@ footer {
 .details dd {
    margin-left: 70px
 }
-
-/* .details ul {
-   margin: 0;
-   list-style-type: none
-} */
 
 .details li {
    margin-left: 30px
