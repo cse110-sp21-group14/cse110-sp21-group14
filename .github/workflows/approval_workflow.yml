@@ -58,7 +58,7 @@ jobs:
       - name: Run ESlint on directory
         run: npx eslint ./source
 
-  Jest Unit Tests:
+  Jest-Unit-Tests:
     runs-on: ubuntu-latest
 
     steps:
