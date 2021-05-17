@@ -2,8 +2,8 @@ name: Team 14 Powell Puff Gang's approval workflow
 
 on:
   push:
-    branches:
-      - $BRANCH_NAME
+#    branches:
+#      - $BRANCH_NAME
 
 jobs:
   JSDoc:
