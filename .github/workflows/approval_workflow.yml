@@ -58,7 +58,7 @@ jobs:
       - name: Run ESlint on directory
         run: npx eslint ./source
 
-  Testing:
+  Jest Unit Tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -70,3 +70,10 @@ jobs:
 
       - name: Unit testing via Jest
         run: npm run test --prefix ./source
+
+  # Cypress E2E:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
