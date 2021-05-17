@@ -3,8 +3,7 @@ name: Team 14 Powell Puff Gang's approval workflow
 on:
   push:
     branches:
-      - 'workflow-test'
-# change branch for main in eventual merge
+      - $BRANCH_NAME
 
 jobs:
   JSDoc:
