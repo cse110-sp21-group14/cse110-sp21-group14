@@ -1,6 +1,7 @@
 /**
  * Filename: main.js
- * Author: Group 14 (Back End)
+ * Author: Stephen & Yinxuan (Back End)
+ * Date: May 17th
  * Purpose: This script runs on the back end (server) to route the main page + handlebars
  */
 const express = require('express');
@@ -11,15 +12,11 @@ const Journal = require("../models/Journal");
 const Page = require("../models/Page");
 
 // @desc     /main
-// @route    GET
-router.get('/', ensureAuth, async (req, res) => {
-    res.render('main');
-});
-
 // @desc responds with a list of all journals belonging to the user (json)
 // @route GET
-router.get('/journals', ensureAuth, async (req, res) => {
+router.get('/', ensureAuth, async (req, res) => {
     try {
+        console.log("start fetching");
         // getting all users journals with googleId and calling lean to turn them into json
         let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
         let decryptedJournals = [];
@@ -48,13 +45,16 @@ router.get('/journals', ensureAuth, async (req, res) => {
         });
 
         // responding to get request with journals
-        res.json(decryptedJournals);
+        //res.json(decryptedJournals);
+        console.log(decryptedJournals);
+        res.render('main', { journals: decryptedJournals });
     } catch (err) {
         console.log(err);
         // TODO: determine what to return in the event an invalid fetch is created
     }
 });
 
+// @desc /main/:journal_id
 // @desc get a specific journal from its id
 // @route GET
 router.get('/:id', ensureAuth, async (req, res) => {

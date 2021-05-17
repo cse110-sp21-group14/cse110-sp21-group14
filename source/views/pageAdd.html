@@ -1,0 +1,62 @@
+<!--
+    Author: Hugo Huang
+    Date: May 17th
+    HTML for add page screen
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../public/css/style-pageAdd.css">
+        <title>Page Add</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Top nav bar-->
+            <div class="menuBar">
+                <ul>
+                    <li class="menuItem" ><a href="#">My Journal</a></li>
+                    <li class="menuItem" ><a href="#">My Calendar</a></li>
+                    <li class="menuItem" ><a href="#">My Settings</a></li>
+                    <li class="signOut"><a href="/auth/logout">Sign Out</a></li>
+                </ul>
+            </div>
+
+            <!--Side nav bar-->
+            <nav class="sidebar">
+                <div class="search">
+                   <input type="text">
+                </div>
+                <div class="buttons">
+                    <ul class="addDelete">
+                        <li><button>Add</button></li>
+                        <li><button>Delete</button></li>
+                    </ul>
+                    <ul>
+                        <li>CSE101 Notes</li>
+                    </ul>    
+                </div>
+            </nav>
+        
+            <div id="newPageWrapper">
+                <div id="rectangle"></div>
+                <form id="newPage">
+                    <section id="layerOne">
+                        <label id="titleLabel" for="title">Title:</label>
+                        <input id="title" name="title" type="text"><br>
+                    </section>
+                    <section id="layerTwo">
+                        <label id="journalType">Journal Type:</label><br>
+                    </section>
+                    <section id="layerThree">
+                        <div><label id="contentLabel" for="content">Content:</label></div>
+                        <textarea>Some text...</textarea>
+                    </section>
+                    <section id="layerFour">
+                        <input type="submit" value="add">
+                    </section>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
