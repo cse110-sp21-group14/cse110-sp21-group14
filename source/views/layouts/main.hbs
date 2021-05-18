@@ -23,12 +23,13 @@
     <div class="flexbox-container">
     <div class="flexbox-item sidebar">
         <ul class="journals addDelete">
-            <li><button><a href="/main/add/journal">Add</a></button></li>
+            <li><button><a href="/main/add/journal">Add Journal</a></button></li>
             <li><button>Delete</button></li>
         </ul><br>
         {{#each journals}}
             <div class="journal-item">
                 <button><span>&#9662;</span></button> <a href="/main/journal/{{journalId}}">{{title}}</a>
+                <button><a href="/main/add/page">Add Page</a></button>
                 <ul>
                     {{#each pages}}
                         <li><a href="/main/page/{{pageId}}">{{pageTitle}}</a></li>

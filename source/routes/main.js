@@ -36,13 +36,18 @@ router.get('/', ensureAuth, async (req, res) => {
 // @route GET
 router.get('/journal/:id', ensureAuth, async (req, res) => {
     try {
+        // getting all users journals with googleId and calling lean to turn them into json
+        let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
+        let decryptedJournals = getDecryptedJournals(encryptedJournals);
+
         // a specific journal from the user
         let encryptedJournal = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
         let decryptedJournal = getDecryptedJournal(encryptedJournal);
 
         // responding to get request with journal
-        //console.log(decryptedJournal);
-        res.json(decryptedJournal);
+        console.log(decryptedJournal);
+        //res.json(decryptedJournal);
+        res.render("journalView", {journal: decryptedJournal, journals: decryptedJournals})
     } catch (err) {
         console.log(err)
         // TODO: determine what to return in the event an invalid fetch is created
@@ -112,9 +117,13 @@ router.get('/add/journal', ensureAuth, async (req, res) => {
     res.render("main");
 });
 
-// TODO
+// add page to a specific journal
 router.get('/add/page', ensureAuth, async (req, res) => {
-    res.render("main");
+    // getting all users journals with googleId and calling lean to turn them into json
+    let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
+    let decryptedJournals = getDecryptedJournals(encryptedJournals);
+
+    res.render("pageAdd", {journals: decryptedJournals});
 });
 
 module.exports = router;

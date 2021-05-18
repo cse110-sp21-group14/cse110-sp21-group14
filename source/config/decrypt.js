@@ -46,17 +46,20 @@ module.exports = {
         let encryptedPages = encryptedJournal.pages;
         let decryptedPages = [];
 
-        // decrypting each page belonging to the requested journal
-        encryptedPages.forEach((page) => {
-            decryptedPages.push(secret.decrypt(page));
-        });
+        // decrypting page names for a journal
+        for (let i = 0; i < encryptedPages.length; i++) {
+            let newPage = {
+                pageTitle: secret.decrypt(encryptedPages[i]),
+                pageId: encryptedJournal.pageIds[i]
+            };
+            decryptedPages.push(newPage);
+        }
 
         let decryptedJournal = {
             journalId: encryptedJournal._id,
             title: secret.decrypt(encryptedJournal.title),
             googleId: encryptedJournal.googleId,
             pages: decryptedPages,
-            pageIds: encryptedJournal.pageIds
         };
 
         return decryptedJournal;
