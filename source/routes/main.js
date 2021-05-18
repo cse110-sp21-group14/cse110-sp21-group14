@@ -10,43 +10,19 @@ const { ensureAuth } = require('../middleware/auth');
 const secret = require("../config/secret");
 const Journal = require("../models/Journal");
 const Page = require("../models/Page");
+const { getDecryptedJournals, getDecryptedJournal, getDecryptedPage } = require("../config/decrypt");
 
 // @desc     /main
 // @desc responds with a list of all journals belonging to the user (json)
 // @route GET
 router.get('/', ensureAuth, async (req, res) => {
     try {
-        console.log("start fetching");
         // getting all users journals with googleId and calling lean to turn them into json
         let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
-        let decryptedJournals = [];
-
-        // decrypting each journal
-        encryptedJournals.forEach(journal => {
-            // getting page names for a journal
-            let encryptedPages = journal.pages;
-            let decryptedPages = [];
-
-            // decrypting page names for a journal
-            encryptedPages.forEach(page => {
-                decryptedPages.push(secret.decrypt(page));
-            });
-
-            let decrypted = {
-                _id: journal._id,
-                title: secret.decrypt(journal.title),
-                googleId: journal.googleId,
-                pages: decryptedPages,
-                pageIds: journal.pageIds
-            };
-
-            // adding decrypted journal
-            decryptedJournals.push(decrypted);
-        });
+        let decryptedJournals = getDecryptedJournals(encryptedJournals);
 
         // responding to get request with journals
         //res.json(decryptedJournals);
-        console.log(decryptedJournals);
         res.render('main', { journals: decryptedJournals });
     } catch (err) {
         console.log(err);
@@ -54,36 +30,25 @@ router.get('/', ensureAuth, async (req, res) => {
     }
 });
 
-// @desc /main/:journal_id
+
+// @desc /main/journal/:id
 // @desc get a specific journal from its id
 // @route GET
-router.get('/:id', ensureAuth, async (req, res) => {
+router.get('/journal/:id', ensureAuth, async (req, res) => {
     try {
         // a specific journal from the user
         let encryptedJournal = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
-        let encryptedPages = encryptedJournal.pages;
-        let decryptedPages = [];
-
-        // decrypting each page belonging to the requested journal
-        encryptedPages.forEach((page) => {
-            decryptedPages.push(secret.decrypt(page));
-        });
-
-        let decryptedJournal = {
-            _id: encryptedJournal._id,
-            title: secret.decrypt(encryptedJournal.title),
-            googleId: encryptedJournal.googleId,
-            pages: decryptedPages,
-            pageIds: encryptedJournal.pageIds
-        };
+        let decryptedJournal = getDecryptedJournal(encryptedJournal);
 
         // responding to get request with journal
+        //console.log(decryptedJournal);
         res.json(decryptedJournal);
     } catch (err) {
         console.log(err)
         // TODO: determine what to return in the event an invalid fetch is created
     }
 });
+
 
 // @desc gets the pages of a specific journal
 // @route GET
@@ -121,28 +86,35 @@ router.get('/:id/pages', ensureAuth, async (req,res) => {
 
 // @desc Get a specific page from a specific journal
 // @route GET
-router.get('/:id/:id', ensureAuth, async (req, res) => {
+router.get('/page/:id', ensureAuth, async (req, res) => {
     try {
-        // getting page from id
+        // getting all users journals with googleId and calling lean to turn them into json
+        let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
+        let decryptedJournals = getDecryptedJournals(encryptedJournals);
+
+        // getting page from id, decrypting page
         let encryptedPage = await Page.findOne({ googleId: req.user.googleId, _id: req.params.id }).lean();
-        
-        // decrypting page
-        let decryptedPage = {
-            _id: req.params.id,
-            title: secret.decrypt(encryptedPage.title),
-            googleId: req.user.googleId,
-            journalId: encryptedPage.journalId,
-            lastModified: encryptedPage.lastModified,
-            importance: encryptedPage.importance,
-            content: secret.decrypt(encryptedPage.content)
-        };
+        let decryptedPage = getDecryptedPage(encryptedPage, req.params.id, req.user.googleId);
+
 
         // responding with the requested page
-        res.json(decryptedPage);
+        //res.json(decryptedPage);
+        console.log(decryptedPage);
+        res.render("pageView", { journals: decryptedJournals, page: decryptedPage });
     } catch (err) {
         console.log(err);
         // TODO: determine what to return from a fetch that results in an error
     }
+});
+
+// TODO
+router.get('/add/journal', ensureAuth, async (req, res) => {
+    res.render("main");
+});
+
+// TODO
+router.get('/add/page', ensureAuth, async (req, res) => {
+    res.render("main");
 });
 
 module.exports = router;

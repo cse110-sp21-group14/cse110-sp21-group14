@@ -4,25 +4,3 @@
     Added CSS for main menu.
 */
 
-/*flex box components*/
-.flexbox-container {
-    display: flex;
-}
-
-.flexbox-item {
-    margin: 10px;
-    min-height: 36.5rem; 
-}
-
-.sidebar {
-    flex-grow: .1;
-    background: #98B8F8;
-    border-radius: 10px;
-    
-}
-
-.viewarea {
-    flex-grow: .89;
-    background-color: #B7F9B5;
-    border-radius: 10px;
-}

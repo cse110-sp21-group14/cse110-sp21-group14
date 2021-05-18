@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-layout-main.css">
+    <script src="/scripts/script-main.js" type="module"></script>
     <title>Bullet Journal</title>
 </head>
 
@@ -19,6 +20,36 @@
             <li><a href="/auth/logout">Sign Out</a></li>
         </ul>
     </div>
-    {{{body}}}
+    <div class="flexbox-container">
+    <div class="flexbox-item sidebar">
+        <ul class="journals addDelete">
+            <li><button><a href="/main/add/journal">Add</a></button></li>
+            <li><button>Delete</button></li>
+        </ul><br>
+        {{#each journals}}
+            <div class="journal-item">
+                <button><span>&#9662;</span></button> <a href="/main/journal/{{journalId}}">{{title}}</a>
+                <ul>
+                    {{#each pages}}
+                        <li><a href="/main/page/{{pageId}}">{{pageTitle}}</a></li>
+                    {{/each}}
+                </ul>
+                <br><br>
+            </div>
+        {{/each}}
+        <!-- <div class="search">
+            <input type="text">
+        </div>
+        
+        <div class="buttons">
+            <button>Add</button>
+            <button>Delete</button>
+        </div> -->
+    </div>
+    <div class="flexbox-item viewarea">
+       <!-- <p>test</p> -->
+       {{{body}}}
+    </div>
+</div>
 </body>
 </html>
