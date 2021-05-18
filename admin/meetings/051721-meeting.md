@@ -16,7 +16,7 @@ Absent:
  - Aidan 
  - Kevin
 
-When: May 4, 2021 Meeting (8:00 - 10:00 PM)
+When: May 17, 2021 Meeting (8:00 - 10:00 PM)
 
 Where the meeting was held: ZOOM
 
