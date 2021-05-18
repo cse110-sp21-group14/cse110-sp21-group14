@@ -1,5 +1,5 @@
 # Pipeline Phase I Diagram
-[[/phase1BuildDiagram.png|Phase I Build Diagram]]
+[[./phase1.png|Phase I Build Diagram]]
 
 # Status for pipeline
 Our pipeline will function with two major steps, with substeps in between:
