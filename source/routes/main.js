@@ -30,6 +30,21 @@ router.get('/', ensureAuth, async (req, res) => {
     }
 });
 
+// @desc responds with a list of all journals belonging to the user (json)
+// @route GET
+router.get('/journals', ensureAuth, async (req, res) => {
+    try {
+        // getting all users journals with googleId and calling lean to turn them into json
+        let encryptedJournals = await Journal.find({ googleId: req.user.googleId }).lean();
+        let decryptedJournals = getDecryptedJournals(encryptedJournals);
+
+        // responding to get request with journals
+        res.json(decryptedJournals);
+    } catch (err) {
+        console.log(err);
+        // TODO: determine what to return in the event an invalid fetch is created
+    }
+});
 
 // @desc /main/journal/:id
 // @desc get a specific journal from its id
