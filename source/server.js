@@ -61,7 +61,7 @@ app.use(passport.session());
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
 app.use('/main', require('./routes/main'));
-//app.use('/calendar', require('./routes/calendar'));
+app.use('/calendar', require('./routes/calendar'));
 //app.use('/setting', require('./routes/setting'));
 
 
