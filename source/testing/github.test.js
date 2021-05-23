@@ -2,6 +2,8 @@
  * @file Temporary test file for Puppeteer
  * @author: Group 14 (workflow)
  */
+
+/* global describe, beforeAll, it */
 const puppeteer = require("puppeteer");
 var browser;
 var page;
@@ -24,8 +26,7 @@ describe("Puppeteer Test", () => {
 
     // placeholder test 2
     it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
-        // implement test3: Clicking on the first journal entry should update the URL to contain “/#entry1”
         await page.click("img[alt=GitHub]");
         expect(page.url()).toMatch("https://github.com/");
-      });
+    });
 });
