@@ -62,11 +62,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Puppeteer Container
-        run: npm install --save-dev puppeteer jest-puppeteer
-
       - name: Install Jest
         run: npm install --save-dev jest babel-jest @babel/core @babel/preset-env --prefix ./source
+
+      - name: Install Puppeteer Container
+        run: npm install --save-dev puppeteer jest-puppeteer --prefix ./source
 
       - name: Run Unit and E2E tests via Jest and Puppeteer
         run: npm run test --prefix ./source
