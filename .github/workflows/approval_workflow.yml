@@ -71,7 +71,7 @@ jobs:
       - name: Unit testing via Jest
         run: npm run test --prefix ./source
 
-      - name: Puppeteer Test
+      - name: E2E testing via Puppeteer
         run: npm run test --prefix ./source
 
 
