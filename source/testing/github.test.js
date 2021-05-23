@@ -2,11 +2,12 @@
  * @file Temporary test file for Puppeteer
  * @author: Group 14 (workflow)
  */
+const { TestScheduler } = require("@jest/core");
 const puppeteer = require("puppeteer");
 var browser;
 var page;
 
-describe("Puppeteer Test", () => {
+("Puppeteer Test", () => {
     // route to page
     (async () => {
         browser = await puppeteer.launch();
@@ -16,7 +17,7 @@ describe("Puppeteer Test", () => {
     });
 
     // placeholder test 1
-    ("Test1: Check for 404", async () => {
+    test("Test1: Check for 404", async () => {
         let expected = "Find code, projects, and people on GitHub:";
         let actual = await page.$eval("label[for=not-found-search]", (e) => e.innerHTML);
         expect(actual).toBe(expected);
