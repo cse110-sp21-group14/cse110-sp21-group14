@@ -74,3 +74,20 @@ jobs:
   #   steps:
   #     - name: Checkout code
   #       uses: actions/checkout@v2
+
+  Puppeteer E2E:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Puppeteer Container
+        uses: ianwalter/puppeteer-container@v4.0.0
+          with:
+            args: npm
+
+      - name: Puppeteer Test
+        uses: ianwalter/puppeteer-container@v4.0.0
+          with:
+            args: npm
