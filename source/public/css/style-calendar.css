@@ -1,98 +1,138 @@
+/*top nav bar*/
+.menuBar {
+  text-align: center;
+  border-color: black;
+  border-style: solid;
+}
+
+.menuBar ul {
+  display: inline-flex;
+  list-style: none;
+}
+
+.menuBar ul li {
+  text-decoration: none;
+  width: 120px;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-right: 50px;
+}
+
 body {
-  background-color: #333;
-  color: rgb(27, 146, 27);
-  font-family: "Josefin Sans";
+  font-family: Calibri, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(24, 5, 5);
+  background-color: #bcfc95;
 }
 
-.calendar {
-  width: 800px;
-  margin: 50px auto 0;
+.cld-main {
+  width: 80%;
+  margin: auto;
 }
 
-.calendar__month {
-  font-size: 20px;
-  font-weight: 800;
-  padding: 10px 0;
-  width: 100%;
+.cld-main a {
+  color: #1100ff;
+}
+
+.cld-datetime {
+  padding-top: 0.5cm;
   position: relative;
+  width: 66%;
+  min-width: 100px;
+  max-width: 300px;
+  margin: auto;
+  overflow: hidden;
 }
 
-.cal-month__previous,
-.cal-month__next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.cld-datetime .today {
+  font-size: x-large;
+  position: relative;
+  float: left;
+  width: calc(100% - 40px);
+  margin: auto;
+  text-align: center;
+}
+
+.cld-nav {
+  position: relative;
+  width: 20px;
+  height: 0px;
+  margin-top: 2px;
+}
+
+.cld-nav:hover {
   cursor: pointer;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-}
-.cal-month__previous:hover,
-.cal-month__next:hover {
-  background-color: #42A5F5;
-  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.75);
-  border-radius: 50%;
-  font-weight: 800;
-  color: #111;
 }
 
-.cal-month__next {
-  right: 0;
+.cld-nav:hover svg {
+  fill: #666;
 }
 
-.cal-month__current {
-  text-align: center;
-  color: #e1e1e1;
-}
-
-.cal-head__day,
-.cal-body__day {
-  display: inline-block;
-  width: 113px;
-  height: 50px;
+.cld-rwd {
   float: left;
 }
 
-.cal-body__week,
-.calendar__head {
-  display: block;
-  height: 80px;
-  width: 800px;
+.cld-fwd {
+  float: right;
 }
 
-.calendar__head {
-  line-height: 50px;
-  position: relative;
-}
-.calendar__head:after {
-  content: " ";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #90CAF9;
+.cld-labels, .cld-days {
+  padding-left: 0;
 }
 
-.cal-body__day {
-  color: #777;
-  line-height: 50px;
+.cld-label, .cld-day {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 14%;
   text-align: center;
+}
+
+.cld-day {
+  display: block;
+  float: left;
+  position: relative;
+  margin: 0;
+  padding: 5px;
+  height: 90px;
+  border: 1px solid #08b3fc;
+  overflow-y: auto;
+  background-color: #ffb1b1;
+}
+
+.cld-day.clickable:hover {
   cursor: pointer;
 }
 
-.cal-day__month--current {
-  color: #e1e1e1;
+.cld-day.today {
+  border: 5px solid #386dcf;
 }
 
-.cal-day__day--today {
-  font-weight: 800;
-  color: #2196f3;
+.cld-day.nextMonth, .cld-day.prevMonth {
+  opacity: 0.4;
 }
 
-.cal-day__day--selected {
-  background-color: #2196f3;
-  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.75);
-  border-radius: 50%;
-  color: #111;
+.cld-number {
+  margin: 0;
+  text-align: left;
 }
+
+.cld-title {
+  font-size: 14px;
+  display: block;
+  margin: 0;
+  font-weight: normal;
+}
+
+.cld-day:hover {
+  background-color: #97ddfb;
+}
+
+.cld-number.eventday {
+  font-weight: bold;
+}
+
+/*
+.cld-number.eventday:hover{
+  background: rgb(192, 202, 137);
+}
+*/
