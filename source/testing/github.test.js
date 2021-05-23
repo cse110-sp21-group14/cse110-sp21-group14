@@ -28,7 +28,6 @@ describe("Puppeteer Test", () => {
     it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
         await page.click("img[alt=GitHub]");
         expect(page.url()).toMatch("https://github.com/");
+        browser.close();
     });
-
-    browser.close();
 });
