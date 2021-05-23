@@ -55,6 +55,19 @@ jobs:
       - name: Run ESlint on directory
         run: npx eslint ./source
 
+  Puppeteer-E2E:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Puppeteer Container
+        run: npm install --save-dev puppeteer jest-puppeteer
+
+      - name: Puppeteer Test
+        run: npm run test --prefix ./source
+
   Jest-Unit-Tests:
     runs-on: ubuntu-latest
 
@@ -74,16 +87,3 @@ jobs:
   #   steps:
   #     - name: Checkout code
   #       uses: actions/checkout@v2
-
-  Puppeteer-E2E:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Puppeteer Container
-        run: npm install --save-dev puppeteer jest-puppeteer
-
-      - name: Puppeteer Test
-        run: npm run test --prefix ./source
