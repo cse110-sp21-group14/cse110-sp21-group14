@@ -3,7 +3,7 @@
  * @author: Group 14 (workflow)
  */
 
-/* global describe, beforeAll, it */
+/* global describe, beforeAll, it, $ */
 const puppeteer = require("puppeteer");
 var browser;
 var page;
@@ -29,4 +29,6 @@ describe("Puppeteer Test", () => {
         await page.click("img[alt=GitHub]");
         expect(page.url()).toMatch("https://github.com/");
     });
+
+    browser.close();
 });
