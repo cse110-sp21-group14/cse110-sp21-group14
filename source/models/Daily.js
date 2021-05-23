@@ -5,8 +5,29 @@ const DailySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    date: {
+    dateObj: {
         type: Date,
+        required: true
+    },
+    details: {
+        type: [String],
+        required: true
+    },
+    date: {
+        type: Number,
+        min: 1,
+        max: 31,
+        required: true
+    },
+    month: {
+        type: Number,
+        min: 1,
+        max: 12,
+        required: true
+    },
+    year: {
+        type: Number,
+        min: 0,
         required: true
     },
     content: {
