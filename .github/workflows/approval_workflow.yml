@@ -68,10 +68,7 @@ jobs:
       - name: Install Jest
         run: npm install --save-dev jest babel-jest @babel/core @babel/preset-env --prefix ./source
 
-      - name: Unit testing via Jest
-        run: npm run test --prefix ./source
-
-      - name: E2E testing via Puppeteer
+      - name: Run Unit and E2E tests via Jest and Puppeteer
         run: npm run test --prefix ./source
 
 
