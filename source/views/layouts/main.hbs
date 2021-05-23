@@ -30,9 +30,18 @@
             <div class="journal-item">
                 <button><span>&#9662;</span></button> <a href="/main/journal/{{journalId}}">{{title}}</a>
                 <button><a href="/main/add/{{journalId}}/page">Add Page</a></button>
+                <form action="/main/journal/{{journalId}}" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit">Delete</button>
+                </form>
+                
                 <ul>
                     {{#each pages}}
                         <li><a href="/main/page/{{pageId}}">{{pageTitle}}</a></li>
+                        <form action="/main/page/{{pageId}}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Delete</button>
+                        </form>
                     {{/each}}
                 </ul>
                 <br><br>

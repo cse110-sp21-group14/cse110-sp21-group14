@@ -238,7 +238,7 @@ router.post('/journal', ensureAuth, async (req, res) => {
 
 // @desc creates a page in the specified journal from a post request
 // @route POST
-router.post('/journal/:id', ensureAuth, async (req, res) => {
+router.post('/post/journal/:id', ensureAuth, async (req, res) => {
     try {
         // getting journal by id
         let encryptedJournal = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -376,6 +376,8 @@ router.put('/daily/:id', async (req, res) => {
 // @route DELETE
 router.delete('/journal/:id', ensureAuth, async (req, res) => {
     try {
+        console.log('start deleting a journal');
+        
         // getting the journal to delete
         let toDelete = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
 
@@ -392,7 +394,10 @@ router.delete('/journal/:id', ensureAuth, async (req, res) => {
 
             await Journal.deleteOne({ _id: req.params.id});
             console.log("Deleted Journal");
-            res.status(200).end();
+
+            res.redirect("/");
+            
+            //res.status(200).end();
         } else {
             // ends with unsuccessful response status
             res.status(400).end();
@@ -429,9 +434,12 @@ router.delete('/page/:id', ensureAuth, async (req, res) => {
 
             // updating journal
             await Journal.findByIdAndUpdate(toDelete.journalId, { pages: newPages, pageIds: newPageIds});
+
+            res.redirect("/");
+            
             console.log("Updated journal by removing page");
 
-            res.status(200).end();
+            //res.status(200).end();
         } else {
             res.status(400).end();
         }
