@@ -1,10 +1,10 @@
 /**
- * @file Temporary file for testing integration of Puppeteer
+ * @file Temporary test file for Puppeteer
  * @author: Group 14 (workflow)
  */
 const puppeteer = require("puppeteer");
-const browser;
-const page;
+var browser;
+var page;
 
 describe("Puppeteer Test", () => {
     // route to page
