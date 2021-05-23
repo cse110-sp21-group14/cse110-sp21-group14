@@ -11,6 +11,7 @@
   "author": "Group 14",
   "license": "ISC",
   "devDependencies": {
+    "underscore": ">=1.12.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.26.0",
     "jest": "^26.6.3",
