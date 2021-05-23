@@ -2,14 +2,13 @@
  * @file Temporary test file for Puppeteer
  * @author: Group 14 (workflow)
  */
-const { TestScheduler } = require("@jest/core");
 const puppeteer = require("puppeteer");
 var browser;
 var page;
 
-("Puppeteer Test", () => {
+describe("Puppeteer Test", () => {
     // route to page
-    (async () => {
+    beforeAll(async () => {
         browser = await puppeteer.launch();
         page = await browser.newPage();
 
@@ -17,9 +16,16 @@ var page;
     });
 
     // placeholder test 1
-    test("Test1: Check for 404", async () => {
+    it("Test1: Check for 404", async () => {
         let expected = "Find code, projects, and people on GitHub:";
         let actual = await page.$eval("label[for=not-found-search]", (e) => e.innerHTML);
         expect(actual).toBe(expected);
     });
+
+    // placeholder test 2
+    it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
+        // implement test3: Clicking on the first journal entry should update the URL to contain “/#entry1”
+        await page.click("img[alt=GitHub]");
+        expect(page.url()).toMatch("https://github.com/");
+      });
 });
