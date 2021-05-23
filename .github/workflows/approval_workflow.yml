@@ -84,10 +84,10 @@ jobs:
 
       - name: Install Puppeteer Container
         uses: ianwalter/puppeteer-container@v4.0.0
-          with:
-            args: npm
+        with:
+          args: npm
 
       - name: Puppeteer Test
         uses: ianwalter/puppeteer-container@v4.0.0
-          with:
-            args: npm
+        with:
+          args: npm
