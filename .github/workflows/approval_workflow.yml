@@ -85,9 +85,9 @@ jobs:
       - name: Install Puppeteer Container
         uses: ianwalter/puppeteer-container@v4.0.0
         with:
-          args: npm
+          args: npm install
 
       - name: Puppeteer Test
         uses: ianwalter/puppeteer-container@v4.0.0
         with:
-          args: npm
+          args: npm test
