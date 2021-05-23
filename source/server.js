@@ -56,6 +56,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// body parser for requests
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 // Routes
 app.use('/', require('./routes/index'));
