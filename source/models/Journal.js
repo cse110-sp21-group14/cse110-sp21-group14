@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const JournalSchema = new mongoose.Schema({
     title: {
@@ -22,4 +22,4 @@ const JournalSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Journal', JournalSchema);
+module.exports = mongoose.model("Journal", JournalSchema);
