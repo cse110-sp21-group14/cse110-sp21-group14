@@ -3,12 +3,14 @@
  * @author: Group 14 (workflow)
  */
 const puppeteer = require("puppeteer");
+const browser;
+const page;
 
 describe("Puppeteer Test", () => {
     // route to page
     (async () => {
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
+        browser = await puppeteer.launch();
+        page = await browser.newPage();
 
         await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
     });
