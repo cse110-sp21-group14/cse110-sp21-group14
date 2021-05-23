@@ -1,7 +1,7 @@
 /**
  * Filename: main.js
  * Author: Stephen & Yinxuan (Back End)
- * Date: May 17th
+ * Date: May 23th
  * Purpose: This script runs on the back end (server) to route the main page + handlebars
  */
 const express = require('express');
@@ -212,6 +212,7 @@ router.get('/daily/:month/:year', ensureAuth, async (req, res) => {
     }
 });
 
+// @desc /main/journal
 // @desc creates a new journal from a post request
 // @route POST
 router.post('/journal', ensureAuth, async (req, res) => {
@@ -226,8 +227,10 @@ router.post('/journal', ensureAuth, async (req, res) => {
         
         // adding new journal to database
         await Journal.create(newJournal);
-        console.log("Created Journal");
-        res.status(200).end();
+        res.redirect("/");
+        //console.log("Created Journal");
+        //res.status(200).end();
+
     } catch (err) {
         console.log(err);
     }
@@ -267,7 +270,9 @@ router.post('/journal/:id', ensureAuth, async (req, res) => {
             // sending update request
             await Journal.findByIdAndUpdate(req.params.id, { pages: newPages, pageIds: newPageIds });
             console.log("Added New Page To Journal");
-            res.status(200).end();
+
+            res.redirect("/main/page/" + newPage._id);
+            //res.status(200).end();
         } else {
             res.status(400).end();
         }
@@ -470,18 +475,26 @@ router.delete('/daily/:month/:date/:year', ensureAuth, async (req, res) => {
     }
 })
 
-// TODO
+// add journal
 router.get('/add/journal', ensureAuth, async (req, res) => {
-    res.render("main");
-});
-
-// add page to a specific journal
-router.get('/add/page', ensureAuth, async (req, res) => {
     // getting all users journals with googleId and calling lean to turn them into json
     let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
     let decryptedJournals = getDecryptedJournals(encryptedJournals);
 
-    res.render("pageAdd", {journals: decryptedJournals});
+    res.render("journalAdd", {journals: decryptedJournals});
+});
+
+// add page to a specific journal
+router.get('/add/:journalId/page', ensureAuth, async (req, res) => {
+    // getting all users journals with googleId and calling lean to turn them into json
+    let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
+    let decryptedJournals = getDecryptedJournals(encryptedJournals);
+
+    // a specific journal from the user
+    let encryptedJournal = await Journal.findOne({googleId: req.user.googleId, _id: req.params.journalId}).lean();
+    let decryptedJournal = getDecryptedJournal(encryptedJournal);
+
+    res.render("pageAdd", {journal: decryptedJournal, journals: decryptedJournals});
 });
 
 module.exports = router;
