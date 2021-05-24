@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const DailySchema = new mongoose.Schema({
     googleId: {
@@ -35,6 +35,6 @@ const DailySchema = new mongoose.Schema({
         default: "",
         required: true
     }
-})
+});
 
-module.exports = mongoose.model('Daily', DailySchema);
+module.exports = mongoose.model("Daily", DailySchema);

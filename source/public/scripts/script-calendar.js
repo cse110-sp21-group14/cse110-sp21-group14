@@ -3,10 +3,10 @@ var Calendar = function (model, date) {
     this.Model = model;
     this.Today = new Date();
 
-    this.Selected = this.Today
+    this.Selected = this.Today;
     this.Today.Month = this.Today.getMonth();
     this.Today.Year = this.Today.getFullYear();
-    if (date) { this.Selected = date }
+    if (date) { this.Selected = date };
     this.Selected.Month = this.Selected.getMonth();
     this.Selected.Year = this.Selected.getFullYear();
 
@@ -20,35 +20,35 @@ var Calendar = function (model, date) {
 };
 
 function createCalendar(calendar, element, adjuster) {
-    if (typeof adjuster !== 'undefined') {
+    if (typeof adjuster !== "undefined") {
         var newDate = new Date(calendar.Selected.Year, calendar.Selected.Month + adjuster, 1);
         calendar = new Calendar(calendar.Model, newDate);
-        element.innerHTML = '';
+        element.innerHTML = "";
     }
 
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    var mainSection = document.createElement('div');
+    var mainSection = document.createElement("div");
     mainSection.className += "cld-main";
 
     function AddDateTime() {
-        var datetime = document.createElement('div');
+        var datetime = document.createElement("div");
         datetime.className += "cld-datetime";
         // prev month button
-        var rwd = document.createElement('div');
+        var rwd = document.createElement("div");
         rwd.className += " cld-rwd cld-nav";
-        rwd.addEventListener('click', function () { createCalendar(calendar, element, -1); });
+        rwd.addEventListener("click", function () { createCalendar(calendar, element, -1); });
         rwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,50 75,0 75,100"></polyline></svg>';
         datetime.appendChild(rwd);
         // shows today's date above
-        var today = document.createElement('div');
-        today.className += ' today';
+        var today = document.createElement("div");
+        today.className += " today";
         today.innerHTML = months[calendar.Selected.Month] + ", " + calendar.Selected.Year;
         datetime.appendChild(today);
         // next month button
-        var fwd = document.createElement('div');
+        var fwd = document.createElement("div");
         fwd.className += " cld-fwd cld-nav";
-        fwd.addEventListener('click', function () { createCalendar(calendar, element, 1); });
+        fwd.addEventListener("click", function () { createCalendar(calendar, element, 1); });
         fwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,0 75,50 0,100"></polyline></svg>';
         datetime.appendChild(fwd);
         // append nav bar on top
@@ -56,11 +56,11 @@ function createCalendar(calendar, element, adjuster) {
     }
 
     function AddLabels() {
-        var labels = document.createElement('ul');
-        labels.className = 'cld-labels';
+        var labels = document.createElement("ul");
+        labels.className = "cld-labels";
         var labelsList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         for (var i = 0; i < labelsList.length; i++) {
-            var label = document.createElement('li');
+            var label = document.createElement("li");
             label.className += "cld-label";
             label.innerHTML = labelsList[i];
             labels.appendChild(label);
@@ -71,16 +71,16 @@ function createCalendar(calendar, element, adjuster) {
     function AddDays() {
         // Create Number Element
         function DayNumber(n) {
-            var number = document.createElement('p');
+            var number = document.createElement("p");
             number.className += "cld-number";
             number.innerHTML += n;
             return number;
         }
-        var days = document.createElement('ul');
+        var days = document.createElement("ul");
         days.className += "cld-days";
         // Previous Month's Days
         for (var i = 0; i < (calendar.Selected.FirstDay); i++) {
-            var day = document.createElement('li');
+            var day = document.createElement("li");
             day.className += "cld-day prevMonth";
 
             var number = DayNumber((calendar.Prev.Days - calendar.Selected.FirstDay) + (i + 1));
@@ -89,25 +89,25 @@ function createCalendar(calendar, element, adjuster) {
             days.appendChild(day);
         }
         // Current Month's Days
-        for (var i = 0; i < calendar.Selected.Days; i++) {
-            var day = document.createElement('li');
+        for (i = 0; i < calendar.Selected.Days; i++) {
+            day = document.createElement("li");
             day.className += "cld-day currMonth";
 
-            var number = DayNumber(i + 1);
+            number = DayNumber(i + 1);
             // Check Date against Event Dates
             for (var n = 0; n < calendar.Model.length; n++) {
                 var evDate = calendar.Model[n].Date;
                 var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month, (i + 1));
                 if (evDate.getTime() == toDate.getTime()) {
                     number.className += " eventday";
-                    var title = document.createElement('span');
+                    var title = document.createElement("span");
                     title.className += "cld-title";
-                    if (typeof calendar.Model[n].Link == 'function') {
-                        var a = document.createElement('a');
-                        a.setAttribute('href', '#');
+                    if (typeof calendar.Model[n].Link == "function") {
+                        var a = document.createElement("a");
+                        a.setAttribute("href", "#");
                         a.innerHTML += calendar.Model[n].Title;
 
-                        a.addEventListener('click', calendar.Model[n].Link);
+                        a.addEventListener("click", calendar.Model[n].Link);
 
                         title.appendChild(a);
                     } else {
@@ -129,11 +129,11 @@ function createCalendar(calendar, element, adjuster) {
         if (days.children.length > 35) { extraDays = 6; }
         else if (days.children.length < 29) { extraDays = 20; }
 
-        for (var i = 0; i < (extraDays - calendar.Selected.LastDay); i++) {
-            var day = document.createElement('li');
+        for (i = 0; i < (extraDays - calendar.Selected.LastDay); i++) {
+            day = document.createElement("li");
             day.className += "cld-day nextMonth";
 
-            var number = DayNumber(i + 1);
+            number = DayNumber(i + 1);
             day.appendChild(number);
 
             days.appendChild(day);

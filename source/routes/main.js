@@ -6,7 +6,7 @@
  */
 const express = require("express");
 const router = express.Router();
-const { ensureAuth } = require('../middleware/auth');
+const { ensureAuth } = require("../middleware/auth");
 const secret = require("../config/secret");
 const Journal = require("../models/Journal");
 const Page = require("../models/Page");
@@ -16,7 +16,7 @@ const { getDecryptedJournals, getDecryptedJournal, getDecryptedPage } = require(
 // @desc     /main
 // @desc responds with a list of all journals belonging to the user (json)
 // @route GET
-router.get('/', ensureAuth, async (req, res) => {
+router.get("/", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
         let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
@@ -24,7 +24,7 @@ router.get('/', ensureAuth, async (req, res) => {
 
         // responding to get request with journals
         //res.json(decryptedJournals);
-        res.render('main', { journals: decryptedJournals });
+        res.render("main", { journals: decryptedJournals });
     } catch (err) {
         console.log(err);
         // TODO: determine what to return in the event an invalid fetch is created
@@ -33,7 +33,7 @@ router.get('/', ensureAuth, async (req, res) => {
 
 // @desc responds with a list of all journals belonging to the user (json)
 // @route GET
-router.get('/journals', ensureAuth, async (req, res) => {
+router.get("/journals", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
         let encryptedJournals = await Journal.find({ googleId: req.user.googleId }).lean();
@@ -50,7 +50,7 @@ router.get('/journals', ensureAuth, async (req, res) => {
 // @desc /main/journal/:id
 // @desc get a specific journal from its id
 // @route GET
-router.get('/journal/:id', ensureAuth, async (req, res) => {
+router.get("/journal/:id", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
         let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
@@ -63,9 +63,9 @@ router.get('/journal/:id', ensureAuth, async (req, res) => {
         // responding to get request with journal
         console.log(decryptedJournal);
         //res.json(decryptedJournal);
-        res.render("journalView", {journal: decryptedJournal, journals: decryptedJournals})
+        res.render("journalView", {journal: decryptedJournal, journals: decryptedJournals});
     } catch (err) {
-        console.log(err)
+        console.log(err);
         // TODO: determine what to return in the event an invalid fetch is created
     }
 });
@@ -73,7 +73,7 @@ router.get('/journal/:id', ensureAuth, async (req, res) => {
 
 // @desc gets the pages of a specific journal
 // @route GET
-router.get('/:id/pages', ensureAuth, async (req,res) => {
+router.get("/:id/pages", ensureAuth, async (req,res) => {
     try {
         // getting journal to get pages
         let encryptedJournal = await Journal.findOne({ googleId: req.user.googleId, _id: req.params.id }).lean();
@@ -107,7 +107,7 @@ router.get('/:id/pages', ensureAuth, async (req,res) => {
 
 // @desc Get a specific page from a specific journal
 // @route GET
-router.get('/page/:id', ensureAuth, async (req, res) => {
+router.get("/page/:id", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
         let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
@@ -130,7 +130,7 @@ router.get('/page/:id', ensureAuth, async (req, res) => {
 
 // @desc Get a specific daily from its id
 // @route GET
-router.get('/daily/:id', async (req, res) => {
+router.get("/daily/:id", async (req, res) => {
     try {
         // getting daily
         let encryptedDaily = await Daily.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -154,7 +154,7 @@ router.get('/daily/:id', async (req, res) => {
 
 // @desc Get a specific daily by month-date-year
 // @route GET
-router.get('/daily/:month/:date/:year', ensureAuth, async (req, res) => {
+router.get("/daily/:month/:date/:year", ensureAuth, async (req, res) => {
     try {
         let { month, date, year } = req.params;
 
@@ -181,7 +181,7 @@ router.get('/daily/:month/:date/:year', ensureAuth, async (req, res) => {
 
 // @desc Gets all dailies based on month and year
 // @route GET
-router.get('/daily/:month/:year', ensureAuth, async (req, res) => {
+router.get("/daily/:month/:year", ensureAuth, async (req, res) => {
     try {
         let { month, year } = req.params;
 
@@ -215,7 +215,7 @@ router.get('/daily/:month/:year', ensureAuth, async (req, res) => {
 // @desc /main/journal
 // @desc creates a new journal from a post request
 // @route POST
-router.post('/journal', ensureAuth, async (req, res) => {
+router.post("/journal", ensureAuth, async (req, res) => {
     try {
         // creating a new journal with empty pages
         let newJournal = {
@@ -223,7 +223,7 @@ router.post('/journal', ensureAuth, async (req, res) => {
             googleId: req.user.googleId,
             pages: [],
             pageIds: []
-        }
+        };
         
         // adding new journal to database
         await Journal.create(newJournal);
@@ -238,7 +238,7 @@ router.post('/journal', ensureAuth, async (req, res) => {
 
 // @desc creates a page in the specified journal from a post request
 // @route POST
-router.post('/post/journal/:id', ensureAuth, async (req, res) => {
+router.post("/post/journal/:id", ensureAuth, async (req, res) => {
     try {
         // getting journal by id
         let encryptedJournal = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -253,7 +253,7 @@ router.post('/post/journal/:id', ensureAuth, async (req, res) => {
             journalId: req.params.id,
             lastModified: new Date(),
             content: secret.encrypt(req.body.content)
-        }
+        };
 
         if (encryptedJournal) {
             // adding new page to database
@@ -283,11 +283,11 @@ router.post('/post/journal/:id', ensureAuth, async (req, res) => {
 
 // @desc Creates a new daily object
 // @route POST
-router.post('/daily', async (req, res) => {
+router.post("/daily", async (req, res) => {
     try {
         let logDate = new Date(req.body.dateObj);
 
-        let detailsStr = logDate.toString().split(' ').slice(0,4);
+        let detailsStr = logDate.toString().split(" ").slice(0,4);
 
         // creating new daily
         let newDaily = {
@@ -311,7 +311,7 @@ router.post('/daily', async (req, res) => {
 
 // @desc Updates a page given its id
 // @route PUT
-router.put('/page/:id', async (req, res) => {
+router.put("/page/:id", async (req, res) => {
     try {
         // getting the encrypted page
         let encryptedPage = await Page.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -355,7 +355,7 @@ router.put('/page/:id', async (req, res) => {
 
 // @desc Updates a daily given its _id
 // @route PUT
-router.put('/daily/:id', async (req, res) => {
+router.put("/daily/:id", async (req, res) => {
     try {
         let toUpdate = await Daily.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
 
@@ -374,9 +374,9 @@ router.put('/daily/:id', async (req, res) => {
 
 // @desc Deletes a journal given its _id
 // @route DELETE
-router.delete('/journal/:id', ensureAuth, async (req, res) => {
+router.delete("/journal/:id", ensureAuth, async (req, res) => {
     try {
-        console.log('start deleting a journal');
+        console.log("start deleting a journal");
         
         // getting the journal to delete
         let toDelete = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -405,11 +405,11 @@ router.delete('/journal/:id', ensureAuth, async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-})
+});
 
 // @desc Deletes a page given its _id
 // @route DELETE
-router.delete('/page/:id', ensureAuth, async (req, res) => {
+router.delete("/page/:id", ensureAuth, async (req, res) => {
     try {
         // getting page to delete
         let toDelete = await Page.findOne({googleId: req.user.googleId, _id: req.params.id});
@@ -446,16 +446,16 @@ router.delete('/page/:id', ensureAuth, async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-})
+});
 
 // @desc Deletes a daily given its _id
 // @route DELETE
-router.delete('/daily/:id', ensureAuth, async (req, res) => {
+router.delete("/daily/:id", ensureAuth, async (req, res) => {
     try {
         let deleted = await Daily.deleteOne({googleId: req.user.googleId, _id: req.params.id});
         
         if (deleted) {
-            console.log('Deleted daily');
+            console.log("Deleted daily");
             res.status(200).end();
         } else {
             res.status(400).end();
@@ -463,17 +463,17 @@ router.delete('/daily/:id', ensureAuth, async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-})
+});
 
 // @desc Deletes a daily given the month-date-year
 // @route DELETE
-router.delete('/daily/:month/:date/:year', ensureAuth, async (req, res) => {
+router.delete("/daily/:month/:date/:year", ensureAuth, async (req, res) => {
     try {
         let { month, date, year } = req.params;
         let deleted = await Daily.deleteOne({ googleId: req.user.googleId, month, date, year});
 
         if (deleted) {
-            console.log('Deleted daily');
+            console.log("Deleted daily");
             res.status(200).end();
         } else {
             res.status(400).end();
@@ -481,10 +481,10 @@ router.delete('/daily/:month/:date/:year', ensureAuth, async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-})
+});
 
 // add journal
-router.get('/add/journal', ensureAuth, async (req, res) => {
+router.get("/add/journal", ensureAuth, async (req, res) => {
     // getting all users journals with googleId and calling lean to turn them into json
     let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
     let decryptedJournals = getDecryptedJournals(encryptedJournals);
@@ -493,7 +493,7 @@ router.get('/add/journal', ensureAuth, async (req, res) => {
 });
 
 // add page to a specific journal
-router.get('/add/:journalId/page', ensureAuth, async (req, res) => {
+router.get("/add/:journalId/page", ensureAuth, async (req, res) => {
     // getting all users journals with googleId and calling lean to turn them into json
     let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
     let decryptedJournals = getDecryptedJournals(encryptedJournals);
