@@ -3,7 +3,7 @@
  * @author: Group 14 (workflow)
  */
 
-/* global describe, beforeAll, it, $ */
+/* global describe, beforeAll, it, page, browser */
 
 describe("Puppeteer Test", () => {
     const puppeteer = require("puppeteer");
@@ -25,8 +25,6 @@ describe("Puppeteer Test", () => {
     // placeholder test 2
     it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
         await page.click("img[alt=GitHub]");
-        expect(page.url()).toMatch("https://github.com/");
-        
-        //await browser.close();
+        expect(await page.url()).toMatch("https://github.com/");
     });
 });
