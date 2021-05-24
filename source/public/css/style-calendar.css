@@ -1,8 +1,10 @@
 /*top nav bar*/
+
 .menuBar {
   text-align: center;
   border-color: black;
   border-style: solid;
+  background-color: #97ddfb;
 }
 
 .menuBar ul {
