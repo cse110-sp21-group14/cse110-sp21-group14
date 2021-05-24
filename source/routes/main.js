@@ -12,7 +12,6 @@ const Journal = require("../models/Journal");
 const Page = require("../models/Page");
 const Daily = require("../models/Daily");
 const edjsHTML = require("editorjs-html");
-const edjsParser = edjsHTML();
 const { getDecryptedJournals, getDecryptedJournal, getDecryptedPage } = require("../config/decrypt");
 
 // @desc     /main
