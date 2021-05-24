@@ -9,8 +9,6 @@ describe("Puppeteer Test", () => {
     const puppeteer = require("puppeteer");
     // route to page
     beforeAll(async () => {
-        browser = await puppeteer.launch();
-        page = await browser.newPage();
         await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
         await page.waitForTimeout(500);
     });
