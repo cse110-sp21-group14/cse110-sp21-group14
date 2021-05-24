@@ -6,7 +6,7 @@ var Calendar = function (model, date) {
     this.Selected = this.Today;
     this.Today.Month = this.Today.getMonth();
     this.Today.Year = this.Today.getFullYear();
-    if (date) { this.Selected = date };
+    if (date) { this.Selected = date; }
     this.Selected.Month = this.Selected.getMonth();
     this.Selected.Year = this.Selected.getFullYear();
 
@@ -38,7 +38,7 @@ function createCalendar(calendar, element, adjuster) {
         var rwd = document.createElement("div");
         rwd.className += " cld-rwd cld-nav";
         rwd.addEventListener("click", function () { createCalendar(calendar, element, -1); });
-        rwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,50 75,0 75,100"></polyline></svg>';
+        rwd.innerHTML = `<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,50 75,0 75,100"></polyline></svg>`;
         datetime.appendChild(rwd);
         // shows today's date above
         var today = document.createElement("div");
@@ -49,7 +49,7 @@ function createCalendar(calendar, element, adjuster) {
         var fwd = document.createElement("div");
         fwd.className += " cld-fwd cld-nav";
         fwd.addEventListener("click", function () { createCalendar(calendar, element, 1); });
-        fwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,0 75,50 0,100"></polyline></svg>';
+        fwd.innerHTML = `<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,0 75,50 0,100"></polyline></svg>`;
         datetime.appendChild(fwd);
         // append nav bar on top
         mainSection.appendChild(datetime);
@@ -111,7 +111,7 @@ function createCalendar(calendar, element, adjuster) {
 
                         title.appendChild(a);
                     } else {
-                        title.innerHTML += '<a href="' + calendar.Model[n].Link + '">' + calendar.Model[n].Title + '</a>';
+                        title.innerHTML += `<a href="` + calendar.Model[n].Link + `">` + calendar.Model[n].Title + `</a>`;
                     }
                     number.appendChild(title);
                 }
@@ -148,7 +148,20 @@ function createCalendar(calendar, element, adjuster) {
     AddDays();
 }
 
+
 function calendar(el, data) {
     var obj = new Calendar(data);
     createCalendar(obj, el);
 }
+
+
+// ===========
+// calendar-demo.js
+var events = [
+    { "Date": new Date(2021, 4, 7), "Title": "Today is my birthday.", "Link": "path/to/task/on/page/view/" },
+    { "Date": new Date(2021, 4, 18), "Title": "CSE110 final project is due", "Link": "https://www.google.com/" },
+    { "Date": new Date(2021, 4, 22), "Title": "Give me a task", "Link": "https://www.google.com/" },
+];
+// create calendar
+var element = document.getElementById("calendar");
+calendar(element, events);
