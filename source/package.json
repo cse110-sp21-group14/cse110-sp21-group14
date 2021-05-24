@@ -5,13 +5,17 @@
   "main": "server.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node server",
-    "dev": "cross-env NODE_ENV=development nodemon server"
+    "dev": "cross-env NODE_ENV=development nodemon server",
+    "test": "jest"
   },
   "author": "Group 14",
   "license": "ISC",
   "devDependencies": {
     "underscore": ">=1.12.1",
     "cross-env": "^7.0.3",
+    "eslint": "^7.26.0",
+    "jest": "^26.6.3",
+    "jsdoc-to-markdown": "^7.0.1",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
@@ -27,5 +31,16 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0"
-  }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "eslintIgnore": [
+    "./documentation/scripts/linenumber.js",
+    "./documentation/scripts/prettify/lang-css.js",
+    "./documentation/scripts/prettify/prettify.js"
+  ]
 }

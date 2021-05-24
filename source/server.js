@@ -1,4 +1,4 @@
-/**
+/*
  * Filename: server.js
  * Author: Group 14
  * Purpose: This script will be the main script responsible with hosting the
@@ -17,10 +17,10 @@ const methodOverride = require('method-override');
 
 
 
-dotenv.config({ path: './config/config.env' });    // load config.env
+dotenv.config({ path: "./config/config.env" });    // load config.env
 
 
-require('./config/passport')(passport);            // passport config
+require("./config/passport")(passport);            // passport config
 
 
 connectDB();
@@ -28,32 +28,33 @@ connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 3000;            // process.env navigates variables in config.env
-                                                  // run in localhost:3000 if there is no PORT variable defined in config.env
+// run in localhost:3000 if there is no PORT variable defined in config.env
 
 
-if(process.env.NODE_ENV === 'development'){       // display cur operation in the console
-    app.use(morgan('dev'));
+if(process.env.NODE_ENV === "development"){       // display cur operation in the console
+    app.use(morgan("dev"));
 }
 
 // Handlebars
-app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }));
-                                                  // set '.hbs' as handlebars' extension
-                                                  // set default layout as 'main' (views/layouts/main.hbs)
-app.set('view engine', '.hbs'); 
+app.engine(".hbs", exphbs({ defaultLayout: "main", extname: "hbs" }));
+// set ".hbs" as handlebars" extension
+// set default layout as "main" (views/layouts/main.hbs)
+
+app.set("view engine", ".hbs"); 
 
 
-app.use(express.static(path.join(__dirname + '/public')));
+app.use(express.static(path.join(__dirname + "/public")));
 
 
 
 
 // Sessions
 app.use(session({
-    secret: 'keyboard cat',
+    secret: "keyboard cat",
     resave: false,                  // don't want to save a session if nothing is modified
     saveUninitialized: false,       // don't create a session until something is stored
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
-}))
+}));
 
 
 //Passport middleware
@@ -86,4 +87,5 @@ app.use('/calendar', require('./routes/calendar'));
 
 app.listen(
     PORT,
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`))
+    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+);

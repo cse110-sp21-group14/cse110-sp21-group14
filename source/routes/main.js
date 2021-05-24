@@ -4,7 +4,7 @@
  * Date: May 23th
  * Purpose: This script runs on the back end (server) to route the main page + handlebars
  */
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const { ensureAuth } = require('../middleware/auth');
 const secret = require("../config/secret");
