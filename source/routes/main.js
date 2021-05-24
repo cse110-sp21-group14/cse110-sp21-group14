@@ -243,6 +243,7 @@ router.post("/post/journal/:id", ensureAuth, async (req, res) => {
         // getting journal by id
         let encryptedJournal = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
 
+        console.log(req.body);
         // encrypting title of page
         let encryptedTitle = secret.encrypt(req.body.title);
 

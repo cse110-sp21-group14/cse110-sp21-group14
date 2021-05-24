@@ -7,8 +7,6 @@
  */
 
 let journals = Array.from(document.getElementsByClassName("journal-item"));
-console.log(journals);
-console.log("=======");
 
 journals.forEach(function (journal) {
     let spanSelector = journal.querySelector("span");

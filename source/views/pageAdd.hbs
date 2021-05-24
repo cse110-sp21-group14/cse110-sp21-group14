@@ -3,25 +3,35 @@
     Date: May 23th
     HTML for add page screen
 -->
-<link rel="stylesheet" href="../public/css/style-pageAdd.css">
+<link rel="stylesheet" href="/css/style-pageAdd.css">
+
 
 <!--Side nav bar-->
         
 <h1>Add a New Page</h1>
-<form action="/main/post/journal/{{journal.journalId}}" method="POST">
-    <div id="layerOne">
-        <label id="titleLabel" for="title">Page Title:</label>
-        <input id="title" name="title" type="text">
-    </div><br>
-    <section id="layerTwo">
-        <label id="journalType">Journal Title:</label> <b>{{journal.title}}</b><br>
-    </section>
-    <section id="layerThree">
-        <label id="contentLabel" for="content">Content:</label>
-        <textarea id="content" name="content"></textarea>
-    </section>
-    <section id="layerFour">
-        <input type="submit" value="Add">
-        <button><a href="/main">Cancel</a></button>
-    </section>
-</form>
+<div class="newPageWrapper">
+    <form class="newPage" action="/main/post/journal/{{journal.journalId}}" method="POST">
+        <section class="layerOne">
+            <label id="titleLabel" for="title">Page Title:</label>
+            <input id="title" name="title" type="text">
+        </section>
+        <section class="layerTwo">
+            <label id="journalType">Journal Title:</label> <b>{{journal.title}}</b><br>
+        </section>
+        <section class="layerThree">
+            <div><label id="contentLabel" for="content">Content:</label></div>
+            <!--<input id="content" name="content" type="hidden">-->
+            <div id="editorjs"></div>
+            
+        </section>
+        <section class="layerFour">
+            <!-- <input type="submit" value="Add" class="addButton"> -->
+            <button class="addButton">Add</button> <br>
+            <button><a href="/main">Cancel</a></button>
+        </section>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/nested-list@latest"></script>
+<script src="/scripts/editor/index.js"></script>
