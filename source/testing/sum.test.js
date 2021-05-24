@@ -1,6 +1,6 @@
 /**
  * @file Temporary file for testing integration of jest
- * @author: Group 14 (workflow)
+ * @author Group 14 (workflow)
  */
 const sum = require("../config/sum");
 
