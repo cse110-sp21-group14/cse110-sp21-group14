@@ -30,7 +30,10 @@
         "quotes": [
             2,
             "double",
-            { "avoidEscape": true }
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
         ],
         "semi": [
             "error",
