@@ -22,7 +22,8 @@ jobs:
       - name: Convert output to markdown
         run: |
           npm install --save-dev jsdoc-to-markdown
-          npx jsdoc2md ./source/* > "./source/documentation/JSDocumentation.md"
+          npx jsdoc2md ./source/* > ./source/documentation/JSDocumentation.md
+          npx jsdoc2md ./source/*
 
       # - name: Deploy documentation to Github wiki
       #  uses: SwiftDocOrg/github-wiki-publish-action@v1
