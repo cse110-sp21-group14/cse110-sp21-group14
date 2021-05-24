@@ -22,6 +22,8 @@ describe("Puppeteer Test", () => {
     // placeholder test 2
     it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
         await page.click("img[alt=GitHub]");
-        expect(await page.url()).toMatch("https://github.com/");
+        let expected = "https://github.com/";
+        let actual = page.url();
+        expect(actual).toMatch(expected);
     });
 });
