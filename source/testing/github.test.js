@@ -4,17 +4,15 @@
  */
 
 /* global describe, beforeAll, it, $ */
-const puppeteer = require("puppeteer");
-var browser;
-var page;
 
 describe("Puppeteer Test", () => {
+    const puppeteer = require("puppeteer");
     // route to page
     beforeAll(async () => {
         browser = await puppeteer.launch();
         page = await browser.newPage();
-
         await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
+        await page.waitForTimeout(500);
     });
 
     // placeholder test 1
@@ -28,6 +26,7 @@ describe("Puppeteer Test", () => {
     it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
         await page.click("img[alt=GitHub]");
         expect(page.url()).toMatch("https://github.com/");
-        browser.close();
+        
+        //await browser.close();
     });
 });
