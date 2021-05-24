@@ -11,6 +11,8 @@ const secret = require("../config/secret");
 const Journal = require("../models/Journal");
 const Page = require("../models/Page");
 const Daily = require("../models/Daily");
+const edjsHTML = require("editorjs-html");
+const edjsParser = edjsHTML();
 const { getDecryptedJournals, getDecryptedJournal, getDecryptedPage } = require("../config/decrypt");
 
 // @desc     /main
@@ -130,7 +132,7 @@ router.get("/page/:id", ensureAuth, async (req, res) => {
 
 // @desc Get a specific daily from its id
 // @route GET
-router.get("/daily/:id", async (req, res) => {
+router.get("/daily/:id", ensureAuth, async (req, res) => {
     try {
         // getting daily
         let encryptedDaily = await Daily.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -284,7 +286,7 @@ router.post("/post/journal/:id", ensureAuth, async (req, res) => {
 
 // @desc Creates a new daily object
 // @route POST
-router.post("/daily", async (req, res) => {
+router.post("/daily", ensureAuth, async (req, res) => {
     try {
         let logDate = new Date(req.body.dateObj);
 
@@ -312,7 +314,7 @@ router.post("/daily", async (req, res) => {
 
 // @desc Updates a page given its id
 // @route PUT
-router.put("/page/:id", async (req, res) => {
+router.put("/page/:id", ensureAuth, async (req, res) => {
     try {
         // getting the encrypted page
         let encryptedPage = await Page.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -356,7 +358,7 @@ router.put("/page/:id", async (req, res) => {
 
 // @desc Updates a daily given its _id
 // @route PUT
-router.put("/daily/:id", async (req, res) => {
+router.put("/daily/:id", ensureAuth, async (req, res) => {
     try {
         let toUpdate = await Daily.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
 
@@ -505,5 +507,14 @@ router.get("/add/:journalId/page", ensureAuth, async (req, res) => {
 
     res.render("pageAdd", {journal: decryptedJournal, journals: decryptedJournals});
 });
+
+
+
+router.post("/test", ensureAuth, async (req, res) => {
+    console.log(req.body);
+    const html = edjsParser.parse(req.body);
+    console.log(html);
+})
+
 
 module.exports = router;

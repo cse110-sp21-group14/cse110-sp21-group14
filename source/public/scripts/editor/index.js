@@ -92,7 +92,6 @@ var addButton = document.querySelector(".addButton");
 addButton.addEventListener("click", async (event) => {
     event.preventDefault();
     editor.save().then((text) => {
-        console.log("Data: ", text);
         console.log(text);
 
         const formSelector = document.querySelector(".newPage");
@@ -101,11 +100,18 @@ addButton.addEventListener("click", async (event) => {
         hiddenContent.type = "hidden";
         hiddenContent.name = "content";
         hiddenContent.id = "content";
-        hiddenContent.value = text;
+        hiddenContent.value = JSON.stringify(text);
 
         formSelector.appendChild(hiddenContent);
 
-        console.log(formSelector.action);
+    /*    let toPost = text; // object you want to POST goes here (follow object schema)
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/main/test", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send( JSON.stringify(toPost) );
+*/
+
+        //console.log(formSelector.action);
 
         formSelector.submit();
 
