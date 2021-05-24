@@ -2,64 +2,52 @@
     Author: Jun, Kevin, Hugo, Tony
 */
 
-
-
-
 /*entry*/
-.newPageWrapper {
-    grid-area: newPageWrapper;
-    background: #B7F9B5;
-    border-radius: 10px;
-    margin-top: 1vh;
-    margin-left: 1vh;
-}
-
 .newPage{
     display: block;
     margin: auto;
     min-width: 50vw;
-    width: 75%;
+    width: 85%;
     border: 1px solid #FEFFDE;
     border-radius: 10px;
     min-height: 71vh;
     height: 80%;
     background: #FEFFDE;
+    font-family: 'Mukta', sans-serif;
 }
 
 .layerOne{
-    min-width: 50vw;
+    min-width: 45vw;
     display: block;
-    margin-left: 5vw;
-    margin-right: 8vw;
-    margin-top: 5vh;
+    margin-left: 50px;
+    margin-top: 2vh;
     margin-bottom: 1.5vh;
 }
 
 #titleLabel{
     width: 7vw;
     height: 3.5vh;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 3vh;
-    line-height: 3.5vh;
+    font-size: 2vh;
+    line-height: 3vh;
     margin-right: 3vw;
+    font-family: 'Mukta', sans-serif;
 }
 
 #title{
+    font-family: 'Mukta', sans-serif;
     min-width: 35vw;
     width: auto;
-    height: 6vh;
+    height: 3vh;
     background: #F6E6CB;
     border: 1px solid #FEFFDE;
     border-radius: 10px;
-    font-size: 3vh;
+    font-size: 2vh;
     line-height: 3.5vh;
 }
 
 .layerTwo{
     display: block;
-    margin-left: 5vw;
+    margin-left: 50px;
     margin-bottom: 1.5vw;
 }
 
@@ -67,21 +55,25 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 3vh;
+    font-size: 2vh;
     line-height: 3.5vh;
+    font-family: 'Mukta', sans-serif;
 }
 
 .layerThree{
     display: block;
-    margin-left: 5vw;
+    margin-left: 50px;
     margin-right: 1.5vw;
+    font-family: 'Mukta', sans-serif;
+    
 }
 
 #contentLabel{
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 3vh;
+    font-size: 2vh;
+    font-family: 'Mukta', sans-serif;
     line-height: 3.5vh;
 }
 
@@ -90,17 +82,18 @@
     min-width: 39vw;
     background: #F6E6CB;
     border-radius: 10px; 
-    width: 80%;
+    width: 90%;
     max-height: 38.8vh;
     border: 1px solid #FEFFDE;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 3vh;
+    font-size: 1.5vh;
     line-height: 3.6vh;
     resize: none;
     padding: 1vw;
     overflow: scroll;
+    font-family: 'Mukta', sans-serif;
 }
 
 .layerFour{
@@ -110,16 +103,18 @@
     
 }
 
-.layerFour .btn{
-    width: 10vw;
-    height: 4.5vh;
+
+.layerFour button{
+    width: 150px;
+    height: 44px;
     background: #E1F1DD;
     border-radius: 10px;
     border: 1px solid #FEFFDE; 
     font-style: normal;
     font-weight: normal;
-    font-size: 3vh;
-    line-height: 3.6vh;
+    font-size: 2vh;
+    line-height: 35px;
+    font-family: 'Mukta', sans-serif;
 }
 
 .cdx-marker {

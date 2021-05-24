@@ -4,7 +4,8 @@
     HTML for add page screen
 -->
 <link rel="stylesheet" href="/css/style-pageAdd.css">
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap" rel="stylesheet">
 
 <!--Side nav bar-->
         
@@ -16,7 +17,7 @@
             <input id="title" name="title" type="text">
         </section>
         <section class="layerTwo">
-            <label id="journalType">Journal Title:</label> <b>{{journal.title}}</b><br>
+            <label id="journalType">Journal Title: {{journal.title}}</label>
         </section>
         <section class="layerThree">
             <div><label id="contentLabel" for="content">Content:</label></div>
@@ -26,7 +27,7 @@
         </section>
         <section class="layerFour">
             <!-- <input type="submit" value="Add" class="addButton"> -->
-            <button class="addButton">Add</button> <br>
+            <button class="addButton"><a href="#">Add</a> </button> <br>
             <button><a href="/main">Cancel</a></button>
         </section>
     </form>

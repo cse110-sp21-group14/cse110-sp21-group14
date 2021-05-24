@@ -6,60 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style-layout-main.css">
     <script src="/scripts/script-main.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap" rel="stylesheet">
     <title>Bullet Journal</title>
 </head>
 
 <body>
-    <div class="menuBar">
+   <!--  <div class="menuBar">
         <ul>
             <li><a href="/main">My Journal</a></li>
             <li><a href="/calendar">My Calendar</a></li>
-      <!--      <li><a href="#">Week View</a></li>
-            <li><a href="#">Day View</a></li> -->
+            <li><a href="#">Week View</a></li>
+            <li><a href="#">Day View</a></li> 
             <li><a href="#">My Settings</a></li>
             <li><a href="/auth/logout">Sign Out</a></li>
         </ul>
-    </div>
-    <div class="flexbox-container">
-    <div class="flexbox-item sidebar">
-        <ul class="journals addDelete">
-            <li><button><a href="/main/add/journal">Add Journal</a></button></li>
-            <li><button>Delete</button></li>
-        </ul><br>
-        {{#each journals}}
+    </div> -->
+
+    <div class="container">
+        <!-- Top nav bar-->
+        <div class="menuBar">
+            <ul>
+                <li class="menuItem" ><a href="/main">My Journal</a></li>
+                <li class="menuItem" ><a href="/calendar">My Calendar</a></li>
+                <li class="menuItem" ><a href="#">My Settings</a></li>
+                <li class="signOut"><a href="/auth/logout">Sign Out</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar">
+            <div class="search">
+               <input style="font-family: 'Mukta', sans-serif;" type="text">
+            </div>
+
+            <button class="buttonAdd" >Add</button>
+            {{#each journals}}
             <div class="journal-item">
-                <button><span>&#9662;</span></button> <a href="/main/journal/{{journalId}}">{{title}}</a>
-                <button><a href="/main/add/{{journalId}}/page">Add Page</a></button>
+                <button><span>&#9662;</span></button> 
+                <a href="/main/journal/{{journalId}}" >{{title}}</a>
+                <button><a href="/main/add/{{journalId}}/page" style="float: right;  width: 75px">Add Page</a></button>
+                <button type="submit" style="float: right; width: 75px">Delete</button>
+                
                 <form action="/main/journal/{{journalId}}" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit">Delete</button>
                 </form>
                 
                 <ul>
                     {{#each pages}}
-                        <li><a href="/main/page/{{pageId}}">{{pageTitle}}</a></li>
-                        <form action="/main/page/{{pageId}}" method="POST">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit">Delete</button>
-                        </form>
+                        
+                        <li>
+                            <ul class="journal-item-details">
+                                <li><a href="/main/page/{{pageId}}">{{pageTitle}}</a></li>
+                                <li><form action="/main/page/{{pageId}}" method="POST" >
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit">Delete</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        
                     {{/each}}
                 </ul>
                 <br><br>
             </div>
-        {{/each}}
-        <!-- <div class="search">
-            <input type="text">
+            {{/each}}
         </div>
-        
-        <div class="buttons">
-            <button>Add</button>
-            <button>Delete</button>
-        </div> -->
+        <div class="viewarea">
+            <!-- <p>test</p> -->
+            {{{body}}}
+        </div>
     </div>
-    <div class="flexbox-item viewarea">
-       <!-- <p>test</p> -->
-       {{{body}}}
-    </div>
-</div>
 </body>
 </html>
