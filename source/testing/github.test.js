@@ -3,10 +3,9 @@
  * @author: Group 14 (workflow)
  */
 
-/* global describe, beforeAll, it, page, browser */
+/* global describe, beforeAll, it, page */
 
 describe("Puppeteer Test", () => {
-    const puppeteer = require("puppeteer");
     // route to page
     beforeAll(async () => {
         await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
