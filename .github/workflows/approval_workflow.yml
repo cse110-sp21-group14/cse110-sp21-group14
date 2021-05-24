@@ -21,8 +21,8 @@ jobs:
 
       - name: Convert output to markdown
         run: |
-          npm install --save-dev jsdoc-to-markdown --prefix ./source
           cd ./source
+          npm install --save-dev jsdoc-to-markdown
           jsdoc2md ./* > "./documentation/JSDocumentation.md"
           cd ..
 
