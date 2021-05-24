@@ -7,4 +7,10 @@
 <h1>Page View</h1><br>
 <b>Page Title:</b> {{page.title}}<br>
 <b>Last Modified:</b> {{page.lastModified}}<br>
-<b>Content:</b> {{page.content}}
+<b>Content:</b> <br>
+
+{{#each page.content as |item|}}
+    /*var text = {{{item}}}.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    contentSelector.innerHTML += text;*/
+    {{{item}}};
+{{/each}}*/
