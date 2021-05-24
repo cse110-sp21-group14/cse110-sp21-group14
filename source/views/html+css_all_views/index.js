@@ -13,7 +13,7 @@ class MarkerTool {
         this._state = state;
 
         this.button.classList.toggle(this.api.styles.inlineToolButtonActive, 
-        state);
+            state);
     }
 
     constructor({api}) {
