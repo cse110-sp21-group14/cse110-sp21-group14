@@ -6,8 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node server",
     "dev": "cross-env NODE_ENV=development nodemon server",
-    "test": "jest",
-    "docs": "jsdocs2md ./* > \"./documentation/JSDocumentation.md\""
+    "test": "jest"
   },
   "author": "Group 14",
   "license": "ISC",
