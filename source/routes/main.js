@@ -11,7 +11,6 @@ const secret = require("../config/secret");
 const Journal = require("../models/Journal");
 const Page = require("../models/Page");
 const Daily = require("../models/Daily");
-const edjsHTML = require("editorjs-html");
 const { getDecryptedJournals, getDecryptedJournal, getDecryptedPage } = require("../config/decrypt");
 
 // @desc     /main
