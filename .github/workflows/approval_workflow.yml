@@ -16,7 +16,7 @@ jobs:
         with:
           source_dir: ./source
           recurse: true
-          output_dir: ./source/documentation
+          output_dir: ./source/documentation/JSDocs
           template: minami
 
       - name: Convert output to markdown
