@@ -2,7 +2,7 @@
 class MarkerTool {
 
     static get isInline() {
-          return true;
+        return true;
     }
 
     get state() {
@@ -13,7 +13,7 @@ class MarkerTool {
         this._state = state;
 
         this.button.classList.toggle(this.api.styles.inlineToolButtonActive, 
-          state);
+        state);
     }
 
     constructor({api}) {
@@ -37,8 +37,8 @@ class MarkerTool {
     surround(range) {
         if(this.state) {
             this.unwrap(range);
-        return;
-    }
+            return;
+        }
 
         this.wrap(range);
     }
@@ -73,7 +73,7 @@ class MarkerTool {
 
 const editor = new EditorJS({
 
-    holder: 'editorjs',
+    holder: "editorjs",
     tools: {
         crossout: MarkerTool,
     
@@ -86,9 +86,9 @@ const editor = new EditorJS({
 
 function myFunction(){
     editor.save().then((output) => {
-        console.log('Data: ', output);
+        console.log("Data: ", output);
     }).catch((error) => {
-        console.log('Saving failed: ', error) 
+        console.log("Saving failed: ", error); 
     });
 }
 
