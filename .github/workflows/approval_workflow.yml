@@ -23,7 +23,7 @@ jobs:
         run: |
           cd ./source
           npm install --save-dev jsdoc-to-markdown
-          npx jsdoc2md `find . -path ./source/node_modules -prune -o -name "*.js"` > ./source/documentation/JSDocumentation.md
+          npx jsdoc2md `find . -path ./node_modules -prune -o -name "*.js"` > ./documentation/JSDocumentation.md
           cd ..
 
       # - name: Deploy documentation to Github wiki
