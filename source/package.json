@@ -40,7 +40,7 @@
   "jest": {
     "preset": "jest-puppeteer",
     "verbose": true
- },
+  },
   "eslintIgnore": [
     "./documentation/scripts/linenumber.js",
     "./documentation/scripts/prettify/lang-css.js",
