@@ -510,7 +510,7 @@ router.get("/add/:journalId/page", ensureAuth, async (req, res) => {
 
 
 
-router.post("/test", ensureAuth, async (req, res) => {
+router.post("/test", ensureAuth, async (req, _) => {
     console.log(req.body);
     const html = edjsParser.parse(req.body);
     console.log(html);

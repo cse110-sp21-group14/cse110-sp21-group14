@@ -1,3 +1,4 @@
+/* eslint-disable */
 // marker.js
 class MarkerTool {
 
@@ -96,22 +97,13 @@ addButton.addEventListener("click", async (event) => {
 
         const formSelector = document.querySelector(".newPage");
 
-        const hiddenContent = document.createElement('input');
+        const hiddenContent = document.createElement("input");
         hiddenContent.type = "hidden";
         hiddenContent.name = "content";
         hiddenContent.id = "content";
         hiddenContent.value = JSON.stringify(text);
 
         formSelector.appendChild(hiddenContent);
-
-    /*    let toPost = text; // object you want to POST goes here (follow object schema)
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/main/test", true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send( JSON.stringify(toPost) );
-*/
-
-        //console.log(formSelector.action);
 
         formSelector.submit();
 
