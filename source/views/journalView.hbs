@@ -1,0 +1,12 @@
+<!--
+    Author: Yinxuan
+    Date: May 17th
+    HTML main page (for testing).
+-->
+<!-- <link rel="stylesheet" href="/css/style-pageView.css"> -->
+<h1>Journal View</h1><br>
+<b>Title:</b> {{journal.title}}<br>
+<b>Pages:</b>
+{{#each journal.pages}}
+    <li>{{pageTitle}}</li>
+{{/each}}

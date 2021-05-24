@@ -1,0 +1,27 @@
+<!--
+    Author: Hugo Huang & Yinxuan Du
+    Date: May 23th
+    HTML for add page screen
+-->
+<link rel="stylesheet" href="../public/css/style-pageAdd.css">
+
+<!--Side nav bar-->
+        
+<h1>Add a New Page</h1>
+<form action="/main/post/journal/{{journal.journalId}}" method="POST">
+    <div id="layerOne">
+        <label id="titleLabel" for="title">Page Title:</label>
+        <input id="title" name="title" type="text">
+    </div><br>
+    <section id="layerTwo">
+        <label id="journalType">Journal Title:</label> <b>{{journal.title}}</b><br>
+    </section>
+    <section id="layerThree">
+        <label id="contentLabel" for="content">Content:</label>
+        <textarea id="content" name="content"></textarea>
+    </section>
+    <section id="layerFour">
+        <input type="submit" value="Add">
+        <button><a href="/main">Cancel</a></button>
+    </section>
+</form>

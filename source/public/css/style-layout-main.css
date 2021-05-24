@@ -1,0 +1,84 @@
+/*
+    Author: Jun Kim
+    Date: May 17th
+    Added CSS for navigation bars.
+*/
+
+/*top nav bar*/
+.menuBar {
+    text-align: center;
+    border-color: black;
+    border-style: solid;
+}
+
+.menuBar ul {
+    display: inline-flex;
+    list-style: none;
+}
+
+.menuBar ul li {
+    text-decoration: none;
+    width: 120px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+/*background color*/
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #FE9494;
+    overflow: hidden;
+}
+
+/*flex box components*/
+.flexbox-container {
+    display: flex;
+}
+
+.flexbox-item {
+    margin: 10px;
+    min-height: 38.7rem; 
+}
+
+.sidebar {
+    flex-grow: .1;
+    background: #98B8F8;
+    border-radius: 10px;
+    
+}
+
+.viewarea {
+    flex-grow: .89;
+    background-color: #B7F9B5;
+    border-radius: 10px;
+}
+
+/* Hugo's code */
+.buttons{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    width: 95%;
+    height: 90%;
+}
+
+.addDelete{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    list-style: none;
+    padding-left: 25px;
+}
+
+.addDelete button{
+    width: 125px;
+    height: 27px;
+    background: #98B8F8;
+    border: 1px solid #000000;
+    display: inline-flex;
+
+}

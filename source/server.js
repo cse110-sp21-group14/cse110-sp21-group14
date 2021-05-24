@@ -4,15 +4,17 @@
  * Purpose: This script will be the main script responsible with hosting the
  *          project and routing the webpages
  */
-const express = require("express");                // create basic express server
-const dotenv = require("dotenv");                  // store config of code environment
-const path = require("path");
-const exphbs = require("express-handlebars");      // create express-handlebars
-const morgan = require("morgan");                  // show any request in the console
-const passport = require("passport");              // google oauth
-const session = require("express-session");
-const MongoStore = require("connect-mongo"); // avoid logout while refreshing the page
-const connectDB = require("./config/db");          // connect mongoDB atlas
+const express = require('express');                // create basic express server
+const dotenv = require('dotenv');                  // store config of code environment
+const path = require('path');
+const exphbs = require('express-handlebars');      // create express-handlebars
+const morgan = require('morgan');                  // show any request in the console
+const passport = require('passport');              // google oauth
+const session = require('express-session');
+const MongoStore = require('connect-mongo'); // avoid logout while refreshing the page
+const connectDB = require('./config/db');          // connect mongoDB atlas
+const methodOverride = require('method-override');
+
 
 
 dotenv.config({ path: "./config/config.env" });    // load config.env
@@ -44,6 +46,8 @@ app.set("view engine", ".hbs");
 app.use(express.static(path.join(__dirname + "/public")));
 
 
+
+
 // Sessions
 app.use(session({
     secret: "keyboard cat",
@@ -57,13 +61,27 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// body parser for requests
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+// method override
+app.use(methodOverride(function (req, res) {
+    console.log('run methodOverride');
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+        let method = req.body._method;
+        console.log('get method:' + method);
+        delete req.body._method;
+        return method;
+    }
+}));
 
 // Routes
-app.use("/", require("./routes/index"));
-app.use("/auth", require("./routes/auth"));
-app.use("/main", require("./routes/main"));
-//app.use("/calendar", require("./routes/calendar"));
-//app.use("/setting", require("./routes/setting"));
+app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
+app.use('/main', require('./routes/main'));
+app.use('/calendar', require('./routes/calendar'));
+//app.use('/setting', require('./routes/setting'));
 
 
 
