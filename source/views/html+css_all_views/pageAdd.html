@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../public/css/style-pageAdd.css">
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/nested-list@latest"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Add</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Top nav bar-->
+            <div class="menuBar">
+                <ul>
+                    <li class="menuItem" ><a href="#">My Journal</a></li>
+                    <li class="menuItem" ><a href="#">My Calendar</a></li>
+                    <li class="menuItem" ><a href="#">My Settings</a></li>
+                    <li class="signOut"><a href="/auth/logout">Sign Out</a></li>
+                </ul>
+            </div>
+
+            <!--Side nav bar-->
+            <nav class="sidebar">
+                <div class="search">
+                   <input type="text">
+                </div>
+                <div class="buttons">
+                    <ul class="addDelete">
+                        <li><button>Add</button></li>
+                        <li><button>Delete</button></li>
+                    </ul>
+                    <ul>
+                        <li>CSE101 Notes</li>
+                    </ul>    
+                </div>
+            </nav>
+        
+            <div class="newPageWrapper">
+                <form class="newPage">
+                    <section class="layerOne">
+                        <label id="titleLabel" for="title">Title:</label>
+                        <input id="title" name="title" type="text"><br>
+                    </section>
+                    <section class="layerTwo">
+                        <label id="journalType">Journal Type:</label><br>
+                    </section>
+                    <section class="layerThree">
+                        <div><label id="contentLabel" for="content">Content:</label></div>
+                        <div id="editorjs"></div>
+                        <script src="index.js"></script>
+                    </section>
+                    <section class="layerFour">
+                        <div onclick="myFunction()" class="btn">Add</button>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

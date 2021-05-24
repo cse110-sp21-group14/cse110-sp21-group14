@@ -1,0 +1,131 @@
+/*
+    Author: Jun, Hugo, Kevin, Tony
+*/
+
+body {
+    width: 99.1%;
+    height: 90vh;
+}
+
+.container{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 6% 102%; 
+    grid-template-areas:
+        "menuBar menuBar"
+        "sidebar newPageWrapper"
+}
+
+/*menu bar*/
+.menuBar {
+    grid-area: menuBar;
+    position: -webkit-sticky; /*For Safari*/
+    position: sticky;
+    border-color: black;
+    border-style: solid;
+    margin-bottom: 1vh;
+}
+.menuBar ul {
+    width: 95%;
+    display: inline-flex;
+    list-style: none;
+    margin-top: 1vh;   
+}
+.menuBar ul li {
+    font-style: normal;
+    font-weight: normal;
+    text-decoration-line: none;
+    border: 1px solid white;
+}
+
+.menuBar a{
+    text-decoration: none;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    padding-right: 15%;
+    padding-left: 15%;
+    color: black;
+}
+.menuBar a:hover{
+    background: #E1F1DD;
+    border-radius: 20px;
+}
+.menuItem{
+    width: 30%;
+    font-family: Roboto;
+    font-size: 130%;
+    line-height: 1vh;
+}
+.signOut{
+    margin-right: 1px;
+    float: right;
+}
+
+/*side bar*/
+.sidebar{
+    grid-area: sidebar;
+    background: #9ADBFF;
+    margin-top: 1vh;
+    border-radius: 10px;
+    margin-right: 1vh; 
+}
+.search{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+.search input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    height: 4vh;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #98B8F8;
+}
+.buttons{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    width: 95%;
+    height: 90%;
+}
+.addDelete{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    display: inline-flex;
+    list-style: none;
+    padding-left: 13%;
+}
+.addDelete button{
+    width: 13vh;
+    height: 3vh;
+    background: #98B8F8;
+    border: 1px solid #000000;
+    display: inline-flex;
+}
+
+.addDelete button:hover{
+    background: #B7F9B5;
+}
+.buttons ul li{
+    padding-left: 1px;
+}
+
+/*view area*/
+.newPageWrapper {
+    grid-area: newPageWrapper;
+    background: #B7F9B5;
+    border-radius: 10px;
+    margin-top: 1vh;
+    margin-left: 1vh;
+}
+.mainTitle{
+    text-align: center;
+    padding-top: .5%;
+    font: Roboto 35px;
+    font-weight: lighter;
+}
