@@ -1,7 +1,6 @@
 /**
- * Filename: main.js
- * Author: Group 14 (Back End)
- * Purpose: This script runs on the back end (server) to route the main page + handlebars
+ * @file This script runs on the back end (server) to route the main page + handlebars
+ * @author Group 14 (Back End)
  */
 const express = require("express");
 const router = express.Router();
