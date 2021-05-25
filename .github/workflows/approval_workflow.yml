@@ -45,7 +45,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }} # The branch or tag ref that triggered the workflow run
+          branch: ${{ github.ref }}
 
   ESLint:
     runs-on: ubuntu-latest
