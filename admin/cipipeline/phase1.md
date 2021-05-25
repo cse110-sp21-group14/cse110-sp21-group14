@@ -27,4 +27,4 @@ Our team has chosen to integrate puppeteer for our E2E test, since it has easy s
 
 
 # Video Demonstration
-Video is located in admin/videos/CICD_Pipeline_Phase_1.mp4. Or you can click [here](./phase1.mp4)
+Video is located in admin/videos/CICD_Pipeline_Phase_1.mp4. Or you can click [here](./phase1.mp4).
