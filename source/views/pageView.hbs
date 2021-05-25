@@ -1,14 +1,40 @@
 <!--
-    Author: Yinxuan
+    Author: Yinxuan & Stephen
     Date: May 17th
     HTML main page (for testing).
 -->
 <!-- <link rel="stylesheet" href="/css/style-pageView.css"> -->
-<h1>Page View</h1><br>
-<b>Page Title:</b> {{page.title}}<br>
-<b>Last Modified:</b> {{page.lastModified}}<br>
-<b>Content:</b><br>
+<link rel="stylesheet" href="/css/style-pageAdd.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap" rel="stylesheet">
 
-{{#each page.content as |item|}}
-    {{{item}}}
-{{/each}}
+<!--Side nav bar-->
+
+<h1>Page View</h1>
+<div class="newPageWrapper">
+    <form class="newPage" action="/main/page/{{page.pageId}}" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <section class="layerOne">
+            <label id="titleLabel" for="title">Page Title: </label>
+            <input id="title" name="title" type="text" value="{{page.title}}">
+        </section>
+        <section class="layerTwo">
+            <label id="journalType">Journal Title: {{pageJournal.title}}</label>
+        </section>
+        <section class="layerThree">
+            <div><label id="contentLabel" for="content">Content:</label></div>
+            <!--<input id="content" name="content" type="hidden">-->
+            <div id="editorjs"></div>
+
+        </section>
+        <section class="layerFour">
+            <!-- <input type="submit" value="Add" class="addButton"> -->
+            <button class="saveButton"><a href="#">Save</a> </button> <br>
+            <button><a href="/main">Cancel</a></button>
+        </section>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/nested-list@latest"></script>
+<script src="/scripts/editor/page-view.js"></script>
