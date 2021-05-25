@@ -16,13 +16,15 @@ jobs:
         with:
           source_dir: ./source
           recurse: true
-          output_dir: ./source/documentation
+          output_dir: ./source/documentation/JSDocs
           template: minami
 
       - name: Convert output to markdown
         run: |
+          cd ./source
           npm install --save-dev jsdoc-to-markdown
-          npx jsdoc2md ./source/* > "./source/documentation/JSDocumentation.md"
+          npx jsdoc2md `find . -path ./node_modules -prune -o -name "*.js"` > ./documentation/JSDocumentation.md
+          cd ..
 
       # - name: Deploy documentation to Github wiki
       #  uses: SwiftDocOrg/github-wiki-publish-action@v1
@@ -43,7 +45,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }} # The branch or tag ref that triggered the workflow run
+          branch: ${{ github.ref }}
 
   ESLint:
     runs-on: ubuntu-latest
@@ -55,20 +57,38 @@ jobs:
       - name: Run ESlint on directory
         run: npx eslint ./source
 
-  Jest-Unit-Tests:
+  Tests:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install npm
-        run: npm install --prefix ./source
+      - name: Install Jest
+        run: npm install --save-dev jest babel-jest @babel/core @babel/preset-env --prefix ./source
 
-      - name: Unit testing via Jest
+      - name: Install Puppeteer Container
+        run: npm install --save-dev puppeteer jest-puppeteer --prefix ./source
+
+      - name: Run Unit and E2E tests via Jest and Puppeteer
         run: npm run test --prefix ./source
 
-  # Cypress E2E:
+
+  # Puppeteer-E2E:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+
+  # Jest-Unit-Tests:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+
+  # Cypress-E2E:
   #   runs-on: ubuntu-latest
 
   #   steps:
