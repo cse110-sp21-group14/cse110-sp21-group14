@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>routes/index.js - Documentation</title>
+    <title>public/scripts/script-main.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">routes/index.js</h1>
+    <h1 class="page-title">public/scripts/script-main.js</h1>
     
 
     
@@ -40,24 +40,33 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file This script runs on the back end (server) to route the index page + handlebars
- * @author Group 14 (Back End)
+ * Filename: script-main.js
+ * Author: Yinxuan Du
+ * Date: May 17th
+ * Purpose: This script runs on the front end (webpage) when the main page is loaded.
+ *          This script should only run on the main page.
  */
-const express = require("express");
-const router = express.Router();
-const { ensureGuest } = require("../middleware/auth");
 
-// @desc     /
-// @route    GET
-router.get("/", ensureGuest, (req, res) => {
-    res.render("login", {
-        layout: "login"
-    });
+let journals = Array.from(document.getElementsByClassName("journal-item"));
+
+journals.forEach(function (journal) {
+    let spanSelector = journal.querySelector("span");
+    let ulSelector = journal.querySelector("ul");
+    // console.log(spanSelector);
+
+    spanSelector.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (!ulSelector.hidden) {
+            ulSelector.hidden = true;
+            spanSelector.innerHTML = "&amp;#8227";
+        } else {
+            ulSelector.hidden = false;
+            spanSelector.innerHTML = "&amp;#9662";
+        }
+        
+    }, false);
 });
-
-
-
-module.exports = router;</code></pre>
+</code></pre>
         </article>
     </section>
 

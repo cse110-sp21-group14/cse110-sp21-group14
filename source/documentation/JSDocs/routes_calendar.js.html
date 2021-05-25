@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>routes/index.js - Documentation</title>
+    <title>routes/calendar.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">routes/index.js</h1>
+    <h1 class="page-title">routes/calendar.js</h1>
     
 
     
@@ -40,21 +40,27 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file This script runs on the back end (server) to route the index page + handlebars
- * @author Group 14 (Back End)
+ * Filename: auth.js
+ * Author: Group 14 (Back End)
+ * Purpose: Google OAuth and callback for login
  */
 const express = require("express");
 const router = express.Router();
-const { ensureGuest } = require("../middleware/auth");
+const { ensureAuth } = require("../middleware/auth");
 
-// @desc     /
+// @desc     /calendar
+// @desc     month view
 // @route    GET
-router.get("/", ensureGuest, (req, res) => {
-    res.render("login", {
-        layout: "login"
-    });
+router.get("/", ensureAuth, async (req, res) => {
+    try {
+        res.render("calendar", {
+            layout: "calendar"
+        });
+    } catch (err) {
+        console.log(err);
+        // TODO: determine what to return in the event an invalid fetch is created
+    }
 });
-
 
 
 module.exports = router;</code></pre>
