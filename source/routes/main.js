@@ -130,7 +130,7 @@ router.get("/page/:id", ensureAuth, async (req, res) => {
 
 // @desc Get a specific daily from its id
 // @route GET
-router.get("/daily/:id", async (req, res) => {
+router.get("/daily/:id", ensureAuth, async (req, res) => {
     try {
         // getting daily
         let encryptedDaily = await Daily.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -243,6 +243,7 @@ router.post("/post/journal/:id", ensureAuth, async (req, res) => {
         // getting journal by id
         let encryptedJournal = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
 
+        console.log(req.body);
         // encrypting title of page
         let encryptedTitle = secret.encrypt(req.body.title);
 
@@ -283,7 +284,7 @@ router.post("/post/journal/:id", ensureAuth, async (req, res) => {
 
 // @desc Creates a new daily object
 // @route POST
-router.post("/daily", async (req, res) => {
+router.post("/daily", ensureAuth, async (req, res) => {
     try {
         let logDate = new Date(req.body.dateObj);
 
@@ -311,7 +312,7 @@ router.post("/daily", async (req, res) => {
 
 // @desc Updates a page given its id
 // @route PUT
-router.put("/page/:id", async (req, res) => {
+router.put("/page/:id", ensureAuth, async (req, res) => {
     try {
         // getting the encrypted page
         let encryptedPage = await Page.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -355,7 +356,7 @@ router.put("/page/:id", async (req, res) => {
 
 // @desc Updates a daily given its _id
 // @route PUT
-router.put("/daily/:id", async (req, res) => {
+router.put("/daily/:id", ensureAuth, async (req, res) => {
     try {
         let toUpdate = await Daily.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
 
@@ -504,5 +505,6 @@ router.get("/add/:journalId/page", ensureAuth, async (req, res) => {
 
     res.render("pageAdd", {journal: decryptedJournal, journals: decryptedJournals});
 });
+
 
 module.exports = router;

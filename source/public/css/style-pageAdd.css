@@ -1,243 +1,123 @@
 /*
-    top nav bar
+    Author: Jun, Kevin, Hugo, Tony
 */
 
-body{
-    min-width:1600px;
-    height: 900px;
-}
-
-.container{
-    display: grid;
-    height: 100%;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 45px 100%;; 
-    grid-template-areas:
-        "menuBar menuBar"
-        "sidebar newPageWrapper"
-}
-
-.menuBar {
-    grid-area: menuBar;
-    position: -webkit-sticky; /*For Safari*/
-    position: sticky;
-    /*text-align: center; */
-    border-color: black;
-    border-style: solid;
-    margin-bottom: 10px;
-    /*
-    display: grid;
-    grid-template-areas: 'ul' 'ul';
-    */
-}
-
-.menuBar ul {
-    width: 95%;
-    display: inline-flex;
-    list-style: none;
-    margin-top: 5px;   
-}
-
-.menuItem{
-    width: 30%;
-    font-family: Roboto;
-    font-size: 18px;
-    line-height: 21px;
-    
-}
-
-.signOut{
-    margin-right: 1px;
-    float: right;
-}
-
-.menuBar ul li {
-    font-style: normal;
-    font-weight: normal;
-    text-decoration-line: none;
-    border: 1px  solid white;
-}
-
-.sidebar{
-    grid-area: sidebar;
-    background: #9ADBFF;
-    margin-top: 10px;
-    border-radius: 10px;
-    margin-right: 10px; 
-}
-
-.search{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.search input{
+/*entry*/
+.newPage{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 95%;
-    height: 30px;
-    border: 1px solid white;
-    border-radius: 10px;
-    background-color: #98B8F8;
-    padding: 2.5px;
-}
-
-.buttons{
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    width: 95%;
-    height: 90%;
-}
-
-.addDelete{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: inline-flex;
-    list-style: none;
-    padding-left: 25px;
-}
-
-
-.addDelete button{
-    width: 125px;
-    height: 27px;
-    background: #98B8F8;
-    border: 1px solid #000000;
-    display: inline-flex;
-
-}
-
-#newPageWrapper {
-    grid-area: newPageWrapper;
-    background: #B7F9B5;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-#rectangle{
-    min-width: 822px;
-    width: 75%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background: #C2FF9D;
-    border: 1px solid #F9FFD8;
-    box-sizing: border-box;
-    border-radius: 10px;
-    height: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-#newPage{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 822px;
-    width: 75%;
+    margin: auto;
+    min-width: 50vw;
+    width: 85%;
     border: 1px solid #FEFFDE;
     border-radius: 10px;
-    min-height: 704px;
+    min-height: 71vh;
     height: 80%;
     background: #FEFFDE;
+    font-family: 'Mukta', sans-serif;
 }
 
-#layerOne{
-    min-width: 751px;
+.layerOne{
+    min-width: 45vw;
     display: block;
-    margin-left: 100px;
-    margin-right: 80px;
-    margin-top: 50px;
-    margin-bottom: 15px;
+    margin-left: 50px;
+    margin-top: 2vh;
+    margin-bottom: 1.5vh;
 }
 
 #titleLabel{
-    width: 66px;
-    height: 35px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    line-height: 35px;
-    margin-right: 30px;
+    width: 7vw;
+    height: 3.5vh;
+    font-size: 2vh;
+    line-height: 3vh;
+    margin-right: 3vw;
+    font-family: 'Mukta', sans-serif;
 }
 
 #title{
-    min-width: 659px;
+    font-family: 'Mukta', sans-serif;
+    min-width: 35vw;
     width: auto;
-    height: 61px;
+    height: 3vh;
     background: #F6E6CB;
     border: 1px solid #FEFFDE;
     border-radius: 10px;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 2vh;
+    line-height: 3.5vh;
 }
 
-#layerTwo{
+.layerTwo{
     display: block;
-    margin-left: 100px;
-    margin-bottom: 15px;
+    margin-left: 50px;
+    margin-bottom: 1.5vw;
 }
 
 #journalType{
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 2vh;
+    line-height: 3.5vh;
+    font-family: 'Mukta', sans-serif;
 }
 
-#layerThree{
+.layerThree{
     display: block;
-    margin-left: 100px;
-    margin-right: 80px;
+    margin-left: 50px;
+    margin-right: 1.5vw;
+    font-family: 'Mukta', sans-serif;
+    
 }
 
 #contentLabel{
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 2vh;
+    font-family: 'Mukta', sans-serif;
+    line-height: 3.5vh;
 }
 
-#layerThree textarea{
-    margin-top: 10px;
-    min-width: 751px;
+.layerThree #editorjs{
+    margin-top: 1vh;
+    min-width: 39vw;
     background: #F6E6CB;
     border-radius: 10px; 
-    width: 80%;
-    min-height:381px;
+    width: 90%;
+    max-height: 38.8vh;
     border: 1px solid #FEFFDE;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 1.5vh;
+    line-height: 3.6vh;
     resize: none;
-    padding: 12px 20px;
+    padding: 1vw;
+    overflow: scroll;
+    font-family: 'Mukta', sans-serif;
 }
 
-#layerFour{
+.layerFour{
     float: right;
-    margin-top: 10px;
-    margin-right: 60px;
+    margin-top: 1vh;
+    margin-right: 6.3vw;
     
 }
 
-#layerFour input{
-    width: 97px;
+
+.layerFour button{
+    width: 150px;
     height: 44px;
     background: #E1F1DD;
     border-radius: 10px;
     border: 1px solid #FEFFDE; 
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 2vh;
     line-height: 35px;
+    font-family: 'Mukta', sans-serif;
+}
+
+.cdx-marker {
+    text-decoration: line-through;
+    background-color: #F6E6CB;
 }

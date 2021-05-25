@@ -1,3 +1,4 @@
+/* eslint-disable */
 // marker.js
 class MarkerTool {
 
@@ -84,13 +85,33 @@ const editor = new EditorJS({
     },  
 });
 
-function myFunction(){
-    editor.save().then((output) => {
-        console.log("Data: ", output);
+
+// ====
+
+var addButton = document.querySelector(".addButton");
+
+addButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    editor.save().then((text) => {
+        console.log(text);
+
+        const formSelector = document.querySelector(".newPage");
+
+        const hiddenContent = document.createElement("input");
+        hiddenContent.type = "hidden";
+        hiddenContent.name = "content";
+        hiddenContent.id = "content";
+        hiddenContent.value = JSON.stringify(text);
+
+        formSelector.appendChild(hiddenContent);
+
+        formSelector.submit();
+
+
     }).catch((error) => {
         console.log("Saving failed: ", error); 
     });
-}
-
+    
+}, false);
   
   
