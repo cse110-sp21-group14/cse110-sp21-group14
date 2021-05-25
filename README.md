@@ -4,4 +4,5 @@ This project will be Team 14's bullet journal. The Powell Puff Gang will create 
 This README will be updated as our bullet journal is developed.
 
 Team Page [here](admin/team.md)
+
 Phase 1 CI/CD Pipeline [here](admin/cipipeline/phase1.md)
