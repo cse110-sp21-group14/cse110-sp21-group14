@@ -29,7 +29,11 @@
         ],
         "quotes": [
             2,
-            "double"
+            "double",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
         ],
         "semi": [
             "error",

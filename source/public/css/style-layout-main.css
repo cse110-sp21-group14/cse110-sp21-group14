@@ -1,0 +1,239 @@
+body{
+    width: 99.1%;
+    height: 90vh;
+    min-width: 1200px;
+    font-family: 'Mukta', sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color: black;
+    font-family: 'Mukta', sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+.container{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 6% 102%; 
+    grid-template-areas:
+        "menuBar menuBar"
+        "sidebar newPageWrapper";
+}
+
+.menuBar {
+    grid-area: menuBar;
+    position: -webkit-sticky; /*For Safari*/
+    position: sticky;
+    border-color: black;
+    border-style: solid;
+    margin-bottom: 1vh;
+}
+
+.menuBar ul {
+    width: 95%;
+    display: inline-flex;
+    margin-top: 1vh;   
+}
+
+.menuBar ul li {
+    font-style: normal;
+    font-weight: normal;
+    text-decoration-line: none;
+    border: 1px solid white;
+    
+}
+
+.menuItem{
+    width: 30%;
+    font-family: Roboto;
+    font-size: 130%;
+    line-height: 1vh;
+    text-decoration-line: none;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background: #9ADBFF;
+    margin-top: 1vh;
+    border-radius: 10px;
+    margin-right: 1vh; 
+}
+
+.search{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.search input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 3vh;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #98B8F8;
+}
+
+.sidebar button{
+    background-color: #98B8F8;
+    border: 1px solid black;
+    height: 2vh;
+    border-radius: 5px;
+    font-family: 'Mukta', sans-serif;
+}
+
+.buttonAdd{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 90%;
+    height: 2.5vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1vh;
+    background-color: #98B8F8;
+}
+
+.journal-item{
+    overflow:auto;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.journal-item ul{
+    padding-left: 0px
+}
+
+.journal-item-details{
+    display: inline-flex;
+    height: 3vh;
+}
+
+.journal-item-details li{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+}
+
+.journal-item-details button{
+    width: 75px;
+    font-family: 'Mukta', sans-serif;
+}
+
+.viewarea{
+    grid-area: newPageWrapper;
+    background: #B7F9B5;
+    border-radius: 10px;
+    margin-top: 1vh;
+    margin-left: 1vh;
+    overflow:auto;
+}
+
+
+#layerOne{
+    min-width: 751px;
+    display: block;
+    margin-left: 100px;
+    margin-right: 80px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+#titleLabel{
+    width: 66px;
+    height: 35px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+    margin-right: 30px;
+}
+
+#title{
+    min-width: 500px;
+    width: auto;
+    height: 61px;
+    background: #F6E6CB;
+    border: 1px solid #FEFFDE;
+    border-radius: 10px;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+#layerTwo{
+    display: block;
+    margin-left: 100px;
+    margin-bottom: 15px;
+}
+
+#journalType{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+#layerThree{
+    display: block;
+    margin-left: 100px;
+    margin-right: 80px;
+}
+
+#contentLabel{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+#layerThree textarea{
+    margin-top: 10px;
+    min-width: 700px;
+    background: #F6E6CB;
+    border-radius: 10px; 
+    width: 80%;
+    min-height:500px;
+    border: 1px solid #FEFFDE;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+    resize: none;
+    padding: 12px 20px;
+}
+
+#layerFour{
+    float: right;
+    margin-top: 10px;
+    margin-right: 60px;
+    
+}
+
+#layerFour button{
+    width: 150px;
+    height: 44px;
+    background: #E1F1DD;
+    border-radius: 10px;
+    border: 1px solid #FEFFDE; 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.viewarea h1{
+    text-align: center;
+}

@@ -1,0 +1,138 @@
+/*top nav bar*/
+.menuBar {
+  text-align: center;
+  border-color: black;
+  border-style: solid;
+}
+
+.menuBar ul {
+  display: inline-flex;
+  list-style: none;
+}
+
+.menuBar ul li {
+  text-decoration: none;
+  width: 120px;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-right: 50px;
+}
+
+body {
+  font-family: Calibri, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(24, 5, 5);
+  background-color: #bcfc95;
+}
+
+.cld-main {
+  width: 80%;
+  margin: auto;
+}
+
+.cld-main a {
+  color: #1100ff;
+}
+
+.cld-datetime {
+  padding-top: 0.5cm;
+  position: relative;
+  width: 66%;
+  min-width: 100px;
+  max-width: 300px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.cld-datetime .today {
+  font-size: x-large;
+  position: relative;
+  float: left;
+  width: calc(100% - 40px);
+  margin: auto;
+  text-align: center;
+}
+
+.cld-nav {
+  position: relative;
+  width: 20px;
+  height: 0px;
+  margin-top: 2px;
+}
+
+.cld-nav:hover {
+  cursor: pointer;
+}
+
+.cld-nav:hover svg {
+  fill: #666;
+}
+
+.cld-rwd {
+  float: left;
+}
+
+.cld-fwd {
+  float: right;
+}
+
+.cld-labels, .cld-days {
+  padding-left: 0;
+}
+
+.cld-label, .cld-day {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 14%;
+  text-align: center;
+}
+
+.cld-day {
+  display: block;
+  float: left;
+  position: relative;
+  margin: 0;
+  padding: 5px;
+  height: 90px;
+  border: 1px solid #08b3fc;
+  overflow-y: auto;
+  background-color: #ffb1b1;
+}
+
+.cld-day.clickable:hover {
+  cursor: pointer;
+}
+
+.cld-day.today {
+  border: 5px solid #386dcf;
+}
+
+.cld-day.nextMonth, .cld-day.prevMonth {
+  opacity: 0.4;
+}
+
+.cld-number {
+  margin: 0;
+  text-align: left;
+}
+
+.cld-title {
+  font-size: 14px;
+  display: block;
+  margin: 0;
+  font-weight: normal;
+}
+
+.cld-day:hover {
+  background-color: #97ddfb;
+}
+
+.cld-number.eventday {
+  font-weight: bold;
+}
+
+/*
+.cld-number.eventday:hover{
+  background: rgb(192, 202, 137);
+}
+*/

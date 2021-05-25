@@ -20,8 +20,11 @@ Once everything has passed the automated tests in the workflow, the developers w
 
 Our GitHub repo will utilize a yml file titled approval-workflow.yml to help guide the build process. This will be a guideline to detail the processes that need to happen for our pipeline on push. On pull requests, the CI/CD team will manually review the checks that have happened, and approve the merge, and the workflow will be run once again. If everything is good, then the CI/CD team will review the code for a final check, and finalize the code.
 
-Our team plans on integrating e2e testing via Cypress once we have more exposure with the topic. After the week 8 Lab, we will be more familiar with writing tests and begin writing tests with the Jest and Cypress framework.
+~~Our team plans on integrating e2e testing via Cypress once we have more exposure with the topic. After the week 8 Lab, we will be more familiar with writing tests and begin writing tests with the Jest and Cypress framework.~~
+
+(As of 5/22/21):
+Our team has chosen to integrate puppeteer for our E2E test, since it has easy support with Jest unit testing. By having this run at the same time as Jest, we can test as if a real user were using our web app as intended.
 
 
 # Video Demonstration
-Video is located in admin/videos/CICD_Pipeline_Phase_1.mp4. 
+Video is located in admin/videos/CICD_Pipeline_Phase_1.mp4.

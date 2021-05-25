@@ -1,0 +1,38 @@
+<!--
+    Author: Hugo Huang & Yinxuan Du
+    Date: May 23th
+    HTML for add page screen
+-->
+<link rel="stylesheet" href="/css/style-pageAdd.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap" rel="stylesheet">
+
+<!--Side nav bar-->
+        
+<h1>Add a New Page</h1>
+<div class="newPageWrapper">
+    <form class="newPage" action="/main/post/journal/{{journal.journalId}}" method="POST">
+        <section class="layerOne">
+            <label id="titleLabel" for="title">Page Title:</label>
+            <input id="title" name="title" type="text">
+        </section>
+        <section class="layerTwo">
+            <label id="journalType">Journal Title: {{journal.title}}</label>
+        </section>
+        <section class="layerThree">
+            <div><label id="contentLabel" for="content">Content:</label></div>
+            <!--<input id="content" name="content" type="hidden">-->
+            <div id="editorjs"></div>
+            
+        </section>
+        <section class="layerFour">
+            <!-- <input type="submit" value="Add" class="addButton"> -->
+            <button class="addButton"><a href="#">Add</a> </button> <br>
+            <button><a href="/main">Cancel</a></button>
+        </section>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/nested-list@latest"></script>
+<script src="/scripts/editor/index.js"></script>

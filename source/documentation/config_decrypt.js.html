@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>config/decrypt.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#Cryptr">Cryptr</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#express">express</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#journals">journals</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#secret">secret</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#sum">sum</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">config/decrypt.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Filename: decrypt.js
+ * Author: Stephen (backend)
+ * Date: May 17th
+ * Purpose: Decrypt journals from database
+ */
+
+const secret = require("../config/secret");
+const edjsHTML = require("editorjs-html");
+const edjsParser = edjsHTML();
+
+module.exports = {
+    // get all journals from a user
+    getDecryptedJournals: function (encryptedJournals) {
+        let decryptedJournals = [];
+    
+        // decrypting each journal
+        encryptedJournals.forEach(journal => {
+            // getting page names for a journal
+            let encryptedPages = journal.pages;
+            let decryptedPages = [];
+    
+            // decrypting page names for a journal
+            for (let i = 0; i &lt; encryptedPages.length; i++) {
+                let newPage = {
+                    pageTitle: secret.decrypt(encryptedPages[i]),
+                    pageId: journal.pageIds[i]
+                };
+                decryptedPages.push(newPage);
+            }
+    
+            let decrypted = {
+                journalId: journal._id,
+                title: secret.decrypt(journal.title),
+                googleId: journal.googleId,
+                pages: decryptedPages
+            };
+    
+            // adding decrypted journal
+            decryptedJournals.push(decrypted);
+        });
+    
+        return decryptedJournals;
+    },
+
+    // get all pages of a journal
+    getDecryptedJournal: function (encryptedJournal) {
+        let encryptedPages = encryptedJournal.pages;
+        let decryptedPages = [];
+
+        // decrypting page names for a journal
+        for (let i = 0; i &lt; encryptedPages.length; i++) {
+            let newPage = {
+                pageTitle: secret.decrypt(encryptedPages[i]),
+                pageId: encryptedJournal.pageIds[i]
+            };
+            decryptedPages.push(newPage);
+        }
+
+        let decryptedJournal = {
+            journalId: encryptedJournal._id,
+            title: secret.decrypt(encryptedJournal.title),
+            googleId: encryptedJournal.googleId,
+            pages: decryptedPages,
+        };
+
+        return decryptedJournal;
+    },
+
+    // get all info for a page
+    getDecryptedPage: function (encryptedPage, pageId, googleId) {
+        let stringValue = secret.decrypt(encryptedPage.content);
+        let jsonValue = JSON.parse(stringValue);
+        console.log("jsonValue");
+        console.log(jsonValue);
+
+        let decryptedPage = {
+            pageId: pageId,
+            title: secret.decrypt(encryptedPage.title),
+            googleId: googleId,
+            journalId: encryptedPage.journalId,
+            lastModified: encryptedPage.lastModified,
+            importance: encryptedPage.importance,
+            content: edjsParser.parse(jsonValue)
+        };
+        
+        return decryptedPage;
+    }
+};
+
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue May 25 2021 00:23:14 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
