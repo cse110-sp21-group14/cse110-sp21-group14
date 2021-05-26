@@ -6,8 +6,6 @@
  */
 
 const secret = require("../config/secret");
-const edjsHTML = require("editorjs-html");
-const edjsParser = edjsHTML();
 
 module.exports = {
     // get all journals from a user
