@@ -1,2 +1,2 @@
-source/documentation/scripts/*.js
-source/documentation/scripts/prettify/*.js
+source/documentation/JSDocs/scripts/*.js
+source/documentation/JSDocs/scripts/prettify/*.js

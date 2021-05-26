@@ -1,7 +1,6 @@
 /**
- * Filename: auth.js
- * Author: Group 14 (Back End)
- * Purpose: Google OAuth and callback for login
+ * @file Google OAuth and callback for login
+ * @author Group 14 (Back End)
  */
 const express = require("express");
 const passport = require("passport");
