@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>routes/auth.js - Documentation</title>
+    <title>demo.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">routes/auth.js</h1>
+    <h1 class="page-title">demo.js</h1>
     
 
     
@@ -40,35 +40,16 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Google OAuth and callback for login
- * @author Group 14 (Back End)
+ * Test function for JSDoc creation
+ * This fuction mulitplies two parameters a and b and returns the result.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns The product of a and b
  */
-const express = require("express");
-const passport = require("passport");
-
-// connect router to server
-const router = express.Router();
-
-// @desc            Auth w Google
-// @route           GET /auth/google
-router.get("/google", passport.authenticate("google", {scope: ["profile", "email"]}));
-
-// @desc            Callback
-// @route           GET /auth/google/callback
-router.get("/google/callback", passport.authenticate("google", { failureRedirect:"/" }), 
-    (req, res) => {
-        res.redirect("/main");
-    }
-);
-
-// @desc            Logout user
-// @route           /auth/logout
-router.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-});
-
-module.exports = router;</code></pre>
+ function demoFunction(a, b) {
+    let c = 'test string'
+    return a * b;    // The function returns the product of a and b
+}</code></pre>
         </article>
     </section>
 
