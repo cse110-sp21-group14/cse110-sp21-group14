@@ -31,6 +31,10 @@ Purpose: Google OAuth and callback for login</p>
 <dl>
 <dt><a href="#sum">sum(a, b)</a> ⇒</dt>
 <dd></dd>
+<dt><a href="#demoFunction">demoFunction(a, b)</a> ⇒</dt>
+<dd><p>Test function for JSDoc creation
+This fuction mulitplies two parameters a and b and returns the result.</p>
+</dd>
 </dl>
 
 <a name="journals"></a>
@@ -65,6 +69,20 @@ Purpose: Google OAuth and callback for login
 ## sum(a, b) ⇒
 **Kind**: global function  
 **Returns**: sum of a and b  
+
+| Param | Type |
+| --- | --- |
+| a | <code>number</code> | 
+| b | <code>number</code> | 
+
+<a name="demoFunction"></a>
+
+## demoFunction(a, b) ⇒
+Test function for JSDoc creation
+This fuction mulitplies two parameters a and b and returns the result.
+
+**Kind**: global function  
+**Returns**: The product of a and b  
 
 | Param | Type |
 | --- | --- |

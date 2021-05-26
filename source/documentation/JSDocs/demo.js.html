@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>testing/sum.test.js - Documentation</title>
+    <title>demo.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">testing/sum.test.js</h1>
+    <h1 class="page-title">demo.js</h1>
     
 
     
@@ -40,14 +40,16 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Temporary file for testing integration of jest
- * @author Group 14 (workflow)
+ * Test function for JSDoc creation
+ * This fuction mulitplies two parameters a and b and returns the result.
+ * @param {number} a 
+ * @param {number} b 
+ * @returns The product of a and b
  */
-const sum = require("../config/sum");
-
-test("adds 1 + 2 to equal 3", () => {
-    expect(sum(1, 2)).toBe(3);
-});</code></pre>
+ function demoFunction(a, b) {
+    let c = 'test string'
+    return a * b;    // The function returns the product of a and b
+}</code></pre>
         </article>
     </section>
 
