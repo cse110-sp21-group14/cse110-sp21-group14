@@ -45,10 +45,10 @@
                 <button><span>&#9662;</span></button> 
                 <a href="/main/journal/{{journalId}}" >{{title}}</a>
                 <button><a href="/main/add/{{journalId}}/page" style="float: right;  width: 75px">Add Page</a></button>
-                <button type="submit" style="float: right; width: 75px">Delete</button>
                 
                 <form action="/main/journal/{{journalId}}" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" style="float: right; width: 75px">Delete</button>
                 </form>
                 
                 <ul>
