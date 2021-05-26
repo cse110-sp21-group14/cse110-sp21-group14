@@ -6,8 +6,6 @@
  */
 
 const secret = require("../config/secret");
-const edjsHTML = require("editorjs-html");
-const edjsParser = edjsHTML();
 
 module.exports = {
     // get all journals from a user
@@ -70,9 +68,6 @@ module.exports = {
     // get all info for a page
     getDecryptedPage: function (encryptedPage, pageId, googleId) {
         let stringValue = secret.decrypt(encryptedPage.content);
-        let jsonValue = JSON.parse(stringValue);
-        console.log("jsonValue");
-        console.log(jsonValue);
 
         let decryptedPage = {
             pageId: pageId,
@@ -81,7 +76,7 @@ module.exports = {
             journalId: encryptedPage.journalId,
             lastModified: encryptedPage.lastModified,
             importance: encryptedPage.importance,
-            content: edjsParser.parse(jsonValue)
+            content: stringValue
         };
         
         return decryptedPage;

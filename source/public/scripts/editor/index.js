@@ -82,7 +82,7 @@ const editor = new EditorJS({
             class: NestedList,
             inlineToolbar: true,
         },
-    },  
+    }
 });
 
 

@@ -56,6 +56,12 @@ li{
     text-decoration-line: none;
 }
 
+.signOut{
+    font-family: Roboto;
+    font-size: 130%;
+    line-height: 1vh;
+}
+
 .sidebar{
     grid-area: sidebar;
     background: #9ADBFF;
@@ -83,7 +89,7 @@ li{
 .sidebar button{
     background-color: #98B8F8;
     border: 1px solid black;
-    height: 2vh;
+    height: 3vh;
     border-radius: 5px;
     font-family: 'Mukta', sans-serif;
 }
@@ -110,6 +116,16 @@ li{
 
 .journal-item ul{
     padding-left: 0px
+}
+
+#pageButtons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.pageButtons-item {
+    margin: 5px;
 }
 
 .journal-item-details{
