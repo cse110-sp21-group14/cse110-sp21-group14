@@ -25,8 +25,8 @@ const PageSchema = new mongoose.Schema({
         required: true
     },
     content: {
-        type: Array,
-        default: [],
+        type: String,
+        default: "",
         required: true
     }
 });
