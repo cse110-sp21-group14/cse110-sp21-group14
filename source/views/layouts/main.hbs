@@ -42,21 +42,35 @@
             <button class="buttonAdd"><a href="/main/add/journal">Add</a></button>
             {{#each journals}}
             <div class="journal-item">
-                <button><span>&#9662;</span></button> 
-                <a href="/main/journal/{{journalId}}" >{{title}}</a>
-                <button><a href="/main/add/{{journalId}}/page" style="float: right;  width: 75px">Add Page</a></button>
+                <div style="float: left">
+                    <button><span>&#9662;</span></button> 
+                    <a href="/main/journal/{{journalId}}" >{{title}}</a>
+                </div>
                 
-                <form action="/main/journal/{{journalId}}" method="POST">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" style="float: right; width: 75px">Delete</button>
-                </form>
+                
+                <div id="pageButtons" style="float: right">
+                    <div class="pageButtons-item">
+                        <button>
+                            <a href="/main/add/{{journalId}}/page" >Add Page</a>
+                        </button>
+                    </div>
+
+                    <div class="pageButtons-item">
+                        <form action="/main/journal/{{journalId}}" method="POST">
+                            <button type="submit">Delete</button>
+                            <input type="hidden" name="_method" value="DELETE">
+                        </form>
+                    </div>
+                    
+                </div>
+                
                 
                 <ul>
                     {{#each pages}}
                         
                         <li>
                             <ul class="journal-item-details">
-                                <li><a href="/main/page/{{pageId}}">{{pageTitle}}</a></li>
+                                <li>&#9670;<a href="/main/page/{{pageId}}">{{pageTitle}}</a></li>
                                 <li><form action="/main/page/{{pageId}}" method="POST" >
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit">Delete</button>
