@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>testing/github.test.js - Documentation</title>
+    <title>UserSchema - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,47 +29,129 @@
 
 <div id="main">
     
-    <h1 class="page-title">testing/github.test.js</h1>
+    <h1 class="page-title">UserSchema</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @file Temporary test file for Puppeteer
- * @author: Group 14 (workflow)
- */
+        <h2>
+        UserSchema
+        </h2>
+        
+    
+</header>
 
-/* global describe, beforeAll, it, page */
+<article>
+    <div class="container-overview">
+    
+        
+<div class="section-method">
 
-describe("Puppeteer Test", () => {
-    // route to page
-    beforeAll(async () => {
-        await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
-        await page.waitForTimeout(500);
-    });
+    
 
-    // placeholder test 1
-    it("Test1: Check for 404", async () => {
-        let expected = "Find code, projects, and people on GitHub:";
-        let actual = await page.$eval("label[for=not-found-search]", (e) => e.innerHTML);
-        expect(actual).toBe(expected);
-    });
+    <h4 class="name" id="UserSchema"><span class="type-signature"></span>new UserSchema<span class="signature">()</span><span class="type-signature"></span></h4>
 
-    // placeholder test 2
-    it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
-        await page.click("img[alt=GitHub]");
-        let expected = "https://github.com/";
-        let actual = page.url();
-        expect(actual).toMatch(expected);
-    });
-});</code></pre>
-        </article>
-    </section>
+    
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_User.js.html">models/User.js</a>, <a href="models_User.js.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
