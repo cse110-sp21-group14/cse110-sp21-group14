@@ -96,7 +96,7 @@ function createCalendar(calendar, element, adjuster) {
         /**
          * Create Number Element
          * @param {int} n 
-         * @returns 
+         * @returns {number}
          */
         function DayNumber(n) {
             var number = document.createElement("p");
