@@ -11,14 +11,8 @@ const Daily = require("../models/Daily");
 
 const router = express.Router();
 
-/**
- * @type {typeof import("../middleware/auth") }
- */
 const { ensureAuth } = require("../middleware/auth");
 
-/**
- * @type {typeof import("../config/decrypt") }
- */
 const { getDecryptedJournals, getDecryptedJournal, getDecryptedPage } = require("../config/decrypt");
 
 

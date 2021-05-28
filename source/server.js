@@ -13,10 +13,6 @@ const passport = require("passport");              // google oauth
 const session = require("express-session");
 const MongoStore = require("connect-mongo"); // avoid logout while refreshing the page
 const methodOverride = require("method-override");
-
-/**
- * @type {typeof import("./config/db") }
- */
 const connectDB = require("./config/db");          // connect mongoDB atlas
 
 

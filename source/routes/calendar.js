@@ -7,9 +7,6 @@ const express = require("express");
 
 const router = express.Router();
 
-/**
- * @type {typeof import("../middleware/auth") }
- */
 const { ensureAuth } = require("../middleware/auth");
 
 /**
