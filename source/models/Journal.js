@@ -1,5 +1,12 @@
+/**
+ * @file Create schema for journals under 'My Journal' view
+ * @author Group 14 (Back End)
+ */
 const mongoose = require("mongoose");
 
+/**
+ * @class JournalSchema
+ */
 const JournalSchema = new mongoose.Schema({
     title: {
         type: String,

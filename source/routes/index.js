@@ -4,10 +4,20 @@
  */
 const express = require("express");
 const router = express.Router();
+
+/**
+ * @type {typeof import("../middleware/auth") }
+ */
 const { ensureGuest } = require("../middleware/auth");
 
-// @desc     /
-// @route    GET
+/**
+ * Login page
+ * @name /calendar
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureGuest - Ensure user not enter the page before login
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/", ensureGuest, (req, res) => {
     res.render("login", {
         layout: "login"

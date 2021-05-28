@@ -1,9 +1,9 @@
-/*
- * Filename: server.js
- * Author: Group 14
- * Purpose: This script will be the main script responsible with hosting the
+/**
+ * @file This script will be the main script responsible with hosting the
  *          project and routing the webpages
+ * @author Group 14 (Back End)
  */
+
 const express = require("express");                // create basic express server
 const dotenv = require("dotenv");                  // store config of code environment
 const path = require("path");
@@ -12,9 +12,12 @@ const morgan = require("morgan");                  // show any request in the co
 const passport = require("passport");              // google oauth
 const session = require("express-session");
 const MongoStore = require("connect-mongo"); // avoid logout while refreshing the page
-const connectDB = require("./config/db");          // connect mongoDB atlas
 const methodOverride = require("method-override");
 
+/**
+ * @type {typeof import("./config/db") }
+ */
+const connectDB = require("./config/db");          // connect mongoDB atlas
 
 
 dotenv.config({ path: "./config/config.env" });    // load config.env

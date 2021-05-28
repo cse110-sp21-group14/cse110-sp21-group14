@@ -2,26 +2,46 @@
  * @file Google OAuth and callback for login
  * @author Group 14 (Back End)
  */
-const express = require("express");
-const passport = require("passport");
 
-// connect router to server
+/**
+ * express module
+ * @const
+ */
+const express = require("express");
+
+const passport = require("passport");
 const router = express.Router();
 
-// @desc            Auth w Google
-// @route           GET /auth/google
+
+/**
+ * Auth w Google
+ * @name /auth/google
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/google", passport.authenticate("google", {scope: ["profile", "email"]}));
 
-// @desc            Callback
-// @route           GET /auth/google/callback
+/**
+ * Callback function after login
+ * @name /auth/google/callback
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/google/callback", passport.authenticate("google", { failureRedirect:"/" }), 
     (req, res) => {
         res.redirect("/main");
     }
 );
 
-// @desc            Logout user
-// @route           /auth/logout
+/**
+ * Logout user
+ * @name /auth/logout
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
