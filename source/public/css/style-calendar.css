@@ -1,8 +1,10 @@
 /*top nav bar*/
+
 .menuBar {
   text-align: center;
   border-color: black;
   border-style: solid;
+  background-color: #97ddfb;
 }
 
 .menuBar ul {
@@ -123,12 +125,16 @@ body {
   font-weight: normal;
 }
 
-.cld-day:hover {
+.cld-number.eventday {
+  font-weight: bold;
+}
+
+.cld-day.eventday {
   background-color: #97ddfb;
 }
 
-.cld-number.eventday {
-  font-weight: bold;
+.cld-day:hover {
+  background-color: #07acf3;
 }
 
 /*

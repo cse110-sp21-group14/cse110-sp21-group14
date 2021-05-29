@@ -242,6 +242,39 @@ router.get("/page/:id/fetch", ensureAuth, async (req, res) => {
  */
 router.get("/daily/:id", ensureAuth, async (req, res) => {
     try {
+        // getting all users journals with googleId and calling lean to turn them into json
+        let encryptedJournals = await Journal.find({ googleId: req.user.googleId }).lean();
+        let decryptedJournals = getDecryptedJournals(encryptedJournals);
+
+        // getting daily from id, decrypting daily
+        let encryptedDaily = await Daily.findOne({ googleId: req.user.googleId, _id: req.params.id }).lean();
+        let detailsStr = `${encryptedDaily.details[1]} ${encryptedDaily.details[2]}, ${encryptedDaily.details[3]} (${encryptedDaily.details[0]})`;
+        let decryptedDaily = {
+            dailyId: req.params.id,
+            googleId: req.user.googleId,
+            dateObj: encryptedDaily.dateObj,
+            details: encryptedDaily.details,
+            detailsStr,
+            date: encryptedDaily.date,
+            month: encryptedDaily.month,
+            year: encryptedDaily.year,
+            title: secret.decrypt(encryptedDaily.title),
+            content: secret.decrypt(encryptedDaily.content)
+        };
+
+        // responding with the requested page
+        console.log(decryptedDaily);
+        res.render("dailyView", { journals: decryptedJournals, daily: decryptedDaily });
+    } catch (err) {
+        console.log(err);
+        // TODO: determine what to return from a fetch that results in an error
+    }
+});
+
+// @desc Get a specific daily from its id
+// @route GET
+router.get("/daily/:id/fetch", ensureAuth, async (req, res) => {
+    try {
         // getting daily
         let encryptedDaily = await Daily.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
         let decryptedDaily = {
@@ -252,6 +285,7 @@ router.get("/daily/:id", ensureAuth, async (req, res) => {
             date: encryptedDaily.date,
             month: encryptedDaily.month,
             year: encryptedDaily.year,
+            title: secret.decrypt(encryptedDaily.title),
             content: secret.decrypt(encryptedDaily.content)
         };
 
@@ -286,6 +320,7 @@ router.get("/daily/:month/:date/:year", ensureAuth, async (req, res) => {
             date: encryptedDaily.date,
             month: encryptedDaily.month,
             year: encryptedDaily.year,
+            title: secret.decrypt(encryptedDaily.title),
             content: secret.decrypt(encryptedDaily.content)
         };
 
@@ -323,6 +358,7 @@ router.get("/daily/:month/:year", ensureAuth, async (req, res) => {
                 date: encryptedDaily.date,
                 month: encryptedDaily.month,
                 year: encryptedDaily.year,
+                title: secret.decrypt(encryptedDaily.title),
                 content: secret.decrypt(encryptedDaily.content)
             };
 
@@ -441,13 +477,44 @@ router.post("/daily", ensureAuth, async (req, res) => {
             date: logDate.getDate(),
             month: (logDate.getMonth() + 1),
             year: (logDate.getYear() + 1900),
+            title: secret.encrypt(req.body.title),
             content: secret.encrypt(req.body.content)
         };
 
         // adding new daily to database
-        await Daily.create(newDaily);
-        // console.log("Created daily");
-        res.status(200).end();
+        let createdDaily = await Daily.create(newDaily);
+        console.log("Created daily");
+        res.redirect("main/daily/" + createdDaily._id);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+// @desc Creates a new daily object for a given month/day/year
+// @route POST
+router.post("/post/daily/:month/:date/:year", ensureAuth, async (req, res) => {
+    try {
+        let { month, date, year } = req.params;
+        let logDate = new Date(year, month-1, date);
+
+        let detailsStr = logDate.toString().split(" ").slice(0, 4);
+
+        // creating new daily
+        let newDaily = {
+            googleId: req.user.googleId,
+            dateObj: logDate,
+            details: detailsStr,
+            date: logDate.getDate(),
+            month: (logDate.getMonth() + 1),
+            year: (logDate.getYear() + 1900),
+            title: secret.encrypt(req.body.title),
+            content: secret.encrypt(req.body.content)
+        };
+
+        // adding new daily to database
+        let createdDaily = await Daily.create(newDaily);
+        console.log("Created daily");
+        res.redirect("/main/daily/" + createdDaily._id);
     } catch (err) {
         console.log(err);
     }
@@ -519,9 +586,10 @@ router.put("/daily/:id", ensureAuth, async (req, res) => {
 
         if (toUpdate) {
             let encryptedContent = secret.encrypt(req.body.content);
-            await Daily.findByIdAndUpdate(req.params.id, { content: encryptedContent});
-            // console.log("Updated daily in database");
-            res.status(200).end();
+            let encryptedTitle = secret.encrypt(req.body.title);
+            await Daily.findByIdAndUpdate(req.params.id, {title: encryptedTitle, content: encryptedContent});
+            console.log("Updated daily in database");
+            res.redirect("/main/daily/" + req.params.id);
         } else {
             res.status(400).end();
         }
@@ -707,6 +775,29 @@ router.get("/add/:journalId/page", ensureAuth, async (req, res) => {
     res.render("pageAdd", {journal: decryptedJournal, journals: decryptedJournals});
 });
 
+// add a daily for a given date
+router.get("/add/daily/:month/:date/:year", ensureAuth, async (req, res) => {
+    // getting all users journals with googleId and calling lean to turn them into json
+    let encryptedJournals = await Journal.find({ googleId: req.user.googleId }).lean();
+    let decryptedJournals = getDecryptedJournals(encryptedJournals);
+
+    // getting details for the daily add
+    let { month, date, year } = req.params;
+    let daily = await Daily.findOne({ googleId: req.user.googleId, month, date, year }).lean();
+
+    // if already a daily exists
+    if (daily) {
+        // redirect to the daily view
+        res.redirect("/main/daily/" + daily._id);
+    } else {
+        // render the add daily page
+        let logDate = new Date(year,month-1,date);
+        let details = logDate.toString().split(" ").slice(0, 4);
+        let detailsStr = `${details[1]} ${details[2]}, ${details[3]} (${details[0]})`;
+        res.render("dailyAdd", { journals: decryptedJournals, month, date, year, detailsStr });
+    }
+});
+
 
 module.exports = router;</code></pre>
         </article>
@@ -720,7 +811,7 @@ module.exports = router;</code></pre>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Sat May 29 2021 00:38:44 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Sat May 29 2021 05:02:38 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

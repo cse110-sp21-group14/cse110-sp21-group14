@@ -73,11 +73,16 @@ var Calendar = function (model, date) {
  * @param {*} adjuster 
  */
 function createCalendar(calendar, element, adjuster) {
+    //console.log(calendar.Model);
+    var newDate = new Date(calendar.Selected.Year, calendar.Selected.Month, 1);
     if (typeof adjuster !== "undefined") {
-        var newDate = new Date(calendar.Selected.Year, calendar.Selected.Month + adjuster, 1);
+        //console.log(adjuster);
+
+        newDate = new Date(calendar.Selected.Year, calendar.Selected.Month, 1);
         calendar = new Calendar(calendar.Model, newDate);
         element.innerHTML = "";
     }
+    //console.log(calendar);
 
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -94,7 +99,9 @@ function createCalendar(calendar, element, adjuster) {
         // prev month button
         var rwd = document.createElement("div");
         rwd.className += " cld-rwd cld-nav";
-        rwd.addEventListener("click", function () { createCalendar(calendar, element, -1); });
+        rwd.addEventListener("click", function () {
+            fetchevents(calendar.Selected.Month - 1, calendar.Selected.Year, calendar, element, -1);
+        });
         rwd.innerHTML = `&lt;svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)">&lt;polyline points="0,50 75,0 75,100">&lt;/polyline>&lt;/svg>`;
         datetime.appendChild(rwd);
         // shows today's date above
@@ -105,7 +112,9 @@ function createCalendar(calendar, element, adjuster) {
         // next month button
         var fwd = document.createElement("div");
         fwd.className += " cld-fwd cld-nav";
-        fwd.addEventListener("click", function () { createCalendar(calendar, element, 1); });
+        fwd.addEventListener("click", function () {
+            fetchevents(calendar.Selected.Month + 1, calendar.Selected.Year, calendar, element, 1);
+        });
         fwd.innerHTML = `&lt;svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)">&lt;polyline points="0,0 75,50 0,100">&lt;/polyline>&lt;/svg>`;
         datetime.appendChild(fwd);
         // append nav bar on top
@@ -168,6 +177,7 @@ function createCalendar(calendar, element, adjuster) {
                 var evDate = calendar.Model[n].Date;
                 var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month, (i + 1));
                 if (evDate.getTime() == toDate.getTime()) {
+                    day.className += " eventday";
                     number.className += " eventday";
                     var title = document.createElement("span");
                     title.className += "cld-title";
@@ -175,9 +185,7 @@ function createCalendar(calendar, element, adjuster) {
                         var a = document.createElement("a");
                         a.setAttribute("href", "#");
                         a.innerHTML += calendar.Model[n].Title;
-
                         a.addEventListener("click", calendar.Model[n].Link);
-
                         title.appendChild(a);
                     } else {
                         title.innerHTML += `&lt;a href="` + calendar.Model[n].Link + `">` + calendar.Model[n].Title + `&lt;/a>`;
@@ -217,6 +225,18 @@ function createCalendar(calendar, element, adjuster) {
     AddDays();
 }
 
+
+// ===========
+// calendar-demo.js
+var events = [];
+
+let baseurl = window.location.href;
+
+let curdate = new Date();
+let month = curdate.getMonth();
+let year = curdate.getFullYear();
+var element = document.getElementById("calendar");
+
 /**
  * Create calendar
  * @param {Element} el 
@@ -227,17 +247,42 @@ function calendar(el, data) {
     createCalendar(obj, el);
 }
 
+function fetchEvents(month, year) {
+    fetch(baseurl.replace("calendar", "main") + "/daily/" + (1 + month) + "/" + year).then(response => response.json()).then(data => {
+        events = [];
+        for (let i = 0; i &lt; data.length; i++) {
+            let newobj = {};
+            newobj.Date = new Date(data[i].year + "-" + data[i].month + "-" + data[i].date);
+            newobj.Title = data[i].title;
+            newobj.Link = "main/daily/" + data[i].dailyId;
+            events.push(newobj);
+        }
+        calendar(element, events);
 
-// ===========
-// calendar-demo.js
-var events = [
-    { "Date": new Date(2021, 4, 7), "Title": "Today is my birthday.", "Link": "path/to/task/on/page/view/" },
-    { "Date": new Date(2021, 4, 18), "Title": "CSE110 final project is due", "Link": "https://www.google.com/" },
-    { "Date": new Date(2021, 4, 22), "Title": "Give me a task", "Link": "https://www.google.com/" },
-];
+    });
+}
+
+function fetchevents(month, year, calendar, element, adjuster) {
+    fetch(baseurl.replace("calendar", "main") + "/daily/" + (1 + month) + "/" + year).then(response => response.json()).then(data => {
+        events = [];
+        for (let i = 0; i &lt; data.length; i++) {
+            let newobj = {};
+            newobj.Date = new Date(data[i].year + "-" + data[i].month + "-" + data[i].date);
+            newobj.Title = data[i].title;
+            newobj.Link = "main/daily/" + data[i].dailyId;
+            events.push(newobj);
+        }
+        var newcalendar = new Calendar(events, new Date(calendar.Selected.Year, month, 1));
+        console.log("New Calendar Month (0 indexed): " + newcalendar.Selected.Month);
+
+        createCalendar(newcalendar, element, adjuster);
+    });
+}
+
+fetchEvents(month, year);
+
 // create calendar
-var element = document.getElementById("calendar");
-calendar(element, events);</code></pre>
+</code></pre>
         </article>
     </section>
 
@@ -249,7 +294,7 @@ calendar(element, events);</code></pre>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Sat May 29 2021 00:38:44 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Sat May 29 2021 05:02:38 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

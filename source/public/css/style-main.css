@@ -4,3 +4,23 @@
     Added CSS for main menu.
 */
 
+.newPage{
+    display: block;
+    margin: auto;
+    min-width: 50vw;
+    width: 85%;
+    border: 1px solid #FEFFDE;
+    border-radius: 10px;
+    min-height: 71vh;
+    height: 80%;
+    background: #FEFFDE;
+    font-family: 'Mukta', sans-serif;
+}
+
+.layerOne{
+    min-width: 45vw;
+    display: block;
+    margin-left: 50px;
+    margin-top: 2vh;
+    margin-bottom: 1.5vh;
+}
