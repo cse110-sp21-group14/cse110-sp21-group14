@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>testing/github.test.js - Documentation</title>
+    <title>public/scripts/script-login.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">testing/github.test.js</h1>
+    <h1 class="page-title">public/scripts/script-login.js</h1>
     
 
     
@@ -40,34 +40,12 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Temporary test file for Puppeteer
- * @author: Group 14 (workflow)
+ * @file This script runs on the front end (webpage) when the login page is loaded.
+ *       This script should only run on the login page.
+ * @author Group 14 (Front End)
  */
 
-/* global describe, beforeAll, it, page */
-
-describe("Puppeteer Test", () => {
-    // route to page
-    beforeAll(async () => {
-        await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
-        await page.waitForTimeout(500);
-    });
-
-    // placeholder test 1
-    it("Test1: Check for 404", async () => {
-        let expected = "Find code, projects, and people on GitHub:";
-        let actual = await page.$eval("label[for=not-found-search]", (e) => e.innerHTML);
-        expect(actual).toBe(expected);
-    });
-
-    // placeholder test 2
-    it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
-        await page.click("img[alt=GitHub]");
-        let expected = "https://github.com/";
-        let actual = page.url();
-        expect(actual).toMatch(expected);
-    });
-});</code></pre>
+console.log("This script runs in the login page");</code></pre>
         </article>
     </section>
 

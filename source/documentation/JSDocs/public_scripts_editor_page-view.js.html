@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>testing/github.test.js - Documentation</title>
+    <title>public/scripts/editor/page-view.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">testing/github.test.js</h1>
+    <h1 class="page-title">public/scripts/editor/page-view.js</h1>
     
 
     
@@ -39,34 +39,130 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @file Temporary test file for Puppeteer
- * @author: Group 14 (workflow)
+            <pre class="prettyprint source linenums"><code>/* eslint-disable */
+// marker.js
+/**
+ * @file text editor in page view
  */
+let data = undefined;
+fetch(window.location.href + "/fetch").then(response => response.json()).then((result) => {
+    data = JSON.parse(result.content);
 
-/* global describe, beforeAll, it, page */
+    class MarkerTool {
 
-describe("Puppeteer Test", () => {
-    // route to page
-    beforeAll(async () => {
-        await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
-        await page.waitForTimeout(500);
+        static get isInline() {
+            return true;
+        }
+
+        get state() {
+            return this._state;
+        }
+
+        set state(state) {
+            this._state = state;
+
+            this.button.classList.toggle(this.api.styles.inlineToolButtonActive,
+                state);
+        }
+
+        constructor({ api }) {
+            this.api = api;
+            this.button = null;
+            this._state = false;
+
+            this.tag = "MARK";
+            this.class = "cdx-marker";
+        }
+
+        render() {
+            this.button = document.createElement("button");
+            this.button.type = "button";
+            this.button.innerHTML = "&lt;svg width='20' height='18'>&lt;path d='M10.458 12.04l2.919 1.686-.781 1.417-.984-.03-.974 1.687H8.674l1.49-2.583-.508-.775.802-1.401zm.546-.952l3.624-6.327a1.597 1.597 0 0 1 2.182-.59 1.632 1.632 0 0 1 .615 2.201l-3.519 6.391-2.902-1.675zm-7.73 3.467h3.465a1.123 1.123 0 1 1 0 2.247H3.273a1.123 1.123 0 1 1 0-2.247z'/>";
+            this.button.classList.add(this.api.styles.inlineToolButton);
+
+            return this.button;
+        }
+
+        surround(range) {
+            if (this.state) {
+                this.unwrap(range);
+                return;
+            }
+
+            this.wrap(range);
+        }
+
+        wrap(range) {
+            const selectedText = range.extractContents();
+            const mark = document.createElement(this.tag);
+
+            mark.classList.add(this.class);
+            mark.appendChild(selectedText);
+            range.insertNode(mark);
+
+            this.api.selection.expandToTag(mark);
+        }
+
+        unwrap(range) {
+            const mark = this.api.selection.findParentTag(this.tag, this.class);
+            const text = range.extractContents();
+
+            mark.remove();
+
+            range.insertNode(text);
+        }
+
+
+        checkState() {
+            const mark = this.api.selection.findParentTag(this.tag);
+
+            this.state = !!mark;
+        }
+    }
+
+
+
+    const editor = new EditorJS({
+
+        holder: "editorjs",
+        tools: {
+            crossout: MarkerTool,
+
+            list: {
+                class: NestedList,
+                inlineToolbar: true,
+            },
+        },
+        data
     });
 
-    // placeholder test 1
-    it("Test1: Check for 404", async () => {
-        let expected = "Find code, projects, and people on GitHub:";
-        let actual = await page.$eval("label[for=not-found-search]", (e) => e.innerHTML);
-        expect(actual).toBe(expected);
-    });
+    // ====
 
-    // placeholder test 2
-    it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
-        await page.click("img[alt=GitHub]");
-        let expected = "https://github.com/";
-        let actual = page.url();
-        expect(actual).toMatch(expected);
-    });
+    var saveButton = document.querySelector(".saveButton");
+
+    saveButton.addEventListener("click", async (event) => {
+        event.preventDefault();
+        editor.save().then((text) => {
+            console.log(text);
+
+            const formSelector = document.querySelector(".newPage");
+
+            const hiddenContent = document.createElement("input");
+            hiddenContent.type = "hidden";
+            hiddenContent.name = "content";
+            hiddenContent.id = "content";
+            hiddenContent.value = JSON.stringify(text);
+
+            formSelector.appendChild(hiddenContent);
+
+            formSelector.submit();
+
+
+        }).catch((error) => {
+            console.log("Saving failed: ", error);
+        });
+
+    }, false);
 });</code></pre>
         </article>
     </section>

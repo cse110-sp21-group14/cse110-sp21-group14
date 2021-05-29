@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>testing/github.test.js - Documentation</title>
+    <title>config/passport.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">testing/github.test.js</h1>
+    <h1 class="page-title">config/passport.js</h1>
     
 
     
@@ -40,34 +40,68 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Temporary test file for Puppeteer
- * @author: Group 14 (workflow)
+ * @file Passport for Google OAuth2
+ * @author Group 14 (Back End)
  */
 
-/* global describe, beforeAll, it, page */
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const User = require("../models/User");
+const secret = require("./secret");
 
-describe("Puppeteer Test", () => {
-    // route to page
-    beforeAll(async () => {
-        await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
-        await page.waitForTimeout(500);
+/**
+ * Passport for Google OAuth2
+ * @module passport module
+ */
+module.exports = function(passport) {
+    passport.use(new GoogleStrategy({
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: "/auth/google/callback"
+    },
+    async(accessToken, refreshToken, profile, done) => {
+        console.log(profile);
+
+        // encrypting profile.id with helper
+        let newId = "";
+        let helper = secret.decrypt(process.env.HELPER_KEY);
+
+        // building newId
+        for (let i = 0; i &lt; profile.id.length; i++) {
+            let charCode = profile.id.charCodeAt(i) + helper.charCodeAt(i);
+            newId += String.fromCharCode(charCode);
+        }
+
+        // building new user
+        const newUser = {
+            googleId: newId,
+            displayName: secret.encrypt(profile.displayName),
+            image: profile.photos[0].value,
+            email: secret.encrypt(profile.emails[0].value),
+        };
+
+        // checking to see if user is in mongoDB else it will add new user
+        try {
+            let user = await User.findOne({googleId : newId});
+            if (user) {
+                done(null, user);
+            } else {
+                user = await User.create(newUser);
+                done(null, user);
+            }
+
+        } catch (err) {
+            console.error;
+        }
+    }));
+
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
     });
 
-    // placeholder test 1
-    it("Test1: Check for 404", async () => {
-        let expected = "Find code, projects, and people on GitHub:";
-        let actual = await page.$eval("label[for=not-found-search]", (e) => e.innerHTML);
-        expect(actual).toBe(expected);
+    passport.deserializeUser((id, done) => {
+        User.findById(id, (err, user) => done(err, user));
     });
-
-    // placeholder test 2
-    it("Test2: Clicking GitHub icon, new URL should be https://github.com/", async () => {
-        await page.click("img[alt=GitHub]");
-        let expected = "https://github.com/";
-        let actual = page.url();
-        expect(actual).toMatch(expected);
-    });
-});</code></pre>
+};</code></pre>
         </article>
     </section>
 
