@@ -612,7 +612,7 @@ router.get("/add/daily/:month/:date/:year", ensureAuth, async (req, res) => {
         // render the add daily page
         let logDate = new Date(year,month-1,date);
         let details = logDate.toString().split(" ").slice(0, 4);
-        let detailsStr = `${details[1]} ${details[2]}, ${details[3]} (${details[0]})`
+        let detailsStr = `${details[1]} ${details[2]}, ${details[3]} (${details[0]})`;
         res.render("dailyAdd", { journals: decryptedJournals, month, date, year, detailsStr });
     }
 });
