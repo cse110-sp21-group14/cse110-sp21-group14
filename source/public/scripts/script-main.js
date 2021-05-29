@@ -29,7 +29,7 @@ journals.forEach(function (journal) {
 let form = document.getElementById("monthForm");
 let dailyContainer = document.getElementById("dailyContainer");
 
-form.addEventListener('submit', async (event) => {
+form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     // accessing data from form
@@ -53,14 +53,14 @@ form.addEventListener('submit', async (event) => {
 
     // populating with days
     for (let i = 1; i <= daysInMonth; i++) {
-        let dailyItem = document.createElement('li');
+        let dailyItem = document.createElement("li");
         dailyItem.id = `${month}/${i}/${year}`;
         // dailyItem.className = Class name goes here;
 
-        let itemParagraph = document.createElement('p');
+        let itemParagraph = document.createElement("p");
         itemParagraph.innerText = `${month}/${i}/${year}`;
 
-        let itemButton = document.createElement('button');
+        let itemButton = document.createElement("button");
         itemButton.innerHTML = `<a href="/main/add/daily/${month}/${i}/${year}">Add</a>`;
 
         // adding inner html of daily item
