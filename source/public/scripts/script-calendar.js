@@ -179,7 +179,7 @@ function fetchEvents(month, year) {
         for (let i = 0; i < data.length; i++) {
             let newobj = {};
             newobj.Date = new Date(data[i].year + '-' + data[i].month + '-' + data[i].date);
-            newobj.Title = data[i].content;
+            newobj.Title = data[i].title;
             newobj.Link = "main/daily/" + data[i].dailyId;
             events.push(newobj);
         }
@@ -194,7 +194,7 @@ function fetchevents(month, year, calendar, element, adjuster) {
         for (let i = 0; i < data.length; i++) {
             let newobj = {};
             newobj.Date = new Date(data[i].year + '-' + data[i].month + '-' + data[i].date);
-            newobj.Title = data[i].content;
+            newobj.Title = data[i].title;
             newobj.Link = "main/daily/" + data[i].dailyId;
             events.push(newobj);
         }

@@ -30,6 +30,11 @@ const DailySchema = new mongoose.Schema({
         min: 0,
         required: true
     },
+    title: {
+        type: String,
+        default: "view",
+        required: true
+    },
     content: {
         type: String,
         default: "",
