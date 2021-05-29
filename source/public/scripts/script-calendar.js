@@ -1,3 +1,8 @@
+/**
+ * @constructor
+ * @param {Model} model 
+ * @param {Date} date 
+ */
 var Calendar = function (model, date) {
 
     this.Model = model;
@@ -19,6 +24,13 @@ var Calendar = function (model, date) {
     this.Prev.Days = new Date(this.Prev.getFullYear(), (this.Prev.getMonth() + 1), 0).getDate();
 };
 
+/**
+ * Creates a calendar
+ * @function
+ * @param {Calendar} calendar 
+ * @param {Element} element 
+ * @param {*} adjuster 
+ */
 function createCalendar(calendar, element, adjuster) {
     //console.log(calendar.Model);
     var newDate = new Date(calendar.Selected.Year, calendar.Selected.Month, 1);
@@ -36,6 +48,10 @@ function createCalendar(calendar, element, adjuster) {
     var mainSection = document.createElement("div");
     mainSection.className += "cld-main";
 
+    /**
+     * Creates today's date, next/prev month button in the HTML
+     * @function
+     */
     function AddDateTime() {
         var datetime = document.createElement("div");
         datetime.className += "cld-datetime";
@@ -64,6 +80,10 @@ function createCalendar(calendar, element, adjuster) {
         mainSection.appendChild(datetime);
     }
 
+    /**
+     * Adds weekday labels to the HTML
+     * @function
+     */
     function AddLabels() {
         var labels = document.createElement("ul");
         labels.className = "cld-labels";
@@ -77,8 +97,16 @@ function createCalendar(calendar, element, adjuster) {
         mainSection.appendChild(labels);
     }
 
-    function AddDays() {
-        // Create Number Element
+    /**
+     * Add days to the HTML
+     * @function
+     */
+    function AddDays() { 
+        /**
+         * Create Number Element
+         * @param {int} n 
+         * @returns {number}
+         */
         function DayNumber(n) {
             var number = document.createElement("p");
             number.className += "cld-number";
@@ -168,6 +196,11 @@ let month = curdate.getMonth();
 let year = curdate.getFullYear();
 var element = document.getElementById("calendar");
 
+/**
+ * Create calendar
+ * @param {Element} el 
+ * @param {Event} data 
+ */
 function calendar(el, data) {
     var obj = new Calendar(data);
     createCalendar(obj, el);

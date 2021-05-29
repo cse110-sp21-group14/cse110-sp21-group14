@@ -1,5 +1,8 @@
 /* eslint-disable */
 // marker.js
+/**
+ * @file text editor in index
+ */
 class MarkerTool {
 
     static get isInline() {

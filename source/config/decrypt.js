@@ -1,12 +1,14 @@
 /**
- * Filename: decrypt.js
- * Author: Stephen (backend)
- * Date: May 17th
- * Purpose: Decrypt journals from database
+ * @file Decrypt journals from database
+ * @author Group 14 (Back End)
  */
 
 const secret = require("../config/secret");
 
+/**
+ * Decrypted data from MongoDB to original journal(s)/page(s)
+ * @module decrypting module
+ */
 module.exports = {
     // get all journals from a user
     getDecryptedJournals: function (encryptedJournals) {

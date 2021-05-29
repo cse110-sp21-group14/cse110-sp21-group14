@@ -1,5 +1,8 @@
 /* eslint-disable */
 // marker.js
+/**
+ * @file text editor in page view
+ */
 let data = undefined;
 fetch(window.location.href + "/fetch").then(response => response.json()).then((result) => {
     data = JSON.parse(result.content);

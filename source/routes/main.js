@@ -3,17 +3,27 @@
  * @author Group 14 (Back End)
  */
 const express = require("express");
-const router = express.Router();
-const { ensureAuth } = require("../middleware/auth");
+
 const secret = require("../config/secret");
 const Journal = require("../models/Journal");
 const Page = require("../models/Page");
 const Daily = require("../models/Daily");
+
+const router = express.Router();
+
+const { ensureAuth } = require("../middleware/auth");
+
 const { getDecryptedJournals, getDecryptedJournal, getDecryptedPage } = require("../config/decrypt");
 
-// @desc     /main
-// @desc responds with a list of all journals belonging to the user (json)
-// @route GET
+
+/**
+ * Responds with a list of all journals belonging to the user (json)
+ * @name /main
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
@@ -29,8 +39,15 @@ router.get("/", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc responds with a list of all journals belonging to the user (json)
-// @route GET
+
+/**
+ * Responds with a list of all journals belonging to the user (json)
+ * @name /calendar/journals
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/journals", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
@@ -45,9 +62,15 @@ router.get("/journals", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc /main/journal/:id
-// @desc get a specific journal from its id
-// @route GET
+
+/**
+ * Get a specific journal from its id
+ * @name /main/journal/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/journal/:id", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
@@ -59,7 +82,7 @@ router.get("/journal/:id", ensureAuth, async (req, res) => {
         let decryptedJournal = getDecryptedJournal(encryptedJournal);
 
         // responding to get request with journal
-        console.log(decryptedJournal);
+        //console.log(decryptedJournal);
         //res.json(decryptedJournal);
         res.render("journalView", {journal: decryptedJournal, journals: decryptedJournals});
     } catch (err) {
@@ -69,8 +92,14 @@ router.get("/journal/:id", ensureAuth, async (req, res) => {
 });
 
 
-// @desc gets the pages of a specific journal
-// @route GET
+/**
+ * Gets the pages of a specific journal
+ * @name /main/:id/pages
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/:id/pages", ensureAuth, async (req,res) => {
     try {
         // getting journal to get pages
@@ -103,8 +132,15 @@ router.get("/:id/pages", ensureAuth, async (req,res) => {
     }
 });
 
-// @desc renders page editor for a specified page
-// @route GET
+
+/**
+ * Get a specific page from a specific journal
+ * @name /main/page/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/page/:id", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
@@ -122,7 +158,7 @@ router.get("/page/:id", ensureAuth, async (req, res) => {
 
         // responding with the requested page
         //res.json(decryptedPage);
-        console.log(decryptedPage);
+        //console.log(decryptedPage);
         res.render("pageView", { journals: decryptedJournals, page: decryptedPage, pageJournal: decryptedJournal });
     } catch (err) {
         console.log(err);
@@ -130,8 +166,15 @@ router.get("/page/:id", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Get a specific page from a specific journal
-// @route GET
+
+/**
+ * Get a specific page from a specific journal
+ * @name /main/page/:id/fetch
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/page/:id/fetch", ensureAuth, async (req, res) => {
     try {
         // getting page from id, decrypting page
@@ -140,7 +183,7 @@ router.get("/page/:id/fetch", ensureAuth, async (req, res) => {
 
 
         // responding with the requested page
-        console.log(decryptedPage);
+        //console.log(decryptedPage);
         res.json(decryptedPage);
     } catch (err) {
         console.log(err);
@@ -148,8 +191,14 @@ router.get("/page/:id/fetch", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc renders daily editor for a specified daily
-// @route GET
+/**
+ * Get a specific daily from its id
+ * @name /main/daily/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/daily/:id", ensureAuth, async (req, res) => {
     try {
         // getting all users journals with googleId and calling lean to turn them into json
@@ -206,8 +255,15 @@ router.get("/daily/:id/fetch", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Get a specific daily by month-date-year
-// @route GET
+
+/**
+ * Get a specific daily by month-date-year
+ * @name /main/daily/:month/:date/:year
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/daily/:month/:date/:year", ensureAuth, async (req, res) => {
     try {
         let { month, date, year } = req.params;
@@ -234,8 +290,15 @@ router.get("/daily/:month/:date/:year", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Gets all dailies based on month and year
-// @route GET
+
+/**
+ * Gets all dailies based on month and year
+ * @name /main/daily/:month/:year
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/daily/:month/:year", ensureAuth, async (req, res) => {
     try {
         let { month, year } = req.params;
@@ -268,9 +331,14 @@ router.get("/daily/:month/:year", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc /main/journal
-// @desc creates a new journal from a post request
-// @route POST
+/**
+ * Creates a new journal from a post request
+ * @name /main/journal
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.post("/journal", ensureAuth, async (req, res) => {
     try {
         // creating a new journal with empty pages
@@ -292,8 +360,15 @@ router.post("/journal", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc creates a page in the specified journal from a post request
-// @route POST
+
+/**
+ * Creates a page in the specified journal from a post request
+ * @name /main/post/journal/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.post("/post/journal/:id", ensureAuth, async (req, res) => {
     try {
         // getting journal by id
@@ -315,7 +390,7 @@ router.post("/post/journal/:id", ensureAuth, async (req, res) => {
         if (encryptedJournal) {
             // adding new page to database
             let newPage = await Page.create(toPost);
-            console.log("Page Created");
+            // console.log("Page Created");
 
             // updating journal in database to contain our new page
             let newPages = encryptedJournal.pages;
@@ -326,7 +401,7 @@ router.post("/post/journal/:id", ensureAuth, async (req, res) => {
 
             // sending update request
             await Journal.findByIdAndUpdate(req.params.id, { pages: newPages, pageIds: newPageIds });
-            console.log("Added New Page To Journal");
+            // console.log("Added New Page To Journal");
 
             res.redirect("/main/page/" + newPage._id);
             //res.status(200).end();
@@ -338,8 +413,15 @@ router.post("/post/journal/:id", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Creates a new daily object
-// @route POST
+
+/**
+ * Creates a new daily object
+ * @name /main/daily
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.post("/daily", ensureAuth, async (req, res) => {
     try {
         let logDate = new Date(req.body.dateObj);
@@ -397,8 +479,15 @@ router.post("/post/daily/:month/:date/:year", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Updates a page given its id
-// @route PUT
+
+/**
+ * Updates a page given its id
+ * @name /main/page/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.put("/page/:id", ensureAuth, async (req, res) => {
     try {
         // getting the encrypted page
@@ -427,11 +516,11 @@ router.put("/page/:id", ensureAuth, async (req, res) => {
 
             // updating page in database
             await Page.findByIdAndUpdate(req.params.id, newPage);
-            console.log("Updated page in database");
+            // console.log("Updated page in database");
 
             // updating journal
             await Journal.findByIdAndUpdate(encryptedPage.journalId, { pages: newPages });
-            console.log("Updated page title in Journal");
+            // console.log("Updated page title in Journal");
             res.redirect("/main/page/" + req.params.id);
         } else {
             res.status(400).end();
@@ -441,8 +530,15 @@ router.put("/page/:id", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Updates a daily given its _id
-// @route PUT
+
+/**
+ * Updates a daily given its _id
+ * @name /main/daily/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.put("/daily/:id", ensureAuth, async (req, res) => {
     try {
         let toUpdate = await Daily.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -461,11 +557,18 @@ router.put("/daily/:id", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Deletes a journal given its _id
-// @route DELETE
+
+/**
+ * Deletes a journal given its _id
+ * @name /main/journal/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.delete("/journal/:id", ensureAuth, async (req, res) => {
     try {
-        console.log("start deleting a journal");
+        // console.log("start deleting a journal");
         
         // getting the journal to delete
         let toDelete = await Journal.findOne({googleId: req.user.googleId, _id: req.params.id}).lean();
@@ -479,10 +582,10 @@ router.delete("/journal/:id", ensureAuth, async (req, res) => {
                 // deleting page
                 await Page.deleteOne({ _id: pagesToDelete[i]});
             }
-            console.log("Deleted pages");
+            // console.log("Deleted pages");
 
             await Journal.deleteOne({ _id: req.params.id});
-            console.log("Deleted Journal");
+            // console.log("Deleted Journal");
 
             res.redirect("/");
             
@@ -496,8 +599,15 @@ router.delete("/journal/:id", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Deletes a page given its _id
-// @route DELETE
+
+/**
+ * Deletes a page given its _id
+ * @name /main/page/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.delete("/page/:id", ensureAuth, async (req, res) => {
     try {
         // getting page to delete
@@ -519,14 +629,14 @@ router.delete("/page/:id", ensureAuth, async (req, res) => {
             }
             // removing page
             await Page.deleteOne({_id: req.params.id});
-            console.log("Removed page from Pages collection");
+            // console.log("Removed page from Pages collection");
 
             // updating journal
             await Journal.findByIdAndUpdate(toDelete.journalId, { pages: newPages, pageIds: newPageIds});
 
             res.redirect("/");
             
-            console.log("Updated journal by removing page");
+            // console.log("Updated journal by removing page");
 
             //res.status(200).end();
         } else {
@@ -537,8 +647,15 @@ router.delete("/page/:id", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Deletes a daily given its _id
-// @route DELETE
+
+/**
+ * Deletes a daily given its _id
+ * @name /main/daily/:id
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.delete("/daily/:id", ensureAuth, async (req, res) => {
     try {
         let deleted = await Daily.deleteOne({googleId: req.user.googleId, _id: req.params.id});
@@ -554,8 +671,15 @@ router.delete("/daily/:id", ensureAuth, async (req, res) => {
     }
 });
 
-// @desc Deletes a daily given the month-date-year
-// @route DELETE
+
+/**
+ * Deletes a daily given the month-date-year
+ * @name /main/daily/:month/:date/:year
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.delete("/daily/:month/:date/:year", ensureAuth, async (req, res) => {
     try {
         let { month, date, year } = req.params;
@@ -572,7 +696,15 @@ router.delete("/daily/:month/:date/:year", ensureAuth, async (req, res) => {
     }
 });
 
-// add journal
+
+/**
+ * Add a new journal
+ * @name /main/add/journal
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/add/journal", ensureAuth, async (req, res) => {
     // getting all users journals with googleId and calling lean to turn them into json
     let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();
@@ -581,7 +713,15 @@ router.get("/add/journal", ensureAuth, async (req, res) => {
     res.render("journalAdd", {journals: decryptedJournals});
 });
 
-// add page to a specific journal
+
+/**
+ * Add a page to a specific journal
+ * @name /main/add/:journalId/page
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/add/:journalId/page", ensureAuth, async (req, res) => {
     // getting all users journals with googleId and calling lean to turn them into json
     let encryptedJournals = await Journal.find({googleId: req.user.googleId}).lean();

@@ -1,15 +1,22 @@
 /**
- * Filename: auth.js
- * Author: Group 14 (Back End)
- * Purpose: Google OAuth and callback for login
+ * @file routing for calendar views
+ * @author Group 14 (Back End)
  */
+
 const express = require("express");
+
 const router = express.Router();
+
 const { ensureAuth } = require("../middleware/auth");
 
-// @desc     /calendar
-// @desc     month view
-// @route    GET
+/**
+ * Month view
+ * @name /calendar
+ * @function
+ * @param {string} URL - Express path
+ * @param {callback} ensureAuth - Ensure user security when refreshing the page
+ * @param {callback} middleware - Express middleware.
+ */
 router.get("/", ensureAuth, async (req, res) => {
     try {
         res.render("calendar", {
@@ -21,5 +28,8 @@ router.get("/", ensureAuth, async (req, res) => {
     }
 });
 
-
+/**
+ * Calendar route
+ * @module calendar module
+ */
 module.exports = router;

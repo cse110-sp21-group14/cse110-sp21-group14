@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>server.js - Documentation</title>
+    <title>config/passport.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">server.js</h1>
+    <h1 class="page-title">config/passport.js</h1>
     
 
     
@@ -40,96 +40,68 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file This script will be the main script responsible with hosting the
- *          project and routing the webpages
+ * @file Passport for Google OAuth2
  * @author Group 14 (Back End)
  */
 
-const express = require("express");                // create basic express server
-const dotenv = require("dotenv");                  // store config of code environment
-const path = require("path");
-const exphbs = require("express-handlebars");      // create express-handlebars
-const morgan = require("morgan");                  // show any request in the console
-const passport = require("passport");              // google oauth
-const session = require("express-session");
-const MongoStore = require("connect-mongo"); // avoid logout while refreshing the page
-const methodOverride = require("method-override");
-const connectDB = require("./config/db");          // connect mongoDB atlas
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const User = require("../models/User");
+const secret = require("./secret");
 
+/**
+ * Passport for Google OAuth2
+ * @module passport module
+ */
+module.exports = function(passport) {
+    passport.use(new GoogleStrategy({
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: "/auth/google/callback"
+    },
+    async(accessToken, refreshToken, profile, done) => {
+        console.log(profile);
 
-dotenv.config({ path: "./config/config.env" });    // load config.env
+        // encrypting profile.id with helper
+        let newId = "";
+        let helper = secret.decrypt(process.env.HELPER_KEY);
 
+        // building newId
+        for (let i = 0; i &lt; profile.id.length; i++) {
+            let charCode = profile.id.charCodeAt(i) + helper.charCodeAt(i);
+            newId += String.fromCharCode(charCode);
+        }
 
-require("./config/passport")(passport);            // passport config
+        // building new user
+        const newUser = {
+            googleId: newId,
+            displayName: secret.encrypt(profile.displayName),
+            image: profile.photos[0].value,
+            email: secret.encrypt(profile.emails[0].value),
+        };
 
+        // checking to see if user is in mongoDB else it will add new user
+        try {
+            let user = await User.findOne({googleId : newId});
+            if (user) {
+                done(null, user);
+            } else {
+                user = await User.create(newUser);
+                done(null, user);
+            }
 
-connectDB();
+        } catch (err) {
+            console.error;
+        }
+    }));
 
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
+    });
 
-const app = express();
-const PORT = process.env.PORT || 3000;            // process.env navigates variables in config.env
-// run in localhost:3000 if there is no PORT variable defined in config.env
-
-
-if(process.env.NODE_ENV === "development"){       // display cur operation in the console
-    app.use(morgan("dev"));
-}
-
-// Handlebars
-app.engine(".hbs", exphbs({ defaultLayout: "main", extname: "hbs" }));
-// set ".hbs" as handlebars" extension
-// set default layout as "main" (views/layouts/main.hbs)
-
-app.set("view engine", ".hbs"); 
-
-
-app.use(express.static(path.join(__dirname + "/public")));
-
-
-
-
-// Sessions
-app.use(session({
-    secret: "keyboard cat",
-    resave: false,                  // don't want to save a session if nothing is modified
-    saveUninitialized: false,       // don't create a session until something is stored
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
-}));
-
-
-//Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-// body parser for requests
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-// method override
-app.use(methodOverride(function (req) {
-    console.log("run methodOverride");
-    if (req.body &amp;&amp; typeof req.body === "object" &amp;&amp; "_method" in req.body) {
-        let method = req.body._method;
-        console.log("get method:" + method);
-        delete req.body._method;
-        return method;
-    }
-}));
-
-// Routes
-app.use("/", require("./routes/index"));
-app.use("/auth", require("./routes/auth"));
-app.use("/main", require("./routes/main"));
-app.use("/calendar", require("./routes/calendar"));
-//app.use("/setting", require("./routes/setting"));
-
-
-
-app.listen(
-    PORT,
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
-);
-</code></pre>
+    passport.deserializeUser((id, done) => {
+        User.findById(id, (err, user) => done(err, user));
+    });
+};</code></pre>
         </article>
     </section>
 

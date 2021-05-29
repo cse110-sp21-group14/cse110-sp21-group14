@@ -1,9 +1,18 @@
-// Connect to MongoDB database
-// Reference: https://mongoosejs.com/docs/
-// Find MONGO_URI: Clusters -> Connect -> Connect your application
+/**
+ * @file Connect MongoDB Atlas
+ * @author Group 14 (Back End)
+ */
+
 const mongoose = require("mongoose");
 
+/**
+ * Connect to MongoDB database
+ * @async
+ * @function
+ */
 const connectDB = async () => {
+    // Reference: https://mongoosejs.com/docs/
+    // Find MONGO_URI: Clusters -> Connect -> Connect your application
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
