@@ -1,10 +1,24 @@
 <!--
-    Author: Yinxuan
-    Date: May 17th
+    Author: Stephen
+    Date: May 28th
     HTML main page (for testing).
 -->
 <link rel="stylesheet" href="/css/style-main.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap" rel="stylesheet">
+
+<h1>My Bullet Journal</h1>
+<div class="newPage">
+    <form id="monthForm">
+        <section class="layerOne">
+            <label for="monthSearch">Search by Month:</label>
+            <input type="month" id="monthSearch" name="monthSearch">
+            <input type="submit" value="search">
+        </section>
+    </form>
+    <ul id="dailyContainer">
+        <!-- NOTE: script-main.js will populate the container with the dailies -->
+    </ul>
+</div>
+
 <script src="scripts/script-main.js" type="module"></script>
-
-
-<!-- <button><a href="/auth/logout">Logout</a></button> -->

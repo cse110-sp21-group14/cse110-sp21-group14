@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>server.js - Documentation</title>
+    <title>public/scripts/editor/page-view.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">server.js</h1>
+    <h1 class="page-title">public/scripts/editor/page-view.js</h1>
     
 
     
@@ -39,97 +39,131 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @file This script will be the main script responsible with hosting the
- *          project and routing the webpages
- * @author Group 14 (Back End)
+            <pre class="prettyprint source linenums"><code>/* eslint-disable */
+// marker.js
+/**
+ * @file text editor in page view
  */
+let data = undefined;
+fetch(window.location.href + "/fetch").then(response => response.json()).then((result) => {
+    data = JSON.parse(result.content);
 
-const express = require("express");                // create basic express server
-const dotenv = require("dotenv");                  // store config of code environment
-const path = require("path");
-const exphbs = require("express-handlebars");      // create express-handlebars
-const morgan = require("morgan");                  // show any request in the console
-const passport = require("passport");              // google oauth
-const session = require("express-session");
-const MongoStore = require("connect-mongo"); // avoid logout while refreshing the page
-const methodOverride = require("method-override");
-const connectDB = require("./config/db");          // connect mongoDB atlas
+    class MarkerTool {
+
+        static get isInline() {
+            return true;
+        }
+
+        get state() {
+            return this._state;
+        }
+
+        set state(state) {
+            this._state = state;
+
+            this.button.classList.toggle(this.api.styles.inlineToolButtonActive,
+                state);
+        }
+
+        constructor({ api }) {
+            this.api = api;
+            this.button = null;
+            this._state = false;
+
+            this.tag = "MARK";
+            this.class = "cdx-marker";
+        }
+
+        render() {
+            this.button = document.createElement("button");
+            this.button.type = "button";
+            this.button.innerHTML = "&lt;svg width='20' height='18'>&lt;path d='M10.458 12.04l2.919 1.686-.781 1.417-.984-.03-.974 1.687H8.674l1.49-2.583-.508-.775.802-1.401zm.546-.952l3.624-6.327a1.597 1.597 0 0 1 2.182-.59 1.632 1.632 0 0 1 .615 2.201l-3.519 6.391-2.902-1.675zm-7.73 3.467h3.465a1.123 1.123 0 1 1 0 2.247H3.273a1.123 1.123 0 1 1 0-2.247z'/>";
+            this.button.classList.add(this.api.styles.inlineToolButton);
+
+            return this.button;
+        }
+
+        surround(range) {
+            if (this.state) {
+                this.unwrap(range);
+                return;
+            }
+
+            this.wrap(range);
+        }
+
+        wrap(range) {
+            const selectedText = range.extractContents();
+            const mark = document.createElement(this.tag);
+
+            mark.classList.add(this.class);
+            mark.appendChild(selectedText);
+            range.insertNode(mark);
+
+            this.api.selection.expandToTag(mark);
+        }
+
+        unwrap(range) {
+            const mark = this.api.selection.findParentTag(this.tag, this.class);
+            const text = range.extractContents();
+
+            mark.remove();
+
+            range.insertNode(text);
+        }
 
 
-dotenv.config({ path: "./config/config.env" });    // load config.env
+        checkState() {
+            const mark = this.api.selection.findParentTag(this.tag);
 
-
-require("./config/passport")(passport);            // passport config
-
-
-connectDB();
-
-
-const app = express();
-const PORT = process.env.PORT || 3000;            // process.env navigates variables in config.env
-// run in localhost:3000 if there is no PORT variable defined in config.env
-
-
-if(process.env.NODE_ENV === "development"){       // display cur operation in the console
-    app.use(morgan("dev"));
-}
-
-// Handlebars
-app.engine(".hbs", exphbs({ defaultLayout: "main", extname: "hbs" }));
-// set ".hbs" as handlebars" extension
-// set default layout as "main" (views/layouts/main.hbs)
-
-app.set("view engine", ".hbs"); 
-
-
-app.use(express.static(path.join(__dirname + "/public")));
-
-
-
-
-// Sessions
-app.use(session({
-    secret: "keyboard cat",
-    resave: false,                  // don't want to save a session if nothing is modified
-    saveUninitialized: false,       // don't create a session until something is stored
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
-}));
-
-
-//Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-// body parser for requests
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-// method override
-app.use(methodOverride(function (req) {
-    console.log("run methodOverride");
-    if (req.body &amp;&amp; typeof req.body === "object" &amp;&amp; "_method" in req.body) {
-        let method = req.body._method;
-        console.log("get method:" + method);
-        delete req.body._method;
-        return method;
+            this.state = !!mark;
+        }
     }
-}));
-
-// Routes
-app.use("/", require("./routes/index"));
-app.use("/auth", require("./routes/auth"));
-app.use("/main", require("./routes/main"));
-app.use("/calendar", require("./routes/calendar"));
-//app.use("/setting", require("./routes/setting"));
 
 
 
-app.listen(
-    PORT,
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
-);
-</code></pre>
+    const editor = new EditorJS({
+
+        holder: "editorjs",
+        tools: {
+            crossout: MarkerTool,
+
+            list: {
+                class: NestedList,
+                inlineToolbar: true,
+            },
+        },
+        data
+    });
+
+    // ====
+
+    var saveButton = document.querySelector(".saveButton");
+
+    saveButton.addEventListener("click", async (event) => {
+        event.preventDefault();
+        editor.save().then((text) => {
+            console.log(text);
+
+            const formSelector = document.querySelector(".newPage");
+
+            const hiddenContent = document.createElement("input");
+            hiddenContent.type = "hidden";
+            hiddenContent.name = "content";
+            hiddenContent.id = "content";
+            hiddenContent.value = JSON.stringify(text);
+
+            formSelector.appendChild(hiddenContent);
+
+            formSelector.submit();
+
+
+        }).catch((error) => {
+            console.log("Saving failed: ", error);
+        });
+
+    }, false);
+});</code></pre>
         </article>
     </section>
 

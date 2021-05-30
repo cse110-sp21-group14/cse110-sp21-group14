@@ -1,5 +1,12 @@
+/**
+ * @file Create schema for each user
+ * @author Group 14 (Back End)
+ */
 const mongoose = require("mongoose");
 
+/**
+ * @class UserSchema
+ */
 const UserSchema = new mongoose.Schema({
     googleId: {
         type: String,

@@ -1,5 +1,13 @@
+/**
+ * @file Create schema for daily entries in calendar view
+ * @author Group 14 (Back End)
+ */
+
 const mongoose = require("mongoose");
 
+/**
+ * @class DailySchema
+ */
 const DailySchema = new mongoose.Schema({
     googleId: {
         type: String,
@@ -28,6 +36,11 @@ const DailySchema = new mongoose.Schema({
     year: {
         type: Number,
         min: 0,
+        required: true
+    },
+    title: {
+        type: String,
+        default: "view",
         required: true
     },
     content: {
