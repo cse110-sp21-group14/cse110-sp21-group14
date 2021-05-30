@@ -69,7 +69,7 @@ form.addEventListener("submit", async (event) => {
     }
 
     // making a fetch request and updating HTML
-    await fetch(window.location.href + `/daily/${month}/${year}`).then(response => response.json()).then((dailies) => {
+    await fetch(document.location.origin + document.location.pathname + `/daily/${month}/${year}`).then(response => response.json()).then((dailies) => {
         // updating each of the daily items that are found in the database
         dailies.forEach((daily) => {
             let dailyItem = document.getElementById(`${daily.month}/${daily.date}/${daily.year}`);
