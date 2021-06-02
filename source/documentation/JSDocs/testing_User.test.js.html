@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>models/Daily.js - Documentation</title>
+    <title>testing/User.test.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">models/Daily.js</h1>
+    <h1 class="page-title">testing/User.test.js</h1>
     
 
     
@@ -40,59 +40,65 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Create schema for daily entries in calendar view
- * @author Group 14 (Back End)
+ * @file Unit tests for source/models
+ * @author Group 14 (testing)
  */
 
-const mongoose = require("mongoose");
+/* global describe */
+const userModel = require("../models/User.js");
 
-/**
- * @class DailySchema
- */
-const DailySchema = new mongoose.Schema({
-    googleId: {
-        type: String,
-        required: true
-    },
-    dateObj: {
-        type: Date,
-        required: true
-    },
-    details: {
-        type: [String],
-        required: true
-    },
-    date: {
-        type: Number,
-        min: 1,
-        max: 31,
-        required: true
-    },
-    month: {
-        type: Number,
-        min: 1,
-        max: 12,
-        required: true
-    },
-    year: {
-        type: Number,
-        min: 0,
-        required: true
-    },
-    title: {
-        type: String,
-        default: "view",
-        required: true
-    },
-    content: {
-        type: String,
-        default: "",
-        required: true
-    }
+// create new dailyModel to test
+const testModel = new userModel();
+
+// add tests for Page model
+describe("test daily model googleId values", () => {
+    test("check googleId type", () => {
+        let expected = String;
+        let actual = testModel.schema.paths.googleId.options.type;
+        expect(actual).toBe(expected);
+    });
+    test("check googleId required", () => {
+        let expected = true;
+        let actual = testModel.schema.paths.googleId.options.required;
+        expect(actual).toBe(expected);
+    });
 });
-
-module.exports = mongoose.model("Daily", DailySchema);
-</code></pre>
+describe("test daily model email values", () => {
+    test("check email type", () => {
+        let expected = String;
+        let actual = testModel.schema.paths.email.options.type;
+        expect(actual).toBe(expected);
+    });
+    test("check email required", () => {
+        let expected = true;
+        let actual = testModel.schema.paths.email.options.required;
+        expect(actual).toBe(expected);
+    });
+});
+describe("test daily model displayName values", () => {
+    test("check displayName type", () => {
+        let expected = String;
+        let actual = testModel.schema.paths.displayName.options.type;
+        expect(actual).toBe(expected);
+    });
+    test("check displayName required", () => {
+        let expected = true;
+        let actual = testModel.schema.paths.displayName.options.required;
+        expect(actual).toBe(expected);
+    });
+});
+describe("test daily model createdAt values", () => {
+    test("check createdAt type", () => {
+        let expected = Date;
+        let actual = testModel.schema.paths.createdAt.options.type;
+        expect(actual).toBe(expected);
+    });
+    test("check createdAt default", () => {
+        let expected = Date.now;
+        let actual = testModel.schema.paths.createdAt.options.default;
+        expect(actual).toBe(expected);
+    });
+});</code></pre>
         </article>
     </section>
 
