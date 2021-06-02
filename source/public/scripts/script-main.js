@@ -55,18 +55,20 @@ form.addEventListener("submit", async (event) => {
         dailyItem.id = `${month}/${i}/${year}`;
         // dailyItem.className = Class name goes here;
 
-        let itemParagraph = document.createElement("p");
-        itemParagraph.innerText = `${month}/${i}/${year}`;
-
+        let itemParagraph = document.createElement("span");
+        itemParagraph.textContent = `${month}/${i}/${year}`;
+        
         let itemButton = document.createElement("button");
         itemButton.className = "dailyBtn";
         itemButton.innerHTML = `<a href="/main/add/daily/${month}/${i}/${year}">Add</a>`;
 
+        let lineBreak = document.createElement("br");
         // adding inner html of daily item
         dailyItem.appendChild(itemParagraph);
         dailyItem.appendChild(itemButton);
         // adding to container
         dailyContainer.appendChild(dailyItem);
+        dailyContainer.appendChild(lineBreak);
     }
 
     // making a fetch request and updating HTML
@@ -78,7 +80,7 @@ form.addEventListener("submit", async (event) => {
             let itemButton = dailyItem.lastElementChild;
 
             // updating HTML with database info
-            itemParagraph.innerText = `${daily.month}/${daily.date}/${daily.year}: ${daily.title}`;
+            itemParagraph.textContent = `${daily.month}/${daily.date}/${daily.year}: ${daily.title}`;
             itemButton.innerHTML = `<a href="/main/daily/${daily.dailyId}">Edit</a>`;
 
             // adding delete btn
