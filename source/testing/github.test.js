@@ -8,7 +8,7 @@
 describe("Puppeteer Test", () => {
     // route to page
     beforeAll(async () => {
-        await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14");
+        await page.goto("https://github.com/cse110-sp21-group14/cse110-sp21-group14/error");
         await page.waitForTimeout(500);
     });
 
