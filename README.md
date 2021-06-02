@@ -6,3 +6,5 @@ This README will be updated as our bullet journal is developed.
 Team Page [here](admin/team.md)
 
 Phase 1 CI/CD Pipeline [here](admin/cipipeline/phase1.md)
+
+PPG User Guide [here](admin/user-guide.md)
