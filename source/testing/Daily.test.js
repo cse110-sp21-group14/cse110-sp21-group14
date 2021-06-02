@@ -2,6 +2,8 @@
  * @file Unit tests for source/models
  * @author Group 14 (testing)
  */
+
+/* global describe */
 const dailyModel = require("../models/Daily");
 
 // create new dailyModel to test

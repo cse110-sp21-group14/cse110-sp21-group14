@@ -2,7 +2,9 @@
  * @file Unit tests for source/models
  * @author Group 14 (testing)
  */
- const dailyModel = require("../models/Journal.js");
+
+/* global describe */
+const dailyModel = require("../models/Journal.js");
 
 // create new dailyModel to test
 const testModel = new dailyModel();
