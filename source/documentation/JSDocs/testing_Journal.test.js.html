@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>models/Page.js - Documentation</title>
+    <title>testing/Journal.test.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">models/Page.js</h1>
+    <h1 class="page-title">testing/Journal.test.js</h1>
     
 
     
@@ -40,47 +40,78 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Create schema for pages inside journals
- * @author Group 14 (Back End)
+ * @file Unit tests for source/models
+ * @author Group 14 (testing)
  */
-const mongoose = require("mongoose");
+ const dailyModel = require("../models/Journal.js");
 
-/**
- * @class PageSchema
- */
-const PageSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        trim: true,
-        required: true
-    },
-    googleId: {
-        type: String,
-        required: true
-    },
-    journalId: {
-        type: String,
-        required: true
-    },
-    lastModified: {
-        type: Date,
-        default: Date.now,
-        required: true
-    },
-    importance: {
-        type: Number,
-        default: 0,
-        required: true
-    },
-    content: {
-        type: String,
-        default: "",
-        required: true
-    }
+// create new dailyModel to test
+const testModel = new dailyModel();
+
+// add tests for Journal model
+describe("test Journal model title values", () => {
+    test("check title type", () => {
+        let expected = String;
+        let actual = testModel.schema.paths.title.options.type;
+        expect(actual).toBe(expected);
+    });
+    test("check title trim", () => {
+        let expected = true;
+        let actual = testModel.schema.paths.title.options.trim;
+        expect(actual).toBe(expected);
+    });
+    test("check title required", () => {
+        let expected = true;
+        let actual = testModel.schema.paths.title.options.required;
+        expect(actual).toBe(expected);
+    });
 });
-
-module.exports = mongoose.model("Page", PageSchema);
-</code></pre>
+describe("test daily model googleId values", () => {
+    test("check googleId type", () => {
+        let expected = String;
+        let actual = testModel.schema.paths.googleId.options.type;
+        expect(actual).toBe(expected);
+    });
+    test("check googleId required", () => {
+        let expected = true;
+        let actual = testModel.schema.paths.googleId.options.required;
+        expect(actual).toBe(expected);
+    });
+});
+describe("test daily model pages values", () => {
+    test("check pages type", () => {
+        let expected = [String];
+        let actual = testModel.schema.paths.pages.options.type;
+        expect(actual).toEqual(expected);
+    });
+    test("check pages default", () => {
+        let expected = [];
+        let actual = testModel.schema.paths.pages.options.default;
+        expect(actual).toEqual(expected);
+    });
+    test("check pages required", () => {
+        let expected = true;
+        let actual = testModel.schema.paths.pages.options.required;
+        expect(actual).toBe(expected);
+    });
+});
+describe("test daily model pageIds values", () => {
+    test("check pageIds type", () => {
+        let expected = [String];
+        let actual = testModel.schema.paths.pageIds.options.type;
+        expect(actual).toEqual(expected);
+    });
+    test("check pageIds default", () => {
+        let expected = [];
+        let actual = testModel.schema.paths.pageIds.options.default;
+        expect(actual).toEqual(expected);
+    });
+    test("check pageIds required", () => {
+        let expected = true;
+        let actual = testModel.schema.paths.pageIds.options.required;
+        expect(actual).toBe(expected);
+    });
+});</code></pre>
         </article>
     </section>
 
