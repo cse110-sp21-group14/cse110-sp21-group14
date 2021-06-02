@@ -59,7 +59,7 @@ form.addEventListener("submit", async (event) => {
         itemParagraph.innerText = `${month}/${i}/${year}`;
 
         let itemButton = document.createElement("button");
-        itemButton.className = "dailyBtn"
+        itemButton.className = "dailyBtn";
         itemButton.innerHTML = `<a href="/main/add/daily/${month}/${i}/${year}">Add</a>`;
 
         // adding inner html of daily item
