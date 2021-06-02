@@ -26,13 +26,13 @@ jobs:
           npx jsdoc2md `find . -path ./node_modules -prune -o -name "*.js"` > ./documentation/JSDocumentation.md
           cd ..
 
-      # - name: Deploy documentation to Github wiki
-      #  uses: SwiftDocOrg/github-wiki-publish-action@v1
-      #  with:
-      #    # A path to the directory of files to publish
-      #    path: "source/documentation"
-      #  env:
-      #    GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+      - name: Deploy documentation to Github wiki
+       uses: SwiftDocOrg/github-wiki-publish-action@v1
+       with:
+         # A path to the directory of files to publish
+         path: "source/documentation"
+       env:
+         GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
       - name: Commit documentation
         run: |
