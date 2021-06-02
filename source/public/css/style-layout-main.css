@@ -1,3 +1,8 @@
+/*
+    Author: Stephen, Hugo, Jun
+*/
+
+
 body{
     width: 99.1%;
     height: 90vh;
@@ -252,4 +257,32 @@ li{
 
 .viewarea h1{
     text-align: center;
+}
+
+.add {
+    width: 100px;
+    height: 40px;
+    margin: 3px;
+    background: #F6E6CB;
+    border-radius: 10px;
+    border: 1px solid #FEFFDE; 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vh;
+    line-height: 35px;
+    font-family: 'Mukta', sans-serif;
+}
+
+.del {
+    width: 100px;
+    height: 40px;
+    margin: 3px;
+    background: #F6E6CB;
+    border-radius: 10px;
+    border: 1px solid #FEFFDE; 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vh;
+    line-height: 35px;
+    font-family: 'Mukta', sans-serif;
 }

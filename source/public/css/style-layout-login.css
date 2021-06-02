@@ -1,3 +1,9 @@
+/*
+    Author: Jun Kim
+    CSS for login page
+*/
+
+/*login box*/
 .login {
     position: absolute;
     top: 50%;
@@ -9,6 +15,7 @@
     border-radius: 10px;
 }
 
+/*background*/
 body {
     margin: 0;
     padding: 0;
@@ -37,6 +44,7 @@ body::before {
     left: 0;
 }
 
+/*text/logos*/
 .login h1 {
     text-align: center;
     padding: 0 0 20px;
@@ -44,10 +52,24 @@ body::before {
 
 .googleButton {
     position: relative;
-    top: 160%;
 }
 
-.aunth {
+.aunth{
     display: flex;
     justify-content: center;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    margin-top: 100px;
+    top: 100%;
+}
+
+p {
+    text-align: center;
+}
+                                            
