@@ -59,6 +59,7 @@ form.addEventListener("submit", async (event) => {
         itemParagraph.innerText = `${month}/${i}/${year}`;
 
         let itemButton = document.createElement("button");
+        itemButton.className = "dailyBtn"
         itemButton.innerHTML = `<a href="/main/add/daily/${month}/${i}/${year}">Add</a>`;
 
         // adding inner html of daily item
@@ -79,6 +80,20 @@ form.addEventListener("submit", async (event) => {
             // updating HTML with database info
             itemParagraph.innerText = `${daily.month}/${daily.date}/${daily.year}: ${daily.title}`;
             itemButton.innerHTML = `<a href="/main/daily/${daily.dailyId}">Edit</a>`;
+
+            // adding delete btn
+            let deleteBtn = document.createElement("button");
+            deleteBtn.className = "dailyBtn";
+            deleteBtn.innerText = "Delete";
+
+            deleteBtn.addEventListener('click', async () => {
+                let xhr = new XMLHttpRequest();
+                xhr.open("DELETE", document.location.origin +`/main/daily/${daily.month}/${daily.date}/${daily.year}`, true);
+                xhr.send(null);
+                location.reload();
+            });
+            
+            dailyItem.appendChild(deleteBtn);
         });
     });
 });
