@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1622603982810" clover="3.2.0">
-  <project timestamp="1622603982810" name="All files">
+<coverage generated="1622604821080" clover="3.2.0">
+  <project timestamp="1622604821080" name="All files">
     <metrics statements="778" coveredstatements="3" conditionals="670" coveredconditionals="0" methods="167" coveredmethods="0" elements="1615" coveredelements="3" complexity="0" loc="778" ncloc="778" packages="10" files="28" classes="28"/>
     <package name="source">
       <metrics statements="38" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -317,16 +317,16 @@
     <package name="source.models">
       <metrics statements="12" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Daily.js" path="C:\Users\nwong\CSE 110\cse110-sp21-group14\source\models\Daily.js">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
       </file>
       <file name="Journal.js" path="C:\Users\nwong\CSE 110\cse110-sp21-group14\source\models\Journal.js">
-        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
       </file>
       <file name="Page.js" path="C:\Users\nwong\CSE 110\cse110-sp21-group14\source\models\Page.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
