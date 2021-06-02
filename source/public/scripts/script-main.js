@@ -88,7 +88,7 @@ form.addEventListener("submit", async (event) => {
             deleteBtn.className = "dailyBtn";
             deleteBtn.innerText = "Delete";
 
-            deleteBtn.addEventListener('click', async () => {
+            deleteBtn.addEventListener("click", async () => {
                 let xhr = new XMLHttpRequest();
                 xhr.open("DELETE", document.location.origin +`/main/daily/${daily.month}/${daily.date}/${daily.year}`, true);
                 xhr.send(null);
