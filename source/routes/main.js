@@ -687,7 +687,7 @@ router.delete("/daily/:month/:date/:year", ensureAuth, async (req, res) => {
 
         if (deleted) {
             console.log("Deleted daily");
-            res.redirect("/");
+            res.status(200).end();
         } else {
             res.status(400).end();
         }
