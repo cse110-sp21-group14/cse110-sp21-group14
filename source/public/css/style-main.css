@@ -15,6 +15,7 @@
     height: 80%;
     background: #FEFFDE;
     font-family: 'Mukta', sans-serif;
+    overflow: scroll;
 }
 
 .layerOne{
@@ -24,3 +25,34 @@
     margin-top: 2vh;
     margin-bottom: 1.5vh;
 }
+
+button {
+    width: 100px;
+    height: 40px;
+    margin: 3px;
+    background: #E1F1DD;
+    border-radius: 10px;
+    border: 1px solid #FEFFDE; 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vh;
+    line-height: 35px;
+    font-family: 'Mukta', sans-serif;
+}
+
+.sub {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background: #E1F1DD;
+    border-radius: 10px;
+    border: 1px solid #FEFFDE; 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vh;
+    line-height: 35px;
+    font-family: 'Mukta', sans-serif;
+}
+
+
+
