@@ -4,10 +4,10 @@
  */
 
 /* global describe */
-const journalModel = require("../models/Journal.js");
+const dailyModel = require("../models/Journal.js");
 
 // create new dailyModel to test
-const testModel = new journalModel();
+const testModel = new dailyModel();
 
 // add tests for Journal model
 describe("test Journal model title values", () => {
