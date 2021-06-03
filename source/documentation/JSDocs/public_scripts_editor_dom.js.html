@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>models/Daily.js - Documentation</title>
+    <title>public/scripts/editor/dom.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">models/Daily.js</h1>
+    <h1 class="page-title">public/scripts/editor/dom.js</h1>
     
 
     
@@ -40,58 +40,68 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Create schema for daily entries in calendar view
- * @author Group 14 (Back End)
+ * Helper for making Elements with attributes
+ *
+ * @param  {string} tagName           - new Element tag name
+ * @param  {Array|string} classNames  - list or name of CSS classname(s)
+ * @param  {object} attributes        - any attributes
+ * @returns {Element}
  */
+export function make(tagName, classNames = null, attributes = {}) {
+  const el = document.createElement(tagName);
 
-const mongoose = require("mongoose");
+  if (Array.isArray(classNames)) {
+    el.classList.add(...classNames);
+  } else if (classNames) {
+    el.classList.add(classNames);
+  }
+
+  for (const attrName in attributes) {
+    el[attrName] = attributes[attrName];
+  }
+
+  return el;
+}
 
 /**
- * @class DailySchema
+ * Returns the HTML content of passed Document Fragment
+ *
+ * @param {DocumentFragment} fragment - document fragment to process
+ * @returns {string}
  */
-const DailySchema = new mongoose.Schema({
-    googleId: {
-        type: String,
-        required: true
-    },
-    dateObj: {
-        type: Date,
-        required: true
-    },
-    details: {
-        type: [String],
-        required: true
-    },
-    date: {
-        type: Number,
-        min: 1,
-        max: 31,
-        required: true
-    },
-    month: {
-        type: Number,
-        min: 1,
-        max: 12,
-        required: true
-    },
-    year: {
-        type: Number,
-        min: 0,
-        required: true
-    },
-    title: {
-        type: String,
-        default: "view",
-        required: true
-    },
-    content: {
-        type: String,
-        default: "",
-        required: true
-    }
-});
+export function fragmentToString(fragment) {
+  const div = make('div');
 
-module.exports = mongoose.model("Daily", DailySchema);
+  div.appendChild(fragment);
+
+  return div.innerHTML;
+}
+
+/**
+ * breadth-first search (BFS)
+ * {@link https://en.wikipedia.org/wiki/Breadth-first_search}
+ *
+ * @description Pushes to stack all DOM leafs and checks for emptiness
+ *
+ * @param {Node} node - node to check
+ * @returns {boolean}
+ */
+export function isEmpty(node) {
+  let content;
+
+  if (node.nodeType !== Node.ELEMENT_NODE) {
+    content = node.textContent;
+  } else {
+    content = node.innerHTML;
+
+    /**
+     * Don't count &lt;br>s as content
+     */
+    content = content.replaceAll('&lt;br>', '');
+  }
+
+  return content.trim().length === 0;
+}
 </code></pre>
         </article>
     </section>
