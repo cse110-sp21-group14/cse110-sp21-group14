@@ -2,48 +2,52 @@
 
 ### 1. **Login Page**
 
-Users will first reach the Login page when they type in the URL of PPG.
+You will first reach the Login page when they type in the URL of the Puff Notes Website, which looks like this:
 
 <img src="guide_figure/01-login.png" width="400"/>
 
-Click the Google logo in the center and login with Google account that has already been created.
+To sign in, click the Google logo in the center and login with a Google account that has already been created. This will ensure that your data is secure, and that only you has access to your data.
 
-Once the user has successfully logged in, they should be taken to the main page like below.
+Once the user has successfully logged in, they will be taken to the main page as seen below.
 
 <img src="guide_figure/02-main.png" width="400"/>
 
-There is a navigation bar at the top of the page with four buttons **My Journal**, **My Calendar**, **My Settings** and **Sign Out**.
+There is a navigation bar at the top of the page with four buttons **My Journal**, **My Calendar**, **My Settings** and **Sign Out**. Each of these buttons has a specialized section that will be covered below.
 <br><br>
 
 ### 2. **My Journal**
 
 2.1 Concepts of Journals and Pages
 
-Users can add bullet entries under **My Journal** page, and there are two main options: journals and pages.
+You can add bullet entries under the **My Journal** page. To store your entries journals will hold pages, and those pages will store your bullets.
 
-Journal is a broad management approach. It doesn't need details about the content, but clear structure to navigate files efficiently.
+Journals don't need details about the content, but it has clear structure to navigate pages efficiently.
 
-Page then can be added under the journal it belongs to. It includes more information about the journal entry users want to keep track of.
+Pages can then be added under the journal it belongs to. It includes more information about the journal users want to keep track of - a title, a date, and the actual content.
 <br><br>
 
 2.2 Add/ View/ Delete a Journal
 
-To add a new journal, click **Add Journal** on the left and type in the journal name inside flesh color box. Click add and the new journals is shown on the left.
+To add a new journal, click **Add Journal** on the left and type in the journal name inside of the flesh color box. Click 'add', and the new journal will show up on the left.
 
 <img src="guide_figure/03-journalAdd.png" width="400"/>
 
-To view an existing journal, click that journal and users will see all names of pages it contains on the right.
+To view an existing journal, click the desired journal, and you will see all pages that the journal contains on the right panel.
 
 <img src="guide_figure/04-journalView.png" width="400"/>
 
-To delete an existing journal, click **Delete** button beside the journal users want to delete.
+To delete an existing journal, click the **Delete** button beside the journal that you want to delete.
 <br><br>
 
 2.3 Add/ View/ Delete a Page
 
-To add a new page, first decide which journal it belongs to. Then, click the **Add Page** button beside that journal, users will see a input form on the left. They can only check if they are at the right journal from the Journal Title (The example shows "CSE 130", meaning that they are at CSE 130 Journal.)
+To add a new page, first decide which journal it belongs to. Then, click the **Add Page** button beside that journal. You will then see a input form on the left. You can only check if they are at the right journal from the Journal Title (The example shows "CSE 130", meaning that they are at CSE 130 Journal.)
 
-Fill in the Page Title and add any notes into Content. Click **Add** to add the page.
+Fill in the Page Title and add any notes into Content. You can add in regular paragraph text, or customize which bullets you want to use by clicking the + next to your insertion cursor. You can select one of three options: Events, Notes, and Tasks.
+
+Event bullets are for time sensitive bullets, Notes are for general bullets, and tasks are for bullets to be completed.
+
+Once finished, click **Add** to add the page.
 
 <img src="guide_figure/05-pageAdd.png" width="400"/>
 
@@ -59,9 +63,9 @@ To delete an existing page, click the **Delete** button on the right of that pag
 
 3.1 Monthly View
 
-On **My Calendar** Page, users would see a monthly calendar where they can go to different months by toggling the triangles button besides its title.
+To access the monthly view, click the **My Calendar** button on the naviagtion tab. Once there, you will see a monthly calendar where they can go to different months by toggling the triangles button besides its title.
 
-Each grid has a number at the top left that corresponds to the date it represents. Today's grid is highlighted, while grids containing the daily entries are filled with blue. The titles of daily entries are also attached to the grids.
+Each grid has a number at the top left that corresponds to the date it represents. Today's grid is outlined in dark blue, while grids containing the daily entries are filled with blue. The titles of daily entries are also attached to the grids. By clicking these titles, you can access the daily view, which is explained below.
 
 <img src="guide_figure/07-calendar.png" width="400"/>
 
@@ -69,13 +73,13 @@ Each grid has a number at the top left that corresponds to the date it represent
 
 3.2 Add a New Daily Entry
 
-To add a daily entry, users should first decide which date the entry is going to add on. 
+To add a daily entry, you should first decide which date the entry will be tied to. 
 
-Users should first click the selection box and select the year and month. 
+You should first click the selection box and select the year and month. 
 
 <img src="guide_figure/08-dailyMain.png" width="400"/>
 
-After clicking **Search** button on the right, a list of dates in that year and that month would be displayed on the page. Users can then scroll down to the date and click **Add** button on the right to add a new daily entry.
+After clicking the **Search** button on the right, a list of dates in that year and month would be displayed on the page. Users can then scroll down to the date and click the **Add** button on the right to add a new daily entry.
 
 <img src="guide_figure/10-dailyAdd.png" width="400"/>
 
@@ -83,11 +87,11 @@ After clicking **Search** button on the right, a list of dates in that year and 
 
 3.3 View/ Edit/ Delete Daily Entry
 
-To view an existing daily entry, click **Edit** button besides the date of that daily entry.
+To view an existing daily entry, click the **Edit** button besides the date of that daily entry.
 
-Users could edit the daily entry and click **Save** button to save their updates.
+You can then edit the daily entry and click the **Save** button to save their updates.
 
-To delete a daily entry, click **Delete** button and users should see it changes back to **Add** button, which means there is no daily entry at that date anymore.
+To delete a daily entry, click the **Delete** button - you should see it that it changes back to the **Add** button, meaning there is no daily entry at that date anymore.
 
 <img src="guide_figure/11-dailyView.png" width="400"/>
 
@@ -95,10 +99,10 @@ To delete a daily entry, click **Delete** button and users should see it changes
 
 ### 4. **My Settings**
 
-Under **My Settings** page, Users can customize the font size. PPG also provides light mode (default) and dark mode (only black and white).
+Under the **My Settings** page, you can then customize the font size. Puff Notes also provides a light mode (default) and a dark mode (only black and white).
 <img src="guide_figure/09-settings.png" width="400"/>
 <br><br>
 
 ### 5. **Sign Out**
 
-Users can click the **Sign Out** button far right on the navigation bar to log out the PPG.
+To finish up, click the **Sign Out** button on the far right on the navigation bar to log out of Puff Notes.
