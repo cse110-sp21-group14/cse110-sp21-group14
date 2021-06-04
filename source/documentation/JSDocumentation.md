@@ -29,6 +29,9 @@
 <dt><a href="#Tasks">Tasks</a></dt>
 <dd><p>NestedList Tool for EditorJS</p>
 </dd>
+<dt><a href="#Ordered">Ordered</a></dt>
+<dd><p>NestedList Tool for EditorJS</p>
+</dd>
 <dt><a href="#PageSchema">PageSchema</a></dt>
 <dd></dd>
 <dt><a href="#UserSchema">UserSchema</a></dt>
@@ -993,6 +996,265 @@ icon - Tool icon's SVG
 title - title to show in toolbox
 
 **Kind**: static property of [<code>Tasks</code>](#Tasks)  
+<a name="Ordered"></a>
+
+## Ordered
+NestedList Tool for EditorJS
+
+**Kind**: global class  
+
+* [Ordered](#Ordered)
+    * [new Ordered(params)](#new_Ordered_new)
+    * _instance_
+        * [.nodes](#Ordered+nodes)
+        * [.defaultListStyle](#Ordered+defaultListStyle)
+        * [.caret](#Ordered+caret)
+        * [.listStyle](#Ordered+listStyle) ⇒ <code>string</code>
+        * [.listStyle](#Ordered+listStyle)
+        * [.currentItem](#Ordered+currentItem) ⇒ <code>Element</code>
+        * [.render()](#Ordered+render) ⇒ <code>Element</code>
+        * [.renderSettings()](#Ordered+renderSettings) ⇒ <code>Element</code>
+        * [.appendItems(items, parentItem)](#Ordered+appendItems) ⇒ <code>void</code>
+        * [.createItem(content, [items])](#Ordered+createItem) ⇒ <code>Element</code>
+        * [.save()](#Ordered+save) ⇒ [<code>ListData</code>](#ListData)
+        * [.addChildrenList(parentItem, items)](#Ordered+addChildrenList)
+        * [.makeListWrapper([style], [classes])](#Ordered+makeListWrapper) ⇒ <code>HTMLOListElement</code> \| <code>HTMLUListElement</code>
+        * [.enterPressed(event)](#Ordered+enterPressed) ⇒ <code>void</code>
+        * [.unshiftItem()](#Ordered+unshiftItem) ⇒ <code>void</code>
+        * [.getItemContent(item)](#Ordered+getItemContent) ⇒ <code>string</code>
+        * [.focusItem(item, atStart)](#Ordered+focusItem) ⇒ <code>void</code>
+        * [.getOutOfList()](#Ordered+getOutOfList) ⇒ <code>void</code>
+        * [.backspace(event)](#Ordered+backspace)
+        * [.addTab(event)](#Ordered+addTab)
+        * [.shiftTab(event)](#Ordered+shiftTab) ⇒ <code>void</code>
+    * _static_
+        * [.isReadOnlySupported](#Ordered.isReadOnlySupported) ⇒ <code>boolean</code>
+        * [.enableLineBreaks](#Ordered.enableLineBreaks) ⇒ <code>boolean</code>
+        * [.toolbox](#Ordered.toolbox) ⇒ <code>Object</code>
+
+<a name="new_Ordered_new"></a>
+
+### new Ordered(params)
+Render plugin`s main Element and fill it with saved data
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| params | <code>object</code> | tool constructor options |
+| params.data | [<code>ListData</code>](#ListData) | previously saved data |
+| params.config | <code>object</code> | user config for Tool |
+| params.api | <code>object</code> | Editor.js API |
+| params.readOnly | <code>boolean</code> | read-only mode flag |
+
+<a name="Ordered+nodes"></a>
+
+### ordered.nodes
+HTML nodes used in tool
+
+**Kind**: instance property of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered+defaultListStyle"></a>
+
+### ordered.defaultListStyle
+This list-style will be used by default
+
+**Kind**: instance property of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered+caret"></a>
+
+### ordered.caret
+Instantiate caret helper
+
+**Kind**: instance property of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered+listStyle"></a>
+
+### ordered.listStyle ⇒ <code>string</code>
+Get list style name
+
+**Kind**: instance property of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered+listStyle"></a>
+
+### ordered.listStyle
+Set list style
+
+**Kind**: instance property of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| style | <code>string</code> | new style to set |
+
+<a name="Ordered+currentItem"></a>
+
+### ordered.currentItem ⇒ <code>Element</code>
+Returns current List item by the caret position
+
+**Kind**: instance property of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered+render"></a>
+
+### ordered.render() ⇒ <code>Element</code>
+Returns list tag with items
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+**Access**: public  
+<a name="Ordered+renderSettings"></a>
+
+### ordered.renderSettings() ⇒ <code>Element</code>
+Creates Block Tune allowing to change the list style
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+**Access**: public  
+<a name="Ordered+appendItems"></a>
+
+### ordered.appendItems(items, parentItem) ⇒ <code>void</code>
+Renders children list
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| items | [<code>Array.&lt;ListItem&gt;</code>](#ListItem) | items data to append |
+| parentItem | <code>Element</code> | where to append |
+
+<a name="Ordered+createItem"></a>
+
+### ordered.createItem(content, [items]) ⇒ <code>Element</code>
+Renders the single item
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| content | <code>string</code> | item content to render |
+| [items] | [<code>Array.&lt;ListItem&gt;</code>](#ListItem) | children |
+
+<a name="Ordered+save"></a>
+
+### ordered.save() ⇒ [<code>ListData</code>](#ListData)
+Extracts tool's data from the DOM
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered+addChildrenList"></a>
+
+### ordered.addChildrenList(parentItem, items)
+Append children list to passed item
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| parentItem | <code>Element</code> | item that should contain passed sub-items |
+| items | [<code>Array.&lt;ListItem&gt;</code>](#ListItem) | sub items to append |
+
+<a name="Ordered+makeListWrapper"></a>
+
+### ordered.makeListWrapper([style], [classes]) ⇒ <code>HTMLOListElement</code> \| <code>HTMLUListElement</code>
+Creates main <ul> or <ol> tag depended on style
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [style] | <code>string</code> | 'ordered' or 'unordered' |
+| [classes] | <code>Array.&lt;string&gt;</code> | additional classes to append |
+
+<a name="Ordered+enterPressed"></a>
+
+### ordered.enterPressed(event) ⇒ <code>void</code>
+Handles Enter keypress
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| event | <code>KeyboardEvent</code> | keydown |
+
+<a name="Ordered+unshiftItem"></a>
+
+### ordered.unshiftItem() ⇒ <code>void</code>
+Decrease indentation of the current item
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered+getItemContent"></a>
+
+### ordered.getItemContent(item) ⇒ <code>string</code>
+Return the item content
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| item | <code>Element</code> | item wrapper (<li>) |
+
+<a name="Ordered+focusItem"></a>
+
+### ordered.focusItem(item, atStart) ⇒ <code>void</code>
+Sets focus to the item's content
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| item | <code>Element</code> |  | item (<li>) to select |
+| atStart | <code>boolean</code> | <code>true</code> | where to set focus: at the start or at the end |
+
+<a name="Ordered+getOutOfList"></a>
+
+### ordered.getOutOfList() ⇒ <code>void</code>
+Get out from List Tool by Enter on the empty last item
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered+backspace"></a>
+
+### ordered.backspace(event)
+Handle backspace
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| event | <code>KeyboardEvent</code> | keydown |
+
+<a name="Ordered+addTab"></a>
+
+### ordered.addTab(event)
+Add indentation to current item
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| event | <code>KeyboardEvent</code> | keydown |
+
+<a name="Ordered+shiftTab"></a>
+
+### ordered.shiftTab(event) ⇒ <code>void</code>
+Reduce indentation for current item
+
+**Kind**: instance method of [<code>Ordered</code>](#Ordered)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| event | <code>KeyboardEvent</code> | keydown |
+
+<a name="Ordered.isReadOnlySupported"></a>
+
+### Ordered.isReadOnlySupported ⇒ <code>boolean</code>
+Notify core that read-only mode is supported
+
+**Kind**: static property of [<code>Ordered</code>](#Ordered)  
+<a name="Ordered.enableLineBreaks"></a>
+
+### Ordered.enableLineBreaks ⇒ <code>boolean</code>
+Allow to use native Enter behaviour
+
+**Kind**: static property of [<code>Ordered</code>](#Ordered)  
+**Access**: public  
+<a name="Ordered.toolbox"></a>
+
+### Ordered.toolbox ⇒ <code>Object</code>
+Get Tool toolbox settings
+icon - Tool icon's SVG
+title - title to show in toolbox
+
+**Kind**: static property of [<code>Ordered</code>](#Ordered)  
 <a name="PageSchema"></a>
 
 ## PageSchema
