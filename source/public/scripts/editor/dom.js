@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Helper for making Elements with attributes
  *

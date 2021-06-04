@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
   Author: EditorJS Team
   Modified: Jun Kim

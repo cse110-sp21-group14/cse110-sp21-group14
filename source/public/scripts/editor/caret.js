@@ -1,3 +1,4 @@
+/* eslint-disable */
 import * as dom from './dom.js';
 
 /**
