@@ -1,0 +1,24 @@
+#txt{
+    margin-top: auto;
+    margin-left: 150%;
+    width: 100%;
+}
+.font{
+    font-family: 'Mukta', sans-serif;
+    font-size: 110%;
+    line-height: 4;
+    margin-left: 150%;
+    width: 100%;
+}
+.mode{
+    font-family: 'Mukta', sans-serif;
+    font-size: 110%;
+    margin-left: 130%;
+    line-height: 4;
+    width: 150%;
+}
+
+.dark-mode {
+    background: rgb(105, 102, 102);
+    color: white;
+}
