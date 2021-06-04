@@ -33,6 +33,9 @@
 ## Constants
 
 <dl>
+<dt><a href="#GOOGLE_USER">GOOGLE_USER</a></dt>
+<dd><p>Puppeteer Tests for scripts/script-calendar.js</p>
+</dd>
 <dt><a href="#express">express</a></dt>
 <dd><p>express module</p>
 </dd>
@@ -127,6 +130,14 @@
 <dt><a href="#calendar">calendar(el, data)</a></dt>
 <dd><p>Create calendar</p>
 </dd>
+<dt><a href="#fetchEvents">fetchEvents(month, year)</a></dt>
+<dd><p>Fetches events for a specified month and year and calls the calendar 
+function. This function should only called once on page load.</p>
+</dd>
+<dt><a href="#fetchevents">fetchevents(month, year, calendar, element, adjuster)</a></dt>
+<dd><p>Fetches events for a specified month and year. Replaces old calendar with 
+a new calendar. Adjuster is used to view the previous or next month.</p>
+</dd>
 </dl>
 
 <a name="module_calendar module"></a>
@@ -178,6 +189,13 @@ Calendar route
 
 ## DailySchema
 **Kind**: global class  
+<a name="GOOGLE_USER"></a>
+
+## GOOGLE\_USER
+Puppeteer Tests for scripts/script-calendar.js
+
+**Kind**: global constant  
+**Author**: Michael Mao  
 <a name="express"></a>
 
 ## express
@@ -579,8 +597,37 @@ Create calendar
 
 **Kind**: global function  
 
+| Param | Type | Description |
+| --- | --- | --- |
+| el | <code>Element</code> | html element |
+| data | <code>Event</code> | array of events |
+
+<a name="fetchEvents"></a>
+
+## fetchEvents(month, year)
+Fetches events for a specified month and year and calls the calendar 
+function. This function should only called once on page load.
+
+**Kind**: global function  
+
 | Param | Type |
 | --- | --- |
-| el | <code>Element</code> | 
-| data | <code>Event</code> | 
+| month | <code>\*</code> | 
+| year | <code>\*</code> | 
+
+<a name="fetchevents"></a>
+
+## fetchevents(month, year, calendar, element, adjuster)
+Fetches events for a specified month and year. Replaces old calendar with 
+a new calendar. Adjuster is used to view the previous or next month.
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| month | <code>\*</code> | 
+| year | <code>\*</code> | 
+| calendar | <code>\*</code> | 
+| element | <code>\*</code> | 
+| adjuster | <code>\*</code> | 
 
