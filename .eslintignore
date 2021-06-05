@@ -1,2 +1,3 @@
 source/documentation/JSDocs/scripts/*.js
 source/documentation/JSDocs/scripts/prettify/*.js
+source/public/scripts/editor/*.js
