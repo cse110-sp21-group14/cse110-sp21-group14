@@ -159,6 +159,12 @@
 <dt><a href="#calendar">calendar(el, data)</a></dt>
 <dd><p>Create calendar</p>
 </dd>
+<dt><a href="#changeFont">changeFont(the)</a></dt>
+<dd><p>Changes the font of the app</p>
+</dd>
+<dt><a href="#toggledarkmode">toggledarkmode()</a></dt>
+<dd><p>Changes the background of the app</p>
+</dd>
 <dt><a href="#save">save()</a> ⇒ <code>void</code></dt>
 <dd><p>Saves caret position using hidden <span></p>
 </dd>
@@ -4719,6 +4725,23 @@ Create calendar
 | el | <code>Element</code> | 
 | data | <code>Event</code> | 
 
+<a name="changeFont"></a>
+
+## changeFont(the)
+Changes the font of the app
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| the | <code>selectTag</code> | selection made |
+
+<a name="toggledarkmode"></a>
+
+## toggledarkmode()
+Changes the background of the app
+
+**Kind**: global function  
 <a name="save"></a>
 
 ## save() ⇒ <code>void</code>
