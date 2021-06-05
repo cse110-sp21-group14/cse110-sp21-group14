@@ -73,8 +73,6 @@
 ## Functions
 
 <dl>
-<dt><a href="#sum">sum(a, b)</a> ⇒</dt>
-<dd></dd>
 <dt><a href="#connectDB">connectDB()</a></dt>
 <dd><p>Connect to MongoDB database</p>
 </dd>
@@ -4325,17 +4323,6 @@ Returns the first range
 express module
 
 **Kind**: global constant  
-<a name="sum"></a>
-
-## sum(a, b) ⇒
-**Kind**: global function  
-**Returns**: sum of a and b  
-
-| Param | Type |
-| --- | --- |
-| a | <code>number</code> | 
-| b | <code>number</code> | 
-
 <a name="connectDB"></a>
 
 ## connectDB()
