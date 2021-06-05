@@ -2,6 +2,8 @@ name: Team 14 Powell Puff Gang's approval workflow
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   JSDoc:
