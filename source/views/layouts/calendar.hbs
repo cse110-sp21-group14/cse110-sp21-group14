@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--  <link rel="stylesheet" href="/css/style-layout-calendar.css"> -->
+    <link rel="stylesheet" href="/css/style-settings.css">
+    <link rel="stylesheet" href="/css/style-layout-calendar.css">
     <title>Bullet Journal</title>
 </head>
 <body>
@@ -14,11 +15,32 @@
             <ul>
                 <li class="menuItem" ><a href="/main">My Journal</a></li>
                 <li class="menuItem" ><a href="/calendar">My Calendar</a></li>
-                <li class="menuItem" ><a href="/settings">My Settings</a></li>
+                <li class="menuItem" ><a href="#" onclick="openSettings()">My Settings</a></li>
                 <li class="signOut"><a href="/auth/logout">Sign Out</a></li>
             </ul>
         </div>
     </div>
+    <div id="settingsBg">
+        <div id="settingsMain">
+            <p id="popupTitle">Settings</p>
+            <label for="font" id="font">Choose a font family: </label>
+            <select id="fonts" onchange="changeFont (this);">
+                <option style="font-family: arial">Arial</option>
+                <option style="font-family: 'Times New Roman'">Times New Roman</option>
+                <option style="font-family: Verdana">Verdana</option>
+                <option style="font-family: 'Comic Sans Serif'">Comic Sans Serif</option>
+                <option style="font-family: 'Trebuchet MS'">Trebuchet MS</option>
+            </select>
+            <label for="dark" id="dark">Enable/Disable dark mode: </label>
+            <button id="darkMode" onclick="toggleDarkMode()"> click me to turn on/off the light!</button>
+
+            <div id="closePopup" title="Close settings" onclick="closeSettings()">
+                <p>X</p>
+            </div>
+        </div>
+    </div>
     {{{body}}}
+
 </body>
+<script type="text/javascript" src="/scripts/script-settings.js"></script>
 </html>

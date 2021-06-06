@@ -2,7 +2,6 @@
     Author: Aidan, Michael 
 */
 
-
 body{
     width: 99.1%;
     height: 90vh;
@@ -32,6 +31,7 @@ li{
 
 .menuBar {
     grid-area: menuBar;
+    background-color: lightblue;
     position: -webkit-sticky; /*For Safari*/
     position: sticky;
     border-color: black;
@@ -49,7 +49,6 @@ li{
     font-style: normal;
     font-weight: normal;
     text-decoration-line: none;
-    border: 1px solid white;
 }
 
 .menuItem{

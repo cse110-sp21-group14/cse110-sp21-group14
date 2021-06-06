@@ -9,7 +9,7 @@ function closeSettings(){
 }
 
 function changeFont(font){
-    document.getElementsByTagName("*").style.fontFamily = font.value;
+    document.body.innerText.style.fontFamily = font.value;
 }
 
 function toggleDarkMode() {

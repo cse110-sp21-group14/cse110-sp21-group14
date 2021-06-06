@@ -1,36 +1,19 @@
 /*
   Author: Aidan, Michael
 */
-.menuBar {
-  text-align: center;
-  border-color: black;
-  border-style: solid;
-  background-color: #97ddfb;
-}
-
-.menuBar ul {
-  display: inline-flex;
-  list-style: none;
-}
-
-.menuBar ul li {
-  text-decoration: none;
-  width: 120px;
-  margin-top: 0px;
-  padding-top: 0px;
-  padding-right: 50px;
-}
 
 body {
-  font-family: Calibri, sans-serif;
-  font-family: 'Roboto Condensed', sans-serif;
   color: rgb(24, 5, 5);
   background-color: #bcfc95;
+  font-family: 'Mukta', sans-serif;
 }
 
 .cld-main {
   width: 80%;
-  margin: auto;
+  left: 50%;
+  margin-left: 150px;
+  top: 50%;
+  margin-top: -600px;
 }
 
 .cld-main a {
