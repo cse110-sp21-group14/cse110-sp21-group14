@@ -49,6 +49,7 @@
     border-bottom: 2px solid black;
 }
 #font{
+    font-family: 'Mukta', sans-serif;
     position: absolute;
     color:black;
     left: 50%;
@@ -64,6 +65,7 @@
     margin-top: -50px;
 }
 #dark{
+    font-family: 'Mukta', sans-serif;
     position: absolute;
     color:black;
     left: 50%;

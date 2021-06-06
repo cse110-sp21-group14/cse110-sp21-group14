@@ -9,7 +9,8 @@ function closeSettings(){
 }
 
 function changeFont(font){
-    document.body.innerText.style.fontFamily = font.value;
+    document.getElementById("popupTitle").style.fontFamily = font.value;
+    document.getElementById("contains").style.fontFamily = font.value;
 }
 
 function toggleDarkMode() {
