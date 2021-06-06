@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style-layout-main.css">
+    <link rel="stylesheet" href="/css/style-settings.css" />
     <script src="/scripts/script-main.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap" rel="stylesheet">
@@ -29,7 +30,7 @@
             <ul>
                 <li class="menuItem" ><a href="/main">My Journal</a></li>
                 <li class="menuItem" ><a href="/calendar">My Calendar</a></li>
-                <li class="menuItem" ><a href="/settings">My Settings</a></li>
+                <li class="menuItem" ><a href="#" onclick="openSettings()">My Settings</a></li>
                 <li class="signOut"><a href="/auth/logout">Sign Out</a></li>
             </ul>
         </div>
@@ -85,10 +86,20 @@
             </div>
             {{/each}}
         </div>
+        <div id="settingsBg">
+            <div id="settingsMain">
+                <p id="popupTitle">Settings</p>
+                <button id="darkMode" onclick="toggleDarkMode()"> toggle dark mode</button>
+                <div id="closePopup" title="Close settings" onclick="closeSettings()">
+                    <p>X</p>
+                </div>
+            </div>
+        </div>
         <div class="viewarea">
             <!-- <p>test</p> -->
             {{{body}}}
         </div>
     </div>
+    <script type="text/javascript" src="/scripts/script-settings.js"></script>
 </body>
 </html>
