@@ -8,9 +8,8 @@ function closeSettings(){
     popup.style.display = "none";
 }
 
-function changeFont(selectTag) {
-    var listValue = selectTag.options[selectTag.selectedIndex].text;
-    document.getElementById("txt").style.fontSize = listValue;
+function changeFont(font){
+    document.getElementById("popupTitle").style.fontFamily = font.value;
 }
 
 function toggleDarkMode() {

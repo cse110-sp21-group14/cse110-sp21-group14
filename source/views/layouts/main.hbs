@@ -89,7 +89,17 @@
         <div id="settingsBg">
             <div id="settingsMain">
                 <p id="popupTitle">Settings</p>
+
+                <select id="fonts" onchange="changeFont (this);">
+                    <option style="font-family: arial">Arial</option>
+                    <option style="font-family: 'Times New Roman'">Times New Roman</option>
+                    <option style="font-family: Verdana">Verdana</option>
+                    <option style="font-family: 'Comic Sans Serif'">Comic Sans Serif</option>
+                    <option style="font-family: 'Trebuchet MS'">Trebuchet MS</option>
+                </select>
+
                 <button id="darkMode" onclick="toggleDarkMode()"> toggle dark mode</button>
+ 
                 <div id="closePopup" title="Close settings" onclick="closeSettings()">
                     <p>X</p>
                 </div>
