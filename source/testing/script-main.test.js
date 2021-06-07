@@ -82,5 +82,114 @@ describe("Testing Main Webpage", () => {
     }, 50000);
 
     // Test to see if the save button works
-    
+    it("Test 5: Saving Content", async () => {
+        await page.click("button.saveButton");
+        await page.waitForTimeout(3000);
+
+        await page.waitForSelector("div.ce-paragraph.cdx-block");
+
+        let dailyContent = await page.$eval("div.ce-paragraph.cdx-block", (el) => {
+            return el.innerText;
+        });
+
+        expect(dailyContent).toBe("This is just to test the editor with puppeteer!");
+    }, 10000);
+
+    // Test to see if daily entries button redirects to main
+    it("Test 6: Clicking button for daily entries", async () => {
+        const navigationPromise = page.waitForNavigation();
+        await page.click("button > a");
+        await navigationPromise;
+
+        let url = await page.url();
+
+        expect(url).toBe("http://localhost:5000/main");
+    }, 10000);
+
+    // Adding a new Daily
+    it("Test 7: Adding a new Daily", async () => {
+        // searching in form
+        await page.waitForSelector("#monthSearch");
+        await page.type("#monthSearch", "6");
+        await page.keyboard.press('ArrowRight');
+        await page.keyboard.press("2");
+        await page.keyboard.press("0");
+        await page.keyboard.press("2");
+        await page.keyboard.press("1");
+        await page.keyboard.press("Enter");
+        
+        // waiting for page to load dailies for june 2021
+        await page.waitForTimeout(1000);
+
+        // clicking add button
+        await page.click('[id="6/1/2021"] > button > a');
+        await page.waitForTimeout(3000);
+
+        await page.waitForSelector("section.layerThree");
+
+        // typing name for daily
+        await page.type("#title", "Test Daily");
+
+        // clicking add button
+        await page.click("button.addButton");
+        await page.waitForTimeout(3000);
+    }, 15000);
+
+    // Checking if redirected to editor for that daily
+    it("Test 8: Redirects newly added Daily to Edit page", async () => {
+        // checking if editor loaded save properly
+        await page.waitForSelector("section.layerThree");
+
+        let dailyTitle = await page.$eval('[id="title"]', (el) => {
+            return el.value;
+        });
+
+        // going back to main
+        const navigationPromise = page.waitForNavigation();
+        await page.click("button > a");
+        await navigationPromise;
+
+        expect(dailyTitle).toBe("Test Daily");
+    }, 15000);
+
+    // Checking if page exists to delete
+    it("Test 9: Deleting page", async () => {
+        // searching in form
+        await page.waitForSelector("#monthSearch");
+        await page.type("#monthSearch", "6");
+        await page.keyboard.press('ArrowRight');
+        await page.keyboard.press("2");
+        await page.keyboard.press("0");
+        await page.keyboard.press("2");
+        await page.keyboard.press("1");
+        await page.keyboard.press("Enter");
+
+        // waiting for page to load dailies for june 2021
+        await page.waitForTimeout(2000);
+
+        // deleting daily for june 1st
+        const navigationPromise = page.waitForNavigation();
+        await page.click('[id="dailyContainer"] > li > button:nth-child(3)');
+        await navigationPromise;
+
+        // searching in form again
+        await page.waitForSelector("#monthSearch");
+        await page.type("#monthSearch", "6");
+        await page.keyboard.press('ArrowRight');
+        await page.keyboard.press("2");
+        await page.keyboard.press("0");
+        await page.keyboard.press("2");
+        await page.keyboard.press("1");
+        await page.keyboard.press("Enter");
+
+        // waiting for page to load dailies for june 2021
+        await page.waitForTimeout(2000);
+
+        // checking if button says add vs delete
+        let btnText = await page.$eval('[id="dailyContainer"] > li > button:nth-child(2)', (el) => {
+            return el.innerText;
+        });
+
+        expect(btnText).toBe("Add");
+    }, 15000);
 });

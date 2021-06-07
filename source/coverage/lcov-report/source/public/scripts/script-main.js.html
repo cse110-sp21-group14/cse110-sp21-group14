@@ -292,79 +292,79 @@ let journals = <span class="cstat-no" title="statement not covered" >Array.from(
 let form = <span class="cstat-no" title="statement not covered" >document.getElementById("monthForm");</span>
 let dailyContainer = <span class="cstat-no" title="statement not covered" >document.getElementById("dailyContainer");</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >if(form){</span>
-<span class="cstat-no" title="statement not covered" >  form.addEventListener("submit", <span class="fstat-no" title="function not covered" >as</span>ync (event) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
-&nbsp;
-    // accessing data from form
-    let search = <span class="cstat-no" title="statement not covered" >form.elements[0].value;</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    if (search == "") {</span>
-<span class="cstat-no" title="statement not covered" >        return;</span>
-    }
-&nbsp;
-    let searchDetails = <span class="cstat-no" title="statement not covered" >search.split("-");</span>
-    let year = <span class="cstat-no" title="statement not covered" >parseInt(searchDetails[0]);</span>
-    let month = <span class="cstat-no" title="statement not covered" >parseInt(searchDetails[1]);</span>
-&nbsp;
-    // getting the number of days in the month
-    let daysInMonth = <span class="cstat-no" title="statement not covered" >new Date(year,month,0).getDate();</span>
-&nbsp;
-    // clearing dailyContainer on new submission
-<span class="cstat-no" title="statement not covered" >    while (dailyContainer.firstChild) {</span>
-<span class="cstat-no" title="statement not covered" >        dailyContainer.removeChild(dailyContainer.lastChild);</span>
-    }
-&nbsp;
-    // populating with days
-<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >1;</span> i &lt;= daysInMonth; i++) {</span>
-        let dailyItem = <span class="cstat-no" title="statement not covered" >document.createElement("li");</span>
-<span class="cstat-no" title="statement not covered" >        dailyItem.id = `${month}/${i}/${year}`;</span>
-        // dailyItem.className = Class name goes here;
-&nbsp;
-        let itemParagraph = <span class="cstat-no" title="statement not covered" >document.createElement("span");</span>
-<span class="cstat-no" title="statement not covered" >        itemParagraph.textContent = `${month}/${i}/${year}`;</span>
-        
-        let itemButton = <span class="cstat-no" title="statement not covered" >document.createElement("button");</span>
-<span class="cstat-no" title="statement not covered" >        itemButton.className = "dailyBtn";</span>
-<span class="cstat-no" title="statement not covered" >        itemButton.innerHTML = `&lt;a href="/main/add/daily/${month}/${i}/${year}"&gt;Add&lt;/a&gt;`;</span>
-&nbsp;
-        let lineBreak = <span class="cstat-no" title="statement not covered" >document.createElement("br");</span>
-        // adding inner html of daily item
-<span class="cstat-no" title="statement not covered" >        dailyItem.appendChild(itemParagraph);</span>
-<span class="cstat-no" title="statement not covered" >        dailyItem.appendChild(itemButton);</span>
-        // adding to container
-<span class="cstat-no" title="statement not covered" >        dailyContainer.appendChild(dailyItem);</span>
-<span class="cstat-no" title="statement not covered" >        dailyContainer.appendChild(lineBreak);</span>
-    }
-&nbsp;
-    // making a fetch request and updating HTML
-<span class="cstat-no" title="statement not covered" >    await fetch(document.location.origin + document.location.pathname + `/daily/${month}/${year}`).then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>.then(<span class="fstat-no" title="function not covered" >(d</span>ailies) =&gt; {</span>
-        // updating each of the daily items that are found in the database
-<span class="cstat-no" title="statement not covered" >        dailies.forEach(<span class="fstat-no" title="function not covered" >(d</span>aily) =&gt; {</span>
-            let dailyItem = <span class="cstat-no" title="statement not covered" >document.getElementById(`${daily.month}/${daily.date}/${daily.year}`);</span>
-            let itemParagraph = <span class="cstat-no" title="statement not covered" >dailyItem.firstElementChild;</span>
-            let itemButton = <span class="cstat-no" title="statement not covered" >dailyItem.lastElementChild;</span>
-&nbsp;
-            // updating HTML with database info
-<span class="cstat-no" title="statement not covered" >            itemParagraph.textContent = `${daily.month}/${daily.date}/${daily.year}: ${daily.title}`;</span>
-<span class="cstat-no" title="statement not covered" >            itemButton.innerHTML = `&lt;a href="/main/daily/${daily.dailyId}"&gt;Edit&lt;/a&gt;`;</span>
-&nbsp;
-            // adding delete btn
-            let deleteBtn = <span class="cstat-no" title="statement not covered" >document.createElement("button");</span>
-<span class="cstat-no" title="statement not covered" >            deleteBtn.className = "dailyBtn";</span>
-<span class="cstat-no" title="statement not covered" >            deleteBtn.innerText = "Delete";</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >            deleteBtn.addEventListener("click", <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
-                let xhr = <span class="cstat-no" title="statement not covered" >new XMLHttpRequest();</span>
-<span class="cstat-no" title="statement not covered" >                xhr.open("DELETE", document.location.origin +`/main/daily/${daily.month}/${daily.date}/${daily.year}`, true);</span>
-<span class="cstat-no" title="statement not covered" >                xhr.send(null);</span>
-<span class="cstat-no" title="statement not covered" >                location.reload();</span>
-            });
+<span class="cstat-no" title="statement not covered" >if (form){</span>
+<span class="cstat-no" title="statement not covered" >    form.addEventListener("submit", <span class="fstat-no" title="function not covered" >as</span>ync (event) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        event.preventDefault();</span>
+    
+        // accessing data from form
+        let search = <span class="cstat-no" title="statement not covered" >form.elements[0].value;</span>
+    
+<span class="cstat-no" title="statement not covered" >        if (search == "") {</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+    
+        let searchDetails = <span class="cstat-no" title="statement not covered" >search.split("-");</span>
+        let year = <span class="cstat-no" title="statement not covered" >parseInt(searchDetails[0]);</span>
+        let month = <span class="cstat-no" title="statement not covered" >parseInt(searchDetails[1]);</span>
+    
+        // getting the number of days in the month
+        let daysInMonth = <span class="cstat-no" title="statement not covered" >new Date(year,month,0).getDate();</span>
+    
+        // clearing dailyContainer on new submission
+<span class="cstat-no" title="statement not covered" >        while (dailyContainer.firstChild) {</span>
+<span class="cstat-no" title="statement not covered" >            dailyContainer.removeChild(dailyContainer.lastChild);</span>
+        }
+    
+        // populating with days
+<span class="cstat-no" title="statement not covered" >        for (let i = <span class="cstat-no" title="statement not covered" >1;</span> i &lt;= daysInMonth; i++) {</span>
+            let dailyItem = <span class="cstat-no" title="statement not covered" >document.createElement("li");</span>
+<span class="cstat-no" title="statement not covered" >            dailyItem.id = `${month}/${i}/${year}`;</span>
+            // dailyItem.className = Class name goes here;
+    
+            let itemParagraph = <span class="cstat-no" title="statement not covered" >document.createElement("span");</span>
+<span class="cstat-no" title="statement not covered" >            itemParagraph.textContent = `${month}/${i}/${year}`;</span>
             
-<span class="cstat-no" title="statement not covered" >            dailyItem.appendChild(deleteBtn);</span>
+            let itemButton = <span class="cstat-no" title="statement not covered" >document.createElement("button");</span>
+<span class="cstat-no" title="statement not covered" >            itemButton.className = "dailyBtn";</span>
+<span class="cstat-no" title="statement not covered" >            itemButton.innerHTML = `&lt;a href="/main/add/daily/${month}/${i}/${year}"&gt;Add&lt;/a&gt;`;</span>
+    
+            let lineBreak = <span class="cstat-no" title="statement not covered" >document.createElement("br");</span>
+            // adding inner html of daily item
+<span class="cstat-no" title="statement not covered" >            dailyItem.appendChild(itemParagraph);</span>
+<span class="cstat-no" title="statement not covered" >            dailyItem.appendChild(itemButton);</span>
+            // adding to container
+<span class="cstat-no" title="statement not covered" >            dailyContainer.appendChild(dailyItem);</span>
+<span class="cstat-no" title="statement not covered" >            dailyContainer.appendChild(lineBreak);</span>
+        }
+    
+        // making a fetch request and updating HTML
+<span class="cstat-no" title="statement not covered" >        await fetch(document.location.origin + document.location.pathname + `/daily/${month}/${year}`).then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>.then(<span class="fstat-no" title="function not covered" >(d</span>ailies) =&gt; {</span>
+            // updating each of the daily items that are found in the database
+<span class="cstat-no" title="statement not covered" >            dailies.forEach(<span class="fstat-no" title="function not covered" >(d</span>aily) =&gt; {</span>
+                let dailyItem = <span class="cstat-no" title="statement not covered" >document.getElementById(`${daily.month}/${daily.date}/${daily.year}`);</span>
+                let itemParagraph = <span class="cstat-no" title="statement not covered" >dailyItem.firstElementChild;</span>
+                let itemButton = <span class="cstat-no" title="statement not covered" >dailyItem.lastElementChild;</span>
+    
+                // updating HTML with database info
+<span class="cstat-no" title="statement not covered" >                itemParagraph.textContent = `${daily.month}/${daily.date}/${daily.year}: ${daily.title}`;</span>
+<span class="cstat-no" title="statement not covered" >                itemButton.innerHTML = `&lt;a href="/main/daily/${daily.dailyId}"&gt;Edit&lt;/a&gt;`;</span>
+    
+                // adding delete btn
+                let deleteBtn = <span class="cstat-no" title="statement not covered" >document.createElement("button");</span>
+<span class="cstat-no" title="statement not covered" >                deleteBtn.className = "dailyBtn";</span>
+<span class="cstat-no" title="statement not covered" >                deleteBtn.innerText = "Delete";</span>
+    
+<span class="cstat-no" title="statement not covered" >                deleteBtn.addEventListener("click", <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
+                    let xhr = <span class="cstat-no" title="statement not covered" >new XMLHttpRequest();</span>
+<span class="cstat-no" title="statement not covered" >                    xhr.open("DELETE", document.location.origin +`/main/daily/${daily.month}/${daily.date}/${daily.year}`, true);</span>
+<span class="cstat-no" title="statement not covered" >                    xhr.send(null);</span>
+<span class="cstat-no" title="statement not covered" >                    location.reload();</span>
+                });
+                
+<span class="cstat-no" title="statement not covered" >                dailyItem.appendChild(deleteBtn);</span>
+            });
         });
     });
-});  
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -373,7 +373,7 @@ let dailyContainer = <span class="cstat-no" title="statement not covered" >docum
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Jun 06 2021 17:18:23 GMT-0700 (Pacific Daylight Time)
+                at Sun Jun 06 2021 21:35:34 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
