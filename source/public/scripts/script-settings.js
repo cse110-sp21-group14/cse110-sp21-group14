@@ -10,7 +10,6 @@ function closeSettings(){
 
 function changeFont(font){
     document.getElementById("popupTitle").style.fontFamily = font.value;
-    document.getElementById("contains").style.fontFamily = font.value;
     document.getElementById("journal").style.fontFamily = font.value;
     document.getElementById("mycalendar").style.fontFamily = font.value;
     document.getElementById("mysettings").style.fontFamily = font.value;

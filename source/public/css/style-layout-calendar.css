@@ -1,8 +1,9 @@
 /*
     Author: Aidan, Michael 
 */
-
 body{
+    color: rgb(24, 5, 5);
+    background-color: #bcfc95;
     width: 99.1%;
     height: 90vh;
     min-width: 1200px;
@@ -13,6 +14,7 @@ a{
     text-decoration:none;
     color: black;
     font-family: 'Mukta', sans-serif;
+    font-weight: bold;
 }
 
 li{
@@ -53,14 +55,12 @@ li{
 
 .menuItem{
     width: 30%;
-    font-family: Roboto;
     font-size: 130%;
     line-height: 1vh;
     text-decoration-line: none;
 }
 
 .signOut{
-    font-family: Roboto;
     font-size: 130%;
     line-height: 1vh;
 }

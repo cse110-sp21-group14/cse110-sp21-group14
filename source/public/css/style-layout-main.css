@@ -54,14 +54,12 @@ li{
 
 .menuItem{
     width: 30%;
-    font-family: Roboto;
     font-size: 130%;
     line-height: 1vh;
     text-decoration-line: none;
 }
 
 .signOut{
-    font-family: Roboto;
     font-size: 130%;
     line-height: 1vh;
 }
