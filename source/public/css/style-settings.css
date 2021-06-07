@@ -80,6 +80,18 @@
     top: 50%;
     margin-top: 50px;
 }
+#journal{
+    color: white;
+}
+#mycalendar{
+    color: white;
+}
+#mysettings{
+    color: white;
+}
+#signout{
+    color: white;
+}
 .dark-mode {
     background: rgb(105, 102, 102);
     color: white;
