@@ -3,12 +3,6 @@
  * @author Group 14 (testers)
  */
 
-/* global describe */
-// const secret = require("../config/secret");
-// const passport = require("../config/password");
-// const db = require("../config/db");
-// const decrypt = require("../config/decrypt");
-
 // test decryption / encryption
 test("Check that encrypted string is correct when decrypted", () => {
     const Cryptr = require("cryptr");
