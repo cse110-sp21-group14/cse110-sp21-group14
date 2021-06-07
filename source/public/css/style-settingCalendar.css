@@ -1,0 +1,87 @@
+#settingsBg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: none;
+}
+#settingsMain{
+    position: fixed;
+    width: 800px;
+    height: 400px;
+    border: 2px solid black;
+    background-color: lightyellow;
+    left: 50%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -250px;
+}
+#closePopup{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    border: 2px solid black;
+    text-align: center;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+#closePopup p{
+    color: black;
+    margin-top: 5px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+#popupTitle{
+    color: black;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: lightblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 0;
+    border-bottom: 2px solid black;
+}
+#font{
+    font-family: 'Mukta', sans-serif;
+    position: absolute;
+    color:black;
+    left: 50%;
+    margin-left: -200px;
+    top: 50%;
+    margin-top: -50px;
+}
+#fonts{
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+}
+#dark{
+    font-family: 'Mukta', sans-serif;
+    position: absolute;
+    color:black;
+    left: 50%;
+    margin-left: -240px;
+    top: 50%;
+    margin-top: 50px;
+}
+#darkMode{
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: 50px;
+}
+
+.dark-mode {
+    background: rgb(26, 24, 24);
+    color: white;
+}
