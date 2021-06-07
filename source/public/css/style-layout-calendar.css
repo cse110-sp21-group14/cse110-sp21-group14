@@ -31,7 +31,7 @@ li{
 
 .menuBar {
     grid-area: menuBar;
-    background-color: lightblue;
+    background-color: lightyellow;
     position: -webkit-sticky; /*For Safari*/
     position: sticky;
     border-color: black;

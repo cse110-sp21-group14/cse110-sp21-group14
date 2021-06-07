@@ -20,8 +20,4 @@ function changeFont(font){
 function toggleDarkMode() {
   var element = document.body;
   element.classList.toggle("dark-mode");
-  element.classList.toggle("mycalendar");
-  element.classList.toggle("signout");
-  element.classList.toggle("mysettings");
-  element.classList.toggle("journal");
 }
