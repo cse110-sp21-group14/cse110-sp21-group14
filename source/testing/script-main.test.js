@@ -3,6 +3,10 @@
  * @author Stephen Montes De Oca
  */
 
+const browserslist = require("browserslist");
+const { Browser } = require("puppeteer");
+const { after } = require("underscore");
+
 const GOOGLE_USER = 'PuffNotesTester';
 const GOOGLE_PWD = 'PowellPuffGang14';
 
@@ -34,7 +38,7 @@ describe("Testing Main Webpage", () => {
         await page.click('body > div > div.menuBar > ul > li:nth-child(1) > a');
         await navigationPromise;
         await page.waitForTimeout(500);
-    }, 15000);
+    }, 150000);
 
     // testing if journal loaded from data base
     it("Test 1: Journals loaded from Database", async () => {
@@ -59,22 +63,24 @@ describe("Testing Main Webpage", () => {
         await page.keyboard.press("Enter");
 
         await page.waitForTimeout(1000);
-        await page.evaluate(async () => {
-            let li = document.getElementById("6/3/2021");
-            li.children[1].firstElementChild.click();
-        });
+        
     }, 7000);
 
     // Test to see if content is loaded from the database
     it("Test 4: Daily Editor", async () => {
-        await page.waitForSelector("#layerThree");
-        let dailyTitle = await page.$eval('input[name="title"]',(el) => {
-            console.log(el);
-            return el;
+        await page.click('[id="6/3/2021"] > button > a');
+        await page.waitForTimeout(3000);
+        
+        await page.waitForSelector("section.layerThree");
+        
+        let dailyTitle = await page.$eval('[id="title"]',(el) => {
+            return el.value;
         });
 
         expect(dailyTitle).toBe("Daily for June 3");
-    }, 5000);
+        
+    }, 50000);
 
     // Test to see if the save button works
+    
 });
