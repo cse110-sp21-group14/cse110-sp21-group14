@@ -170,7 +170,7 @@ function createCalendar(calendar, element, adjuster) {
         if (days.children.length > 35) { extraDays = 6; }
         else if (days.children.length < 29) { extraDays = 20; }
 
-        for (i = 0; i < (extraDays - calendar.Selected.LastDay); i++) {
+        for (i = 0; i < ((extraDays - calendar.Selected.LastDay) % 7); i++) {
             day = document.createElement("li");
             day.className += "cld-day nextMonth";
 

@@ -111,7 +111,7 @@ body {
 }
 
 .cld-day.nextMonth, .cld-day.prevMonth {
-  opacity: 0.4;
+  background: #bcfc95;
 }
 
 .cld-number {
