@@ -33,9 +33,6 @@
 ## Constants
 
 <dl>
-<dt><a href="#GOOGLE_USER">GOOGLE_USER</a></dt>
-<dd><p>Puppeteer Tests for scripts/script-calendar.js</p>
-</dd>
 <dt><a href="#express">express</a></dt>
 <dd><p>express module</p>
 </dd>
@@ -189,13 +186,6 @@ Calendar route
 
 ## DailySchema
 **Kind**: global class  
-<a name="GOOGLE_USER"></a>
-
-## GOOGLE\_USER
-Puppeteer Tests for scripts/script-calendar.js
-
-**Kind**: global constant  
-**Author**: Michael Mao  
 <a name="express"></a>
 
 ## express
