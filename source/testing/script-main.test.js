@@ -3,10 +3,6 @@
  * @author Stephen Montes De Oca
  */
 
-const browserslist = require("browserslist");
-const { Browser } = require("puppeteer");
-const { after } = require("underscore");
-
 const GOOGLE_USER = 'PuffNotesTester';
 const GOOGLE_PWD = 'PowellPuffGang14';
 
@@ -76,7 +72,7 @@ describe("Testing Main Webpage", () => {
     // Test to see if content is loaded from the database
     it("Test 4: Daily Editor", async () => {
         await page.click('[id="6/3/2021"] > button > a');
-        await page.waitForTimeout(3000);
+        await page.waitForTimeout(4000);
         
         await page.waitForSelector("section.layerThree");
         
@@ -91,7 +87,7 @@ describe("Testing Main Webpage", () => {
     // Test to see if the save button works
     it("Test 5: Saving Content", async () => {
         await page.click("button.saveButton");
-        await page.waitForTimeout(3000);
+        await page.waitForTimeout(4000);
 
         await page.waitForSelector("div.ce-paragraph.cdx-block");
 
@@ -220,6 +216,7 @@ describe("Testing Main Webpage", () => {
     // Test add page
     it("Test 11: Add Page", async () => {;
         await page.click('div.journal-item:nth-child(7) > [id="pageButtons"] > div.pageButtons-item:nth-child(1) > button > a');
+        await page.waitForTimeout(3000);
 
         await page.waitForSelector('[id="title"]');
         await page.type('#title', 'Page 1 Journal 4');
@@ -227,6 +224,7 @@ describe("Testing Main Webpage", () => {
         await page.click("button.addButton");
         await page.waitForTimeout(3000);
 
+        await page.waitForSelector("section.layerThree");
         const pages = await page.$$eval('div.journal-item:nth-child(7) > ul > li > ul.journal-item-details', (entries) => {
             return entries.length;
         });
@@ -268,7 +266,7 @@ describe("Testing Main Webpage", () => {
     }, 15000);
 
     // Test to see if content is loaded from the database 
-    it("Test 15: Edit Journal", async () => {
+    it("Test 15: Edit Page", async () => {
         await page.click('ul.journal-item-details > li > a');
         await page.waitForTimeout(3000);
         

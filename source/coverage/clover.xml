@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1623133074757" clover="3.2.0">
-  <project timestamp="1623133074758" name="All files">
+<coverage generated="1623193192172" clover="3.2.0">
+  <project timestamp="1623193192173" name="All files">
     <metrics statements="2208" coveredstatements="0" conditionals="1210" coveredconditionals="0" methods="448" coveredmethods="0" elements="3866" coveredelements="0" complexity="0" loc="2208" ncloc="2208" packages="10" files="32" classes="32"/>
     <package name="source">
       <metrics statements="39" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="jest-puppeteer.config.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\jest-puppeteer.config.js">
+      <file name="jest-puppeteer.config.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\jest-puppeteer.config.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
       </file>
-      <file name="server.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\server.js">
+      <file name="server.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\server.js">
         <metrics statements="38" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -52,7 +52,7 @@
     </package>
     <package name="source.config">
       <metrics statements="58" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="0"/>
-      <file name="db.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\config\db.js">
+      <file name="db.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\config\db.js">
         <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
@@ -63,7 +63,7 @@
         <line num="26" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
       </file>
-      <file name="decrypt.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\config\decrypt.js">
+      <file name="decrypt.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\config\decrypt.js">
         <metrics statements="22" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -88,7 +88,7 @@
         <line num="74" count="0" type="stmt"/>
         <line num="84" count="0" type="stmt"/>
       </file>
-      <file name="passport.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\config\passport.js">
+      <file name="passport.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\config\passport.js">
         <metrics statements="23" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
@@ -114,13 +114,13 @@
         <line num="60" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
       </file>
-      <file name="secret.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\config\secret.js">
+      <file name="secret.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\config\secret.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
       </file>
-      <file name="sum.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\config\sum.js">
+      <file name="sum.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\config\sum.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="12" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
@@ -128,7 +128,7 @@
     </package>
     <package name="source.coverage.lcov-report">
       <metrics statements="106" coveredstatements="0" conditionals="323" coveredconditionals="0" methods="52" coveredmethods="0"/>
-      <file name="block-navigation.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\coverage\lcov-report\block-navigation.js">
+      <file name="block-navigation.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\coverage\lcov-report\block-navigation.js">
         <metrics statements="28" coveredstatements="0" conditionals="15" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
@@ -159,11 +159,11 @@
         <line num="75" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
       </file>
-      <file name="prettify.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\coverage\lcov-report\prettify.js">
+      <file name="prettify.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\coverage\lcov-report\prettify.js">
         <metrics statements="1" coveredstatements="0" conditionals="286" coveredconditionals="0" methods="29" coveredmethods="0"/>
         <line num="2" count="0" type="cond" truecount="0" falsecount="286"/>
       </file>
-      <file name="sorter.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\coverage\lcov-report\sorter.js">
+      <file name="sorter.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\coverage\lcov-report\sorter.js">
         <metrics statements="77" coveredstatements="0" conditionals="22" coveredconditionals="0" methods="17" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
@@ -246,7 +246,7 @@
     </package>
     <package name="source.documentation.JSDocs.scripts">
       <metrics statements="14" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="linenumber.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\documentation\JSDocs\scripts\linenumber.js">
+      <file name="linenumber.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\documentation\JSDocs\scripts\linenumber.js">
         <metrics statements="14" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -266,12 +266,12 @@
     </package>
     <package name="source.documentation.JSDocs.scripts.prettify">
       <metrics statements="29" coveredstatements="0" conditionals="279" coveredconditionals="0" methods="26" coveredmethods="0"/>
-      <file name="lang-css.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\documentation\JSDocs\scripts\prettify\lang-css.js">
+      <file name="lang-css.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\documentation\JSDocs\scripts\prettify\lang-css.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
       </file>
-      <file name="prettify.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\documentation\JSDocs\scripts\prettify\prettify.js">
+      <file name="prettify.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\documentation\JSDocs\scripts\prettify\prettify.js">
         <metrics statements="27" coveredstatements="0" conditionals="279" coveredconditionals="0" methods="26" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="cond" truecount="0" falsecount="22"/>
@@ -304,7 +304,7 @@
     </package>
     <package name="source.middleware">
       <metrics statements="7" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="auth.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\middleware\auth.js">
+      <file name="auth.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\middleware\auth.js">
         <metrics statements="7" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -317,25 +317,25 @@
     </package>
     <package name="source.models">
       <metrics statements="12" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="Daily.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\models\Daily.js">
+      <file name="Daily.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\models\Daily.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
       </file>
-      <file name="Journal.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\models\Journal.js">
+      <file name="Journal.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\models\Journal.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
       </file>
-      <file name="Page.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\models\Page.js">
+      <file name="Page.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\models\Page.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
       </file>
-      <file name="User.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\models\User.js">
+      <file name="User.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\models\User.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
@@ -344,7 +344,7 @@
     </package>
     <package name="source.public.scripts">
       <metrics statements="190" coveredstatements="0" conditionals="25" coveredconditionals="0" methods="24" coveredmethods="0"/>
-      <file name="script-calendar.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\script-calendar.js">
+      <file name="script-calendar.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\script-calendar.js">
         <metrics statements="130" coveredstatements="0" conditionals="19" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -477,15 +477,15 @@
         <line num="237" count="0" type="stmt"/>
         <line num="241" count="0" type="stmt"/>
       </file>
-      <file name="script-index.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\script-index.js">
+      <file name="script-index.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\script-index.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
       </file>
-      <file name="script-login.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\script-login.js">
+      <file name="script-login.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\script-login.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
       </file>
-      <file name="script-main.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\script-main.js">
+      <file name="script-main.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\script-main.js">
         <metrics statements="54" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
@@ -542,7 +542,7 @@
         <line num="96" count="0" type="stmt"/>
         <line num="99" count="0" type="stmt"/>
       </file>
-      <file name="script-settings.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\script-settings.js">
+      <file name="script-settings.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\script-settings.js">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -552,7 +552,7 @@
     </package>
     <package name="source.public.scripts.editor">
       <metrics statements="1499" coveredstatements="0" conditionals="542" coveredconditionals="0" methods="303" coveredmethods="0"/>
-      <file name="caret.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\editor\caret.js">
+      <file name="caret.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\editor\caret.js">
         <metrics statements="54" coveredstatements="0" conditionals="18" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <line num="14" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
@@ -609,7 +609,7 @@
         <line num="192" count="0" type="stmt"/>
         <line num="195" count="0" type="stmt"/>
       </file>
-      <file name="dom.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\editor\dom.js">
+      <file name="dom.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\editor\dom.js">
         <metrics statements="16" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -628,7 +628,7 @@
         <line num="59" count="0" type="stmt"/>
         <line num="62" count="0" type="stmt"/>
       </file>
-      <file name="index.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\editor\index.js">
+      <file name="index.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\editor\index.js">
         <metrics statements="713" coveredstatements="0" conditionals="258" coveredconditionals="0" methods="144" coveredmethods="0"/>
         <line num="36" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
@@ -1344,7 +1344,7 @@
         <line num="3188" count="0" type="stmt"/>
         <line num="3192" count="0" type="stmt"/>
       </file>
-      <file name="page-view.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\public\scripts\editor\page-view.js">
+      <file name="page-view.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\public\scripts\editor\page-view.js">
         <metrics statements="716" coveredstatements="0" conditionals="258" coveredconditionals="0" methods="146" coveredmethods="0"/>
         <line num="37" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
@@ -2066,7 +2066,7 @@
     </package>
     <package name="source.routes">
       <metrics statements="254" coveredstatements="0" conditionals="20" coveredconditionals="0" methods="28" coveredmethods="0"/>
-      <file name="auth.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\routes\auth.js">
+      <file name="auth.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\routes\auth.js">
         <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -2079,7 +2079,7 @@
         <line num="47" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
       </file>
-      <file name="calendar.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\routes\calendar.js">
+      <file name="calendar.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\routes\calendar.js">
         <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -2090,7 +2090,7 @@
         <line num="26" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
       </file>
-      <file name="index.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\routes\index.js">
+      <file name="index.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\routes\index.js">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
@@ -2099,7 +2099,7 @@
         <line num="19" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
       </file>
-      <file name="main.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\routes\main.js">
+      <file name="main.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\routes\main.js">
         <metrics statements="224" coveredstatements="0" conditionals="20" coveredconditionals="0" methods="23" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
@@ -2326,7 +2326,7 @@
         <line num="756" count="0" type="stmt"/>
         <line num="761" count="0" type="stmt"/>
       </file>
-      <file name="settings.js" path="C:\Users\Tony Guan\cse110-sp21-group14\source\routes\settings.js">
+      <file name="settings.js" path="C:\Users\deoca\Desktop\CS\PAs\CSE 110\cse110-sp21-group14\source\routes\settings.js">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
