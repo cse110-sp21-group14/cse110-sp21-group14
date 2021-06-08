@@ -49,7 +49,14 @@ describe("Testing Main Webpage", () => {
         expect(numEntries).toBe(3);
     });
 
-    // TODO: test if pages are also there
+    // test if pages are also there
+    it("Test 2: Check Sidebar for Pages", async () =>{
+        const pageTitle = await page.$eval('ul.journal-item-details > li > a', (a) =>{
+            return a.innerText;
+        });
+
+        expect(pageTitle).toBe('Page 1 Journal 1');
+    });
 
     // testing daily search
     it("Test 3: Daily Search", async () => {
@@ -191,5 +198,86 @@ describe("Testing Main Webpage", () => {
         });
 
         expect(btnText).toBe("Add");
+    }, 15000);
+
+    // Test adding journal
+    it("Test 10: Add Journal", async () => {
+        await page.click('button.buttonAdd:nth-child(3) > a');
+        await page.waitForSelector('[id="title"]');
+
+        const navigationPromise = page.waitForNavigation();
+        await page.type('#title', 'Test Journal 4');
+        await page.click('input.add');
+        await navigationPromise;
+
+        const journals = await page.$$eval("div.journal-item", (entries) => {
+            return entries.length;
+        });
+
+        expect(journals).toBe(4);
+    }, 15000);
+
+    // Test add page
+    it("Test 11: Add Page", async () => {;
+        await page.click('div.journal-item:nth-child(7) > [id="pageButtons"] > div.pageButtons-item:nth-child(1) > button > a');
+
+        await page.waitForSelector('[id="title"]');
+        await page.type('#title', 'Page 1 Journal 4');
+
+        await page.click("button.addButton");
+        await page.waitForTimeout(3000);
+
+        const pages = await page.$$eval('div.journal-item:nth-child(7) > ul > li > ul.journal-item-details', (entries) => {
+            return entries.length;
+        });
+
+        expect(pages).toBe(1);
+    }, 15000);
+
+    // Delete page
+    it("Test 12: Delete Page", async () => {
+        const navigationPromise = page.waitForNavigation();
+        await page.click('div.journal-item:nth-child(7) > ul > li > ul.journal-item-details > li:nth-child(2) > form > button');
+        await navigationPromise;
+
+        let url = await page.url();
+
+        expect(url).toBe("http://localhost:5000/main");
+    }, 15000);
+
+    // Check page gone
+    it("Test 13: Check Page is gone", async () => {
+        const pages = await page.$$eval('div.journal-item:nth-child(7) > ul > li > ul.journal-item-details', (entries) => {
+            return entries.length;
+        });
+
+        expect(pages).toBe(0);
+    }, 15000);
+
+    // Delete journal
+    it("Test 14: Delete Journal", async () => {
+        const navigationPromise = page.waitForNavigation();
+        await page.click('div.journal-item:nth-child(7) > [id="pageButtons"] > div.pageButtons-item:nth-child(2) > form > button');
+        await navigationPromise;
+
+        const journals = await page.$$eval("div.journal-item", (entries) => {
+            return entries.length;
+        });
+
+        expect(journals).toBe(3);
+    }, 15000);
+
+    // Test to see if content is loaded from the database 
+    it("Test 15: Edit Journal", async () => {
+        await page.click('ul.journal-item-details > li > a');
+        await page.waitForTimeout(3000);
+        
+        await page.waitForSelector("#title");
+        
+        let pageTitle = await page.$eval('[id="title"]',(el) => {
+            return el.value;
+        });
+
+        expect(pageTitle).toBe("Page 1 Journal 1");
     }, 15000);
 });
