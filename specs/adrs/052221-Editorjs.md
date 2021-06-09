@@ -1,4 +1,4 @@
-# [short title of solved problem and solution]
+# [EditorJS]
 
 * Status: accepted <!-- optional -->
 * Deciders: Joshua, Jun <!-- optional -->
@@ -22,3 +22,4 @@ Chosen option: Editorjs because
 
 ### Negative Consequences <!-- optional -->
 * Lack of features, and its hard to rewrite some of the code to our needs.
+* Third party code get have negative consequences.
