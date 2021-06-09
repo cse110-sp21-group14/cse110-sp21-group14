@@ -56,4 +56,4 @@ The CI/CD pipeline in general works like this:
   * Unit tests written for encryption + decryption
 
 To test, create a branch titled `testers-<testing item>`, and write tests there. the workflow, when ran, will run tests located in `./source/testing`.
-However, because of an issue with Google OAuth, and how GitHub actions runs an older version of OAuth(v1.0), the tests will not run the same as they would on your local machine(which runs v2.0). Because of this, we had to separate some tests because of their inability to bypass the v1.0 OAuth login. Tests were ran successfully on local, however - as seen below.
+However, because of an issue with Google OAuth, and how GitHub actions runs an older version of OAuth(v1.0), the tests will not run the same as they would on your local machine(which runs v2.0). Because of this, we had to separate some tests because of their inability to bypass the v1.0 OAuth login. Tests were ran successfully on local, and are stored in `testers-main` and `testers-scripts-calendar`.
