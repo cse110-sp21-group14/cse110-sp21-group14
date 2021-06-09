@@ -157,6 +157,14 @@
 <dt><a href="#calendar">calendar(el, data)</a></dt>
 <dd><p>Create calendar</p>
 </dd>
+<dt><a href="#fetchEvents">fetchEvents(month, year)</a></dt>
+<dd><p>Fetches events for a specified month and year and calls the calendar 
+function. This function should only called once on page load.</p>
+</dd>
+<dt><a href="#fetchevents">fetchevents(month, year, calendar, element, adjuster)</a></dt>
+<dd><p>Fetches events for a specified month and year. Replaces old calendar with 
+a new calendar. Adjuster is used to view the previous or next month.</p>
+</dd>
 <dt><a href="#changeFont">changeFont(the)</a></dt>
 <dd><p>Changes the font of the app</p>
 </dd>
@@ -4115,102 +4123,8 @@ Returns list tag with items
 **Access**: public  
 <a name="Ordered+renderSettings"></a>
 
-<dl>
-<dt><a href="#sum">sum(a, b)</a> ⇒</dt>
-<dd></dd>
-<dt><a href="#connectDB">connectDB()</a></dt>
-<dd><p>Connect to MongoDB database</p>
-</dd>
-<dt><a href="#/calendar">/calendar(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Month view</p>
-</dd>
-<dt><a href="#/calendar">/calendar(URL, ensureGuest, middleware)</a></dt>
-<dd><p>Login page</p>
-</dd>
-<dt><a href="#/main">/main(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Responds with a list of all journals belonging to the user (json)</p>
-</dd>
-<dt><a href="#/calendar/journals">/calendar/journals(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Responds with a list of all journals belonging to the user (json)</p>
-</dd>
-<dt><a href="#/main/journal/_id">/main/journal/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Get a specific journal from its id</p>
-</dd>
-<dt><a href="#/main/_id/pages">/main/:id/pages(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Gets the pages of a specific journal</p>
-</dd>
-<dt><a href="#/main/page/_id">/main/page/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Get a specific page from a specific journal</p>
-</dd>
-<dt><a href="#/main/page/_id/fetch">/main/page/:id/fetch(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Get a specific page from a specific journal</p>
-</dd>
-<dt><a href="#/main/daily/_id">/main/daily/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Get a specific daily from its id</p>
-</dd>
-<dt><a href="#/main/daily/_month/_date/_year">/main/daily/:month/:date/:year(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Get a specific daily by month-date-year</p>
-</dd>
-<dt><a href="#/main/daily/_month/_year">/main/daily/:month/:year(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Gets all dailies based on month and year</p>
-</dd>
-<dt><a href="#/main/journal">/main/journal(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Creates a new journal from a post request</p>
-</dd>
-<dt><a href="#/main/post/journal/_id">/main/post/journal/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Creates a page in the specified journal from a post request</p>
-</dd>
-<dt><a href="#/main/daily">/main/daily(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Creates a new daily object</p>
-</dd>
-<dt><a href="#/main/page/_id">/main/page/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Updates a page given its id</p>
-</dd>
-<dt><a href="#/main/daily/_id">/main/daily/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Updates a daily given its _id</p>
-</dd>
-<dt><a href="#/main/journal/_id">/main/journal/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Deletes a journal given its _id</p>
-</dd>
-<dt><a href="#/main/page/_id">/main/page/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Deletes a page given its _id</p>
-</dd>
-<dt><a href="#/main/daily/_id">/main/daily/:id(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Deletes a daily given its _id</p>
-</dd>
-<dt><a href="#/main/daily/_month/_date/_year">/main/daily/:month/:date/:year(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Deletes a daily given the month-date-year</p>
-</dd>
-<dt><a href="#/main/add/journal">/main/add/journal(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Add a new journal</p>
-</dd>
-<dt><a href="#/main/add/_journalId/page">/main/add/:journalId/page(URL, ensureAuth, middleware)</a></dt>
-<dd><p>Add a page to a specific journal</p>
-</dd>
-<dt><a href="#/auth/google">/auth/google(URL, middleware)</a></dt>
-<dd><p>Auth w Google</p>
-</dd>
-<dt><a href="#/auth/google/callback">/auth/google/callback(URL, middleware)</a></dt>
-<dd><p>Callback function after login</p>
-</dd>
-<dt><a href="#/auth/logout">/auth/logout(URL, middleware)</a></dt>
-<dd><p>Logout user</p>
-</dd>
-<dt><a href="#createCalendar">createCalendar(calendar, element, adjuster)</a></dt>
-<dd><p>Creates a calendar</p>
-</dd>
-<dt><a href="#calendar">calendar(el, data)</a></dt>
-<dd><p>Create calendar</p>
-</dd>
-<dt><a href="#fetchEvents">fetchEvents(month, year)</a></dt>
-<dd><p>Fetches events for a specified month and year and calls the calendar 
-function. This function should only called once on page load.</p>
-</dd>
-<dt><a href="#fetchevents">fetchevents(month, year, calendar, element, adjuster)</a></dt>
-<dd><p>Fetches events for a specified month and year. Replaces old calendar with 
-a new calendar. Adjuster is used to view the previous or next month.</p>
-</dd>
-</dl>
+### ordered.renderSettings() ⇒ <code>Element</code>
+Creates Block Tune allowing to change the list style
 
 **Kind**: instance method of [<code>Ordered</code>](#Ordered)  
 **Access**: public  
