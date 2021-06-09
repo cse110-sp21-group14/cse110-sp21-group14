@@ -1,4 +1,10 @@
 /**
+ * All of the logic behind the calendar view. The calendar is fully functional; users can view any month using previous and next buttons and all dates will generate correctly. It also fetches dailies from the database and populates the calendar.
+ * @file public/scripts/script-calendar.js
+ * @author Michael Mao
+ */
+
+/**
  * @constructor
  * @param {Model} model 
  * @param {Date} date 
@@ -32,16 +38,13 @@ var Calendar = function (model, date) {
  * @param {*} adjuster 
  */
 function createCalendar(calendar, element, adjuster) {
-    //console.log(calendar.Model);
     var newDate = new Date(calendar.Selected.Year, calendar.Selected.Month, 1);
     if (typeof adjuster !== "undefined") {
-        //console.log(adjuster);
 
         newDate = new Date(calendar.Selected.Year, calendar.Selected.Month, 1);
         calendar = new Calendar(calendar.Model, newDate);
         element.innerHTML = "";
     }
-    //console.log(calendar);
 
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -55,7 +58,7 @@ function createCalendar(calendar, element, adjuster) {
     function AddDateTime() {
         var datetime = document.createElement("div");
         datetime.className += "cld-datetime";
-        // prev month button
+        // prev month button. Pressing it calls our fetchevents function.
         var rwd = document.createElement("div");
         rwd.className += " cld-rwd cld-nav";
         rwd.addEventListener("click", function () {
@@ -68,7 +71,7 @@ function createCalendar(calendar, element, adjuster) {
         today.className += " today";
         today.innerHTML = months[calendar.Selected.Month] + ", " + calendar.Selected.Year;
         datetime.appendChild(today);
-        // next month button
+        // next month button. Pressing it calls our fetchevents function.
         var fwd = document.createElement("div");
         fwd.className += " cld-fwd cld-nav";
         fwd.addEventListener("click", function () {
@@ -101,7 +104,7 @@ function createCalendar(calendar, element, adjuster) {
      * Add days to the HTML
      * @function
      */
-    function AddDays() { 
+    function AddDays() {
         /**
          * Create Number Element
          * @param {int} n 
@@ -131,15 +134,17 @@ function createCalendar(calendar, element, adjuster) {
             day.className += "cld-day currMonth";
 
             number = DayNumber(i + 1);
-            // Check Date against Event Dates
+            // Enters dailies into the calendar. Adds a button to open a daily view for each entry.
             for (var n = 0; n < calendar.Model.length; n++) {
                 var evDate = calendar.Model[n].Date;
                 var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month, (i + 1));
+                //Creates the HTML behind each daily
                 if (evDate.getTime() == toDate.getTime()) {
                     day.className += " eventday";
                     number.className += " eventday";
                     var title = document.createElement("span");
                     title.className += "cld-title";
+                    //EventListener turns dailies into buttons
                     if (typeof calendar.Model[n].Link == "function") {
                         var a = document.createElement("a");
                         a.setAttribute("href", "#");
@@ -165,7 +170,7 @@ function createCalendar(calendar, element, adjuster) {
         if (days.children.length > 35) { extraDays = 6; }
         else if (days.children.length < 29) { extraDays = 20; }
 
-        for (i = 0; i < (extraDays - calendar.Selected.LastDay); i++) {
+        for (i = 0; i < ((extraDays - calendar.Selected.LastDay) % 7); i++) {
             day = document.createElement("li");
             day.className += "cld-day nextMonth";
 
@@ -184,13 +189,8 @@ function createCalendar(calendar, element, adjuster) {
     AddDays();
 }
 
-
-// ===========
-// calendar-demo.js
 var events = [];
-
 let baseurl = window.location.href;
-
 let curdate = new Date();
 let month = curdate.getMonth();
 let year = curdate.getFullYear();
@@ -198,17 +198,26 @@ var element = document.getElementById("calendar");
 
 /**
  * Create calendar
- * @param {Element} el 
- * @param {Event} data 
+ * @param {Element} el html element 
+ * @param {Event} data array of events
  */
 function calendar(el, data) {
     var obj = new Calendar(data);
     createCalendar(obj, el);
 }
 
+/**
+ * Fetches events for a specified month and year and calls the calendar 
+ * function. This function should only called once on page load.
+ * @param {*} month 
+ * @param {*} year 
+ */
 function fetchEvents(month, year) {
     fetch(baseurl.replace("calendar", "main") + "/daily/" + (1 + month) + "/" + year).then(response => response.json()).then(data => {
-        events = [];
+        events = []; //Clears entries to avoid duplicate entries
+        /*
+            fetches dailies from the database, parses its values, and enters it into the events array
+        */
         for (let i = 0; i < data.length; i++) {
             let newobj = {};
             newobj.Date = new Date(data[i].year + "-" + data[i].month + "-" + data[i].date);
@@ -216,14 +225,27 @@ function fetchEvents(month, year) {
             newobj.Link = "main/daily/" + data[i].dailyId;
             events.push(newobj);
         }
+        //create calendar for the first time
         calendar(element, events);
 
     });
 }
 
+/**
+ * Fetches events for a specified month and year. Replaces old calendar with 
+ * a new calendar. Adjuster is used to view the previous or next month.
+ * @param {*} month 
+ * @param {*} year 
+ * @param {*} calendar 
+ * @param {*} element 
+ * @param {*} adjuster 
+ */
 function fetchevents(month, year, calendar, element, adjuster) {
     fetch(baseurl.replace("calendar", "main") + "/daily/" + (1 + month) + "/" + year).then(response => response.json()).then(data => {
-        events = [];
+        events = []; //Clears events array to avoid duplicate entries
+        /*
+            fetches dailies from the database, parses its values, and enters it into the events array
+        */
         for (let i = 0; i < data.length; i++) {
             let newobj = {};
             newobj.Date = new Date(data[i].year + "-" + data[i].month + "-" + data[i].date);
@@ -231,13 +253,11 @@ function fetchevents(month, year, calendar, element, adjuster) {
             newobj.Link = "main/daily/" + data[i].dailyId;
             events.push(newobj);
         }
+        //Replace old calendar with an updated calendar
         var newcalendar = new Calendar(events, new Date(calendar.Selected.Year, month, 1));
-        console.log("New Calendar Month (0 indexed): " + newcalendar.Selected.Month);
-
         createCalendar(newcalendar, element, adjuster);
     });
 }
 
+//Fetch dailies for the current month when loading calendar for the first time
 fetchEvents(month, year);
-
-// create calendar
