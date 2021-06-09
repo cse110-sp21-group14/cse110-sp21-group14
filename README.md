@@ -41,7 +41,9 @@ Additional documentation was created throughout our project:
 
 # Repo setup/Repo Build setup/Deployment guide
 The CI/CD pipeline in general works like this: 
-1. To develop new features, create a new branch titled `<role-taks>`. For example, if someone were on the frontend team and wanted to implement a habit tracker, then their development branch would be titled `<frontend-habit-tracker>`. 
+1. To develop new features, create a new branch titled `<role-taks>`. For example, if someone were on the frontend team and wanted to implement a habit tracker, then their development branch would be titled `<frontend-habit-tracker>`. Previous branches that we've worked on follow this format: 
+   * <img src = "./admin/guide_figure/20-branch_names.PNG" style="height:600px">
+   * These branches are proof of all the branches we've developed new features on, and our continued iteration of the product on separate branches.
 2. Create a corresponding GitHub issue to reflect what task is being worked on. 
 3. In development, each commit message would follow the form of "\<verb in imperative form\> \<task name\> \<any extra details\>". For example, for a new file titled "empty.txt" to be added, we'd have a commit message called "add empty.txt".
 4. Once everything is correct and works as expected, then a pull request is created to main, linking that initial issue to the pull request.
