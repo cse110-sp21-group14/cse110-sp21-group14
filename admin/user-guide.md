@@ -58,9 +58,10 @@ To view an existing page, click the name of the page on the left. Users will see
 To delete an existing page, click the **Delete** button on the right of that page.
 <br><br>
 
-2.4 EditorJS
-EditorJS is the text editor used in Puff Notes to document your notes. It has 4 different bullets types, and other the features as well. The three different bullet types are shown below.
+2.4 EditorJS\
+EditorJS is the text editor used in Puff Notes to document your notes. It has 4 different bullets types, and other the features as well. The four different bullet types are shown below.
 
+<img src="guide_figure/11-events.png" width="400"/>
 <img src="guide_figure/12-notes.png" width="400"/>
 <img src="guide_figure/13-tasks.png" width="400"/>
 <img src="guide_figure/14-ordered.png" width="400"/>
