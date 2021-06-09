@@ -72,7 +72,8 @@ li{
     background: #9ADBFF;
     margin-top: 1vh;
     border-radius: 10px;
-    margin-right: 1vh; 
+    margin-right: 1vh;
+    overflow-y: auto;
 }
 
 .search{
