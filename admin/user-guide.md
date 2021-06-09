@@ -56,8 +56,36 @@ To view an existing page, click the name of the page on the left. Users will see
 <img src="guide_figure/06-pageView.png" width="400"/>
 
 To delete an existing page, click the **Delete** button on the right of that page.
-
 <br><br>
+
+2.4 EditorJS
+EditorJS is the text editor used in Puff Notes to document your notes. It has 4 different bullets types, and other the features as well. The three different bullet types are shown below.
+
+<img src="guide_figure/12-notes.png" width="400"/>
+<img src="guide_figure/13-tasks.png" width="400"/>
+<img src="guide_figure/14-ordered.png" width="400"/>
+
+Here are how the bullets look like\
+<img src="guide_figure/15-lists.png" width="400"/>
+
+Our bullets can also be nested together. This can be done by first choosing the type of bullet you want by either pressing the + button, or tabbing on the editor space.
+
+<img src="guide_figure/16-demo.png" width="400"/>\
+In order to nest bullets, you must hit tab once again. This will cause the following
+
+<img src="guide_figure/17-nested.png" width="400"/>\
+You can nest even more bullets if you desire. 
+
+<img src="guide_figure/18-more_nested.png" width="400"/>\
+
+In order to exit the nested list, you must hit enter until the bullet goes away.
+
+You can also modify text by highlighting a particular line. It is important that you only do this once you have written everything down first
+
+<img src="guide_figure/19-highlight.png" width="400"/>\
+
+
+
 
 ### 3. **My Calendar**
 
