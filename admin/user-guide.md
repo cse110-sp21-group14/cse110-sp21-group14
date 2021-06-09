@@ -128,7 +128,7 @@ To delete a daily entry, click the **Delete** button - you should see it that it
 
 ### 4. **My Settings**
 
-Under the **My Settings** page, you can then customize the font size. Puff Notes also provides a light mode (default) and a dark mode (only black and white).
+Under the **My Settings** page, you can then customize the font size. Puff Notes also provides a light mode (default) and a dark mode (only black and white).\
 <img src="guide_figure/09-settings.png" width="400"/>
 <br><br>
 
