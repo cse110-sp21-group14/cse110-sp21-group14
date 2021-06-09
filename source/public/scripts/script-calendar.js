@@ -9,7 +9,7 @@
  * @param {Model} model 
  * @param {Date} date 
  */
-var Calendar = function (model, date) {
+ var Calendar = function (model, date) {
 
     this.Model = model;
     this.Today = new Date();
