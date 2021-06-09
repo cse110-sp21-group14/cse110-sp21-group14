@@ -1,14 +1,14 @@
+/* global describe, beforeAll, it, page */
 /**
  * @file Puppeteer Tests for scripts/script-calendar.js
  * @author Michael Mao
  */
 
 //Constant variables used for testing
-const GOOGLE_USER = 'PuffNotesTester';
-const GOOGLE_PWD = 'PowellPuffGang14';
-const MONTHS = ["January", "February", "March", "April", "May", "June", 
-    "July", "August", "September", "October", "November", "December"];
-const URL = "http://localhost:5000/main/daily/60bc1482340ef13674a421f6";
+const GOOGLE_USER = "PuffNotesTester";
+const GOOGLE_PWD = "PowellPuffGang14";
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const URL = "http://journalcse110.herokuapp.com/main/daily/60bc1482340ef13674a421f6";
 
 //Puppeteer E2E tests for calendar webpage
 describe("Testing Calendar Webpage", () => {
@@ -16,26 +16,26 @@ describe("Testing Calendar Webpage", () => {
     beforeAll(async () => {
 
         //Opens up PuffNotes website
-        await page.goto("http://localhost:5000/");
+        await page.goto("https://journalcse110.herokuapp.com/");
         await page.waitForTimeout(500);
-        const logInButton = await page.$('body > div > div > div.aunth > a');
+        const logInButton = await page.$("body > div > div > div.aunth > a");
         await logInButton.evaluate(logInButton => logInButton.click());
         const navigationPromise = page.waitForNavigation();
         await navigationPromise;
 
         //Enters Google username and password
-        await page.waitForSelector('#identifierId');
-        await page.type('#identifierId', GOOGLE_USER);
+        await page.waitForSelector("#identifierId");
+        await page.type("#identifierId", GOOGLE_USER);
         await page.click("#identifierNext");
-        await page.waitForSelector('input[type="password"]', { visible: true });
-        await page.type('input[type="password"]', GOOGLE_PWD);
+        await page.waitForSelector("input[type=\"password\"]", { visible: true });
+        await page.type("input[type=\"password\"]", GOOGLE_PWD);
         await page.waitForSelector("#passwordNext", { visible: true });
         await page.click("#passwordNext");
         await navigationPromise;
 
         //Navigates to Calendar View
-        await page.waitForSelector('body > div > div.menuBar > ul > li:nth-child(2) > a');
-        await page.click('body > div > div.menuBar > ul > li:nth-child(2) > a');
+        await page.waitForSelector("body > div > div.menuBar > ul > li:nth-child(2) > a");
+        await page.click("body > div > div.menuBar > ul > li:nth-child(2) > a");
         await navigationPromise;
     }, 30000);
 

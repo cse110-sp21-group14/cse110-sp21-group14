@@ -1,35 +1,45 @@
 /*
   Author: Aidan, Michael
 */
+
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .menuBar {
   text-align: center;
   border-color: black;
   border-style: solid;
-  background-color: #97ddfb;
+  background-color: #6fe9ff;
+  height: 35px;
+  font-size: large;
 }
 
 .menuBar ul {
   display: inline-flex;
   list-style: none;
+  height: 35px;
 }
 
 .menuBar ul li {
   text-decoration: none;
   width: 120px;
-  margin-top: 0px;
-  padding-top: 0px;
+  margin-top: -15px;
+  padding-top: -15px;
   padding-right: 50px;
 }
 
 body {
-  font-family: Calibri, sans-serif;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Mukta', sans-serif;
   color: rgb(24, 5, 5);
   background-color: #bcfc95;
 }
 
 .cld-main {
-  width: 80%;
+  width: 85%;
   margin: auto;
 }
 
@@ -54,6 +64,8 @@ body {
   width: calc(100% - 40px);
   margin: auto;
   text-align: center;
+  margin-top: -5px;
+  padding-top: -5px;
 }
 
 .cld-nav {
@@ -79,6 +91,12 @@ body {
   float: right;
 }
 
+.cld-labels{
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
 .cld-labels, .cld-days {
   padding-left: 0;
 }
@@ -100,6 +118,7 @@ body {
   border: 1px solid #08b3fc;
   overflow-y: auto;
   background-color: #ffb1b1;
+  font-size:large;
 }
 
 .cld-day.clickable:hover {
@@ -120,7 +139,7 @@ body {
 }
 
 .cld-title {
-  font-size: 14px;
+  font-size: 16px;
   display: block;
   margin: 0;
   font-weight: normal;
@@ -131,15 +150,9 @@ body {
 }
 
 .cld-day.eventday {
-  background-color: #97ddfb;
+  background-color: #6fe9ff;
 }
 
 .cld-day:hover {
-  background-color: #07acf3;
+  background-color: #07a8f3;
 }
-
-/*
-.cld-number.eventday:hover{
-  background: rgb(192, 202, 137);
-}
-*/
