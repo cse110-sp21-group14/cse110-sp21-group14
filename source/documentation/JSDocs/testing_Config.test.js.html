@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>config/db.js - Documentation</title>
+    <title>testing/Config.test.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">config/db.js</h1>
+    <h1 class="page-title">testing/Config.test.js</h1>
     
 
     
@@ -40,35 +40,25 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Connect MongoDB Atlas
- * @author Group 14 (Back End)
+ * @file Unit tests for source/config/secret.js
+ * @author Group 14 (testers)
  */
 
-const mongoose = require("mongoose");
+// test decryption / encryption
+test("Check that encrypted string is correct when decrypted", () => {
+    const Cryptr = require("cryptr");
+    const cryptr = new Cryptr("random");
+    const testString = cryptr.encrypt("test string");
+    expect(cryptr.decrypt(testString)).toBe("test string");
+});
 
-/**
- * Connect to MongoDB database
- * @async
- * @function
- */
-const connectDB = async () => {
-    // Reference: https://mongoosejs.com/docs/
-    // Find MONGO_URI: Clusters -> Connect -> Connect your application
-    try {
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false  // avoid warning in the console
-        });
-
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (err) {
-        console.log(err);
-        process.exit(1);
-    }
-};
-
-module.exports = connectDB;</code></pre>
+test("Check that encryopted string is different from original string", () => {
+    const Cryptr = require("cryptr");
+    const cryptr = new Cryptr("random");
+    const testString = cryptr.encrypt("test string");
+    expect(cryptr.encrypt(testString)).not.toBe("test string");
+});
+</code></pre>
         </article>
     </section>
 
