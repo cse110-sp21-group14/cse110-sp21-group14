@@ -36,10 +36,12 @@ Some important directories:
 For more details about the pipeline, the full documentation is linked [here](admin/cipipeline/phase1.md). To view a demo of the pipeline, a video link is [here](https://github.com/cse110-sp21-group14/cse110-sp21-group14/blob/main/admin/cipipeline/phase1_checkpoint2.mp4) to download.
 
 Additional documentation was created throughout our project:
+* Link to initial Starting Pitch [here](https://docs.google.com/presentation/d/1FfdShEVqnbVHkbO_MD2MfeiusTWybDkg7Jkx2SU8flg/edit#slide=id.p)
 * Credits for Third-Party API and tutorials [here](https://docs.google.com/document/d/1IdVgWcgWRZYHBi5ORug7zJ4QmYH1AxhRbgPfunS0dDU/edit)
 * Link to Editorjs [here](https://editorjs.io/)
 * Link to initial brainstorming via Miro [here](https://miro.com/app/board/o9J_lJcx7N0=/)
-* Link to initial wireframes via Figma [here](https://www.figma.com/file/qvMOaWu1RFGLdaPKKiIrAD/Wireframe-for-Bullet-Journal?node-id=0%3A1
+* Link to initial wireframes via Figma [here](https://www.figma.com/file/qvMOaWu1RFGLdaPKKiIrAD/Wireframe-for-Bullet-Journal?node-id=0%3A1)
+* Link to documentation for the REST API written by Stephen Montes De Oca [here](https://docs.google.com/document/d/1j3DD6C7CQiZlxhDtlqLQMEjPpexy1j_NuitMEchZSkA/edit?usp=sharing)
 
 # Repo setup/Repo Build setup/Deployment guide
 The CI/CD pipeline in general works like this: 
