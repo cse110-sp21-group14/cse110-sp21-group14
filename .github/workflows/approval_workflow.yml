@@ -2,8 +2,8 @@ name: Puff_Notes-Workflow
 
 on:
   push:
-    branches:
-      - main
+#    branches:
+#      - main
 
 jobs:
   JSDoc:
