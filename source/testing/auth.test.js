@@ -12,29 +12,28 @@ describe("Testing MiddleWare", () => {
     //Logs into Puff Notes and navigates to Main webpage.
     beforeAll(async () => {
 
-        //Opens up website
-        await page.goto("http://journalcse110.herokuapp.com/");
+        //Opens up PuffNotes website
+        await page.goto("https://journalcse110.herokuapp.com/");
         await page.waitForTimeout(500);
-        const logInButton = await page.$('body > div > div > div.aunth > a');
+        const logInButton = await page.$("body > div > div > div.aunth > a");
         await logInButton.evaluate(logInButton => logInButton.click());
         const navigationPromise = page.waitForNavigation();
         await navigationPromise;
 
         //Enters Google username and password
-        await page.waitForSelector("#Email");
-        await page.type("#Email", GOOGLE_USER);
-        await page.click("#next");
-        await page.waitForSelector("input[type='password']", { visible: true });
-        await page.type("input[type='password']", GOOGLE_PWD);
-        await page.waitForSelector("#submit", { visible: true });
-        await page.click("#submit");
+        await page.waitForSelector("#identifierId");
+        await page.type("#identifierId", GOOGLE_USER);
+        await page.click("#identifierNext");
+        await page.waitForSelector("input[type=\"password\"]", { visible: true });
+        await page.type("input[type=\"password\"]", GOOGLE_PWD);
+        await page.waitForSelector("#passwordNext", { visible: true });
+        await page.click("#passwordNext");
         await navigationPromise;
 
-        // Navigates to main and waits for load
-        await page.waitForSelector("body > div > div.menuBar > ul > li:nth-child(1) > a");
-        await page.click("body > div > div.menuBar > ul > li:nth-child(1) > a");
+        //Navigates to Calendar View
+        await page.waitForSelector("body > div > div.menuBar > ul > li:nth-child(2) > a");
+        await page.click("body > div > div.menuBar > ul > li:nth-child(2) > a");
         await navigationPromise;
-        await page.waitForTimeout(500);
     }, 150000);
 
     it("Check if the page loads correctly when logged in", async () => {
