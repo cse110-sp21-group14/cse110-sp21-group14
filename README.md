@@ -4,6 +4,7 @@
 This project will be Team 14's bullet journal! The Powell Puff Gang will create a bullet journal themed around The Powerpuff Girls series from Cartoon Network.
 
 Link to our team member introductions [here](admin/team.md)
+
 Link to our Public Video [here](https://www.youtube.com/watch?v=7kJBJ_yHrN0)
 
 # Puff Notes
