@@ -151,6 +151,10 @@
 <dt><a href="#/auth/logout">/auth/logout(URL, middleware)</a></dt>
 <dd><p>Logout user</p>
 </dd>
+<dt><a href="#demoFunction">demoFunction(a, b)</a> ⇒</dt>
+<dd><p>Test function for JSDoc creation
+This function multiplies two parameters a and b and returns the result</p>
+</dd>
 <dt><a href="#createCalendar">createCalendar(calendar, element, adjuster)</a></dt>
 <dd><p>Creates a calendar</p>
 </dd>
@@ -4658,6 +4662,20 @@ Logout user
 | --- | --- | --- |
 | URL | <code>string</code> | Express path |
 | middleware | <code>callback</code> | Express middleware. |
+
+<a name="demoFunction"></a>
+
+## demoFunction(a, b) ⇒
+Test function for JSDoc creation
+This function multiplies two parameters a and b and returns the result
+
+**Kind**: global function  
+**Returns**: The product of a and b  
+
+| Param | Type |
+| --- | --- |
+| a | <code>number</code> | 
+| b | <code>number</code> | 
 
 <a name="createCalendar"></a>
 
