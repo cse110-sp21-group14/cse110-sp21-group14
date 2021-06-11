@@ -5,7 +5,9 @@ This project will be Team 14's bullet journal! The Powell Puff Gang will create 
 
 Link to our team member introductions [here](admin/team.md)
 
-Link to our Public Video [here](https://www.youtube.com/watch?v=7kJBJ_yHrN0)
+Link to our Public Video [here](https://www.youtube.com/watch?v=7kJBJ_yHrN0), and in our repo [here](./admin/videos/Public_Video-Puff_Notes.mp4)
+
+Link to our Private Video [here](https://youtu.be/qEGQ9LCf-rM)
 
 # Puff Notes
 * Link to the user guide [here](admin/user-guide.md)
