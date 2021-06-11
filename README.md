@@ -7,6 +7,8 @@ Link to our team member introductions [here](admin/team.md)
 
 Link to our Public Video [here](https://www.youtube.com/watch?v=7kJBJ_yHrN0)
 
+Link to our Private Video [here](https://www.youtube.com/watch?v=qEGQ9LCf-rM)
+
 # Puff Notes
 * Link to the user guide [here](admin/user-guide.md)
 * Link to a mascot and logo [here](https://github.com/cse110-sp21-group14/cse110-sp21-group14/tree/main/admin/branding)
