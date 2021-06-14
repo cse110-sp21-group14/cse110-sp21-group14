@@ -50,7 +50,7 @@ function createCalendar(calendar, element, adjuster) {
 
     var mainSection = document.createElement("div");
     mainSection.className += "cld-main";
-
+    //console.log('Testing Build');
     /**
      * Creates today's date, next/prev month button in the HTML
      * @function
