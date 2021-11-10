@@ -15,6 +15,7 @@ module.exports = {
     },
     ensureGuest: function (req, res, next) {
         // avoid entering the page before login
+        //some change
         if (req.isAuthenticated()){
             res.redirect("/main");
         } else {
