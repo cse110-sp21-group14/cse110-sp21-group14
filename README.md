@@ -1,5 +1,39 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/cse110-sp21-group14/cse110-sp21-group14/badge)](https://www.codefactor.io/repository/github/cse110-sp21-group14/cse110-sp21-group14)
 
+# CSE 112 Update
+
+## Tech Stack Used
+* HTML (Handlebars)
+* CSS
+* Javascript
+* Express (For Routing)
+* MongoDB (For storage)
+* EditorJS (For Text Editor (REDO DO THIS PART ENTIRELY))
+* Node + Dependencies
+* Jest + Puppeteer
+* Google Auth and Encryption
+## User Guide
+* Provided in Repo (Below this)
+## File Structure
+### Admin
+* Self Explanatory
+### Source
+* config: configuration and encryption/decryption
+* coverage: testing related
+* documentation: JSDocs
+* middleware: Security related 
+* models: Schema for stuff stored on MongoDB 
+* public: Includes CSS, images, and JS used
+* routes: Routes the HTML
+* testing: I believe the testing JS (didn't work on this)
+* layouts: The hbs (HTML) files 
+### Specs
+* Self Explanatory
+### Etc
+* Text editor is not good, and needs to be overhauled
+
+
+
 # cse110-sp21-group14
 This project will be Team 14's bullet journal! The Powell Puff Gang will create a bullet journal themed around The Powerpuff Girls series from Cartoon Network.
 
